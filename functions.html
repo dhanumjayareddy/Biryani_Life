@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Functions & Events — BIRYANI LIFE Royal Biryani</title>
+<meta name="description" "Catering and bulk orders for events, functions, and special occasions. Authentic Hyderabadi biryani for your celebrations.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<style>
+/* =====================================================
+   ART DIRECTION: Modern Royal Comfort
+   Palette: Matte black, warm ivory, saffron, burnt copper, smoky gold
+   Typography: Cormorant Garamond (display) + Jost (body)
+   Mood: Cinematic luxury, dark warmth, sensory immersion
+===================================================== */
+
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3.5rem,   1rem    + 7vw,    9rem);
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Brand Palette */
+  --black:         #0B0B0B;
+  --dark-1:        #111010;
+  --dark-2:        #161513;
+  --dark-3:        #1d1b18;
+  --dark-4:        #252220;
+  --ivory:         #F5EDD8;
+  --ivory-dim:     #C9BCA0;
+  --ivory-faint:   #7a7060;
+  --saffron:       #E8A020;
+  --saffron-dim:   #C07C10;
+  --copper:        #B85C28;
+  --gold:          #D4A847;
+  --gold-glow:     rgba(212,168,71,0.15);
+  --gold-glow-sm:  rgba(212,168,71,0.08);
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --transition: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgba(232, 160, 32, 0.25);
+  color: var(--ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   SKIP LINK
+===================================================== */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--dark-3); color: var(--ivory);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  z-index: 9999;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* =====================================================
+   NAV
+===================================================== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-5) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition-slow), backdrop-filter var(--transition-slow);
+}
+
+nav.scrolled {
+  background: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 168, 71, 0.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-logo svg { width: 32px; height: 32px; }
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--ivory);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-weight: 400;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: var(--space-2) var(--space-6);
+  border: 1px solid rgba(212,168,71,0.4);
+  border-radius: var(--radius-full);
+  color: var(--gold);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(212,168,71,0.3);
+}
+
+.nav-mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.nav-mobile-btn span {
+  display: block;
+  height: 1px;
+  background: var(--ivory-dim);
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  nav { padding: var(--space-4) var(--space-5); }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-mobile-btn { display: flex; }
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--dark-1);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+.mobile-menu-close {
+  position: absolute; top: var(--space-6); right: var(--space-6);
+  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+}
+
+/* =====================================================
+   FUNCTIONS HERO
+===================================================== */
+.functions-hero {
+  padding: calc(80px + var(--space-16)) var(--space-8) var(--space-16);
+  text-align: center;
+  background: var(--dark-1);
+  position: relative;
+}
+
+.functions-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.functions-hero h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.functions-hero p {
+  font-size: var(--text-lg);
+  color: var(--ivory-dim);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   EVENT TYPES
+===================================================== */
+.event-types {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+}
+
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.events-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.events-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.events-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+}
+
+.event-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(212,168,71,0.05), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.event-card:hover::before {
+  opacity: 1;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,71,0.3);
+  box-shadow: 0 12px 32px rgba(212,168,71,0.1);
+}
+
+.event-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  background: var(--gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--black);
+}
+
+.event-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.event-description {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.event-features {
+  text-align: left;
+  margin-bottom: var(--space-6);
+}
+
+.event-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  color: var(--ivory-dim);
+  font-size: var(--text-sm);
+}
+
+.event-feature svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.event-price {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--gold);
+  margin-bottom: var(--space-4);
+}
+
+.event-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.event-btn:hover {
+  background: var(--saffron);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   BULK ORDERS
+===================================================== */
+.bulk-orders {
+  background: var(--dark-1);
+  padding: var(--space-20) var(--space-8);
+}
+
+.bulk-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.bulk-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.bulk-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.bulk-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.bulk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.bulk-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.bulk-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212,168,71,0.3);
+}
+
+.bulk-item-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+  color: var(--ivory);
+}
+
+.bulk-item-description {
+  color: var(--ivory-dim);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-3);
+}
+
+.bulk-item-price {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--gold);
+}
+
+.bulk-item-minimum {
+  font-size: var(--text-xs);
+  color: var(--ivory-faint);
+  margin-top: var(--space-1);
+}
+
+/* =====================================================
+   CATERING FORM
+===================================================== */
+.catering-form-section {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.form-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.catering-form {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  color: var(--ivory-dim);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  background: var(--dark-2);
+  border: 1px solid rgba(212,168,71,0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  transition: all var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212,168,71,0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold);
+}
+
+.checkbox-item label {
+  color: var(--ivory);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.form-submit {
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.form-submit:hover {
+  background: var(--saffron);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   CONTACT INFO
+===================================================== */
+.contact-section {
+  background: var(--dark-1);
+  padding: var(--space-20) var(--space-8);
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-8);
+  color: var(--ivory);
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.contact-card {
+  text-align: center;
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  background: rgba(212,168,71,0.1);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--gold);
+}
+
+.contact-text {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+}
+
+.contact-text strong {
+  color: var(--ivory);
+  font-weight: 400;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--dark-1);
+  border-top: 1px solid rgba(212,168,71,0.1);
+  padding: var(--space-12) var(--space-8) var(--space-8);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.footer-links a {
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-size: var(--text-sm);
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(212,168,71,0.1);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--ivory-faint);
+  margin-bottom: var(--space-1);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .bulk-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Link -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 10h8v12h-8z" fill="currentColor" opacity="0.8"/>
+      <circle cx="16" cy="16" r="3" fill="var(--gold)"/>
+    </svg>
+    <span class="nav-brand">BIRYANI LIFE</span>
+  </div>
+  
+  <div class="nav-links">
+    <a href="BIRYANI LIFE-biryani.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="book-table.html">Reservations</a>
+    <a href="functions.html" class="nav-cta">Functions</a>
+  </div>
+  
+  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <a href="BIRYANI LIFE-biryani.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="book-table.html">Reservations</a>
+  <a href="functions.html">Functions</a>
+</div>
+
+<!-- Main Content -->
+<main id="main">
+  <!-- Functions Hero -->
+  <section class="functions-hero" aria-labelledby="functions-hero-heading">
+    <h1 id="functions-hero-heading">Functions & Catering</h1>
+    <p>Make your special occasions memorable with authentic Hyderabadi dum biryani crafted for celebrations</p>
+  </section>
+
+  <!-- Event Types -->
+  <section class="event-types" aria-labelledby="events-heading">
+    <div class="events-container">
+      <div class="events-header">
+        <p class="events-eyebrow">Event Types</p>
+        <h2 class="events-title" id="events-heading">Perfect for Every Occasion</h2>
+      </div>
+      
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="event-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+          </div>
+          <h3 class="event-title">Weddings</h3>
+          <p class="event-description">Royal biryani for your special day with traditional Hyderabadi presentation and service</p>
+          <div class="event-features">
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Traditional handi service
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Decorative serving setup
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Custom menu planning
+            </div>
+          </div>
+          <div class="event-price">Starting at $24.99/person</div>
+          <button class="event-btn" onclick="scrollToForm('wedding')">Get Quote</button>
+        </article>
+
+        <article class="event-card">
+          <div class="event-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <h3 class="event-title">Corporate Events</h3>
+          <p class="event-description">Professional catering for business meetings, conferences, and corporate celebrations</p>
+          <div class="event-features">
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Individual portions available
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Professional service staff
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Dietary accommodations
+            </div>
+          </div>
+          <div class="event-price">Starting at $18.99/person</div>
+          <button class="event-btn" onclick="scrollToForm('corporate')">Get Quote</button>
+        </article>
+
+        <article class="event-card">
+          <div class="event-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="event-title">Birthday Parties</h3>
+          <p class="event-description">Celebrate with authentic biryani that will make your birthday unforgettable</p>
+          <div class="event-features">
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Birthday special presentation
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Kids' menu options
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Festive decorations
+            </div>
+          </div>
+          <div class="event-price">Starting at $16.99/person</div>
+          <button class="event-btn" onclick="scrollToForm('birthday')">Get Quote</button>
+        </article>
+
+        <article class="event-card">
+          <div class="event-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="event-title">Family Gatherings</h3>
+          <p class="event-description">Perfect for family reunions, holidays, and special family celebrations</p>
+          <div class="event-features">
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Family-size portions
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Multiple biryani varieties
+            </div>
+            <div class="event-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              Takeaway options
+            </div>
+          </div>
+          <div class="event-price">Starting at $14.99/person</div>
+          <button class="event-btn" onclick="scrollToForm('family')">Get Quote</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bulk Orders -->
+  <section class="bulk-orders" aria-labelledby="bulk-heading">
+    <div class="bulk-container">
+      <div class="bulk-header">
+        <p class="bulk-eyebrow">Bulk Orders</p>
+        <h2 class="bulk-title" id="bulk-heading">Catering Menu Packages</h2>
+      </div>
+      
+      <div class="bulk-grid">
+        <div class="bulk-item">
+          <h3 class="bulk-item-name">Chicken Dum Biryani</h3>
+          <p class="bulk-item-description">Tender chicken with aromatic basmati rice</p>
+          <div class="bulk-item-price">$12.99/person</div>
+          <div class="bulk-item-minimum">Minimum 25 servings</div>
+        </div>
+        
+        <div class="bulk-item">
+          <h3 class="bulk-item-name">Lamb Dum Biryani</h3>
+          <p class="bulk-item-description">Premium lamb pieces with traditional spices</p>
+          <div class="bulk-item-price">$16.99/person</div>
+          <div class="bulk-item-minimum">Minimum 20 servings</div>
+        </div>
+        
+        <div class="bulk-item">
+          <h3 class="bulk-item-name">Vegetable Dum Biryani</h3>
+          <p class="bulk-item-description">Fresh vegetables and paneer in dum style</p>
+          <div class="bulk-item-price">$10.99/person</div>
+          <div class="bulk-item-minimum">Minimum 15 servings</div>
+        </div>
+        
+        <div class="bulk-item">
+          <h3 class="bulk-item-name">Prawn Dum Biryani</h3>
+          <p class="bulk-item-description">Juicy prawns with coastal spices</p>
+          <div class="bulk-item-price">$14.99/person</div>
+          <div class="bulk-item-minimum">Minimum 20 servings</div>
+        </div>
+        
+        <div class="bulk-item">
+          <h3 class="bulk-item-name">Mixed Biryani Platter</h3>
+          <p class="bulk-item-description">Assortment of all biryani varieties</p>
+          <div class="bulk-item-price">$18.99/person</div>
+          <div class="bulk-item-minimum">Minimum 30 servings</div>
+        </div>
+        
+        <div class="bulk-item">
+          <h3 class="bulk-item-name">Complete Package</h3>
+          <p class="bulk-item-description">Biryani + sides + beverages + dessert</p>
+          <div class="bulk-item-price">$24.99/person</div>
+          <div class="bulk-item-minimum">Minimum 25 servings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catering Form -->
+  <section class="catering-form-section" id="catering-form" aria-labelledby="form-heading">
+    <div class="form-container">
+      <div class="form-header">
+        <p class="form-eyebrow">Get Your Quote</p>
+        <h2 class="form-title" id="form-heading">Catering Inquiry</h2>
+      </div>
+      
+      <form class="catering-form" id="cateringForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="company" class="form-label">Company/Organization (Optional)</label>
+            <input type="text" id="company" name="company" class="form-input">
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="eventType" class="form-label">Event Type</label>
+            <select id="eventType" name="eventType" class="form-select" required>
+              <option value="">Select event type</option>
+              <option value="wedding">Wedding</option>
+              <option value="corporate">Corporate Event</option>
+              <option value="birthday">Birthday Party</option>
+              <option value="family">Family Gathering</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="guests" class="form-label">Number of Guests</label>
+            <input type="number" id="guests" name="guests" class="form-input" min="10" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="eventDate" class="form-label">Event Date</label>
+            <input type="date" id="eventDate" name="eventDate" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="eventTime" class="form-label">Event Time</label>
+            <input type="time" id="eventTime" name="eventTime" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="venue" class="form-label">Event Venue</label>
+            <input type="text" id="venue" name="venue" class="form-input" placeholder="Address or venue name">
+          </div>
+          
+          <div class="form-group">
+            <label for="budget" class="form-label">Budget Per Person</label>
+            <select id="budget" name="budget" class="form-select">
+              <option value="">Select budget range</option>
+              <option value="10-15">$10 - $15</option>
+              <option value="15-20">$15 - $20</option>
+              <option value="20-25">$20 - $25</option>
+              <option value="25+">$25+</option>
+            </select>
+          </div>
+          
+          <div class="form-group full-width">
+            <label class="form-label">Menu Selection (Select all that apply)</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="chicken" name="menuItems" value="chicken">
+                <label for="chicken">Chicken Dum Biryani</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="lamb" name="menuItems" value="lamb">
+                <label for="lamb">Lamb Dum Biryani</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="vegetable" name="menuItems" value="vegetable">
+                <label for="vegetable">Vegetable Dum Biryani</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="prawn" name="menuItems" value="prawn">
+                <label for="prawn">Prawn Dum Biryani</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="sides" name="menuItems" value="sides">
+                <label for="sides">Side Dishes</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="beverages" name="menuItems" value="beverages">
+                <label for="beverages">Beverages</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="dessert" name="menuItems" value="dessert">
+                <label for="dessert">Desserts</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="requirements" class="form-label">Special Requirements</label>
+            <textarea id="requirements" name="requirements" class="form-textarea" placeholder="Dietary restrictions, setup requirements, special requests..."></textarea>
+          </div>
+        </div>
+        
+        <button type="submit" class="form-submit">Submit Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <div class="contact-container">
+      <h2 class="contact-title" id="contact-heading">Get in Touch</h2>
+      
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="contact-text">
+            <strong>Phone</strong><br>
+            <a href="tel:+1234567890">(555) 123-4567</a><br>
+            <a href="tel:+1234567891">(555) 987-6543</a>
+          </div>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="contact-text">
+            <strong>Email</strong><br>
+            <a href="mailto:catering@BIRYANI LIFE.com">catering@BIRYANI LIFE.com</a><br>
+            <a href="mailto:events@BIRYANI LIFE.com">events@BIRYANI LIFE.com</a>
+          </div>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="contact-text">
+            <strong>Catering Hours</strong><br>
+            Monday - Friday: 9:00 AM - 6:00 PM<br>
+            Saturday: 10:00 AM - 4:00 PM
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-links">
+      <a href="BIRYANI LIFE-biryani.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="book-table.html">Reservations</a>
+      <a href="functions.html">Functions</a>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy">Slow-crafted. Delivered royal.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =====================================================
+// NAV SCROLL EFFECT
+//=====================================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// =====================================================
+// MOBILE MENU
+//=====================================================
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileMenuClose');
+const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  mobileBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  mobileBtn.setAttribute('aria-expanded', 'false');
+}
+
+mobileBtn.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// =====================================================
+// SCROLL TO FORM
+//=====================================================
+function scrollToForm(eventType) {
+  const form = document.getElementById('catering-form');
+  const eventTypeSelect = document.getElementById('eventType');
+  
+  // Set the event type in the form
+  if (eventTypeSelect) {
+    eventTypeSelect.value = eventType;
+  }
+  
+  // Scroll to form
+  form.scrollIntoView({ behavior: 'smooth' });
+}
+
+// =====================================================
+// CATERING FORM
+//=====================================================
+const cateringForm = document.getElementById('cateringForm');
+
+// Set minimum date to tomorrow
+const eventDateInput = document.getElementById('eventDate');
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+const minDate = tomorrow.toISOString().split('T')[0];
+eventDateInput.setAttribute('min', minDate);
+
+cateringForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form data
+  const formData = new FormData(cateringForm);
+  const data = Object.fromEntries(formData);
+  
+  // Get selected menu items
+  const menuItems = [];
+  const checkboxes = document.querySelectorAll('input[name="menuItems"]:checked');
+  checkboxes.forEach(checkbox => {
+    menuItems.push(checkbox.value);
+  });
+  data.menuItems = menuItems;
+  
+  // In a real implementation, this would send data to a server
+  // For now, we'll show a success message
+  alert('Thank you for your catering inquiry! We will contact you within 24 hours with a detailed quote.');
+  
+  // Reset form
+  cateringForm.reset();
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

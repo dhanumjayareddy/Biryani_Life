@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIRYANI LIFE — Royal Biryani</title>
+<meta name="description" content="Slow-sealed. Saffron-kissed. Crafted for those who demand more from a meal.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<style>
+/* =====================================================
+   ART DIRECTION: Modern Royal Comfort
+   Palette: Matte black, warm ivory, saffron, burnt copper, smoky gold
+   Typography: Cormorant Garamond (display) + Jost (body)
+   Mood: Cinematic luxury, dark warmth, sensory immersion
+===================================================== */
+
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3.5rem,   1rem    + 7vw,    9rem);
+
+  --space-1:  0.25rem
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Brand Palette */
+  --black:         #0B0B0B;
+  --dark-1:        #111010;
+  --dark-2:        #161513;
+  --dark-3:        #1d1b18;
+  --dark-4:        #252220;
+  --ivory:         #F5EDD8;
+  --ivory-dim:     #C9BCA0;
+  --ivory-faint:   #7a7060;
+  --saffron:       #E8A020;
+  --saffron-dim:   #C07C10;
+  --copper:        #B85C28;
+  --gold:          #D4A847;
+  --gold-glow:     rgba(212,168,71,0.15);
+  --gold-glow-sm:  rgba(212,168,71,0.08);
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --transition: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgba(232, 160, 32, 0.25);
+  color: var(--ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   SKIP LINK
+===================================================== */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--dark-3); color: var(--ivory);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  z-index: 9999;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* =====================================================
+   NAV
+===================================================== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-5) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition-slow), backdrop-filter var(--transition-slow);
+}
+
+nav.scrolled {
+  background: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 168, 71, 0.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-logo svg { width: 32px; height: 32px; }
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--ivory);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-weight: 400;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: var(--space-2) var(--space-6);
+  border: 1px solid rgba(212,168,71,0.4);
+  border-radius: var(--radius-full);
+  color: var(--gold);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(212,168,71,0.3);
+}
+
+.nav-mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.nav-mobile-btn span {
+  display: block;
+  height: 1px;
+  background: var(--ivory-dim);
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  nav { padding: var(--space-4) var(--space-5); }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-mobile-btn { display: flex; }
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--dark-1);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+.mobile-menu-close {
+  position: absolute; top: var(--space-6); right: var(--space-6);
+  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 70%, rgba(184,92,40,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 70% 80%, rgba(212,168,71,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 30% 60%, rgba(232,160,32,0.06) 0%, transparent 60%),
+    var(--black);
+}
+
+.hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0.18;
+  filter: saturate(0.6) contrast(1.1);
+}
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11,11,11,0.3) 0%,
+    rgba(11,11,11,0.1) 40%,
+    rgba(11,11,11,0.6) 80%,
+    var(--black) 100%
+  );
+}
+
+/* Steam Effect */
+.steam-container {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.steam {
+  position: absolute;
+  bottom: -10%;
+  width: 2px;
+  background: linear-gradient(to top, transparent, rgba(245,237,216,0.06), transparent);
+  border-radius: var(--radius-full);
+  animation: rise linear infinite;
+  filter: blur(3px);
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) translateX(0) scaleX(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(-100vh) translateX(var(--drift)) scaleX(2); opacity: 0; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  max-width: 900px;
+}
+
+.hero-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.hero-title {
+  font-size: var(--text-hero);
+  color: var(--ivory);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--saffron);
+}
+
+.hero-sub {
+  font-size: var(--text-base);
+  color: var(--ivory-dim);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-10);
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-10);
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gold);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition), letter-spacing var(--transition);
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+}
+
+.hero-cta:hover {
+  background: transparent;
+  color: var(--gold);
+  box-shadow: 0 0 40px rgba(212,168,71,0.25), inset 0 0 0 1px var(--gold);
+  letter-spacing: 0.22em;
+}
+
+.hero-cta:active { transform: scale(0.98); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0;
+  animation: fadeUp 1s ease 1.4s forwards;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+.hero-scroll-hint span {
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+}
+
+/* =====================================================
+   SECTION SHARED
+===================================================== */
+.section {
+  padding: clamp(var(--space-16), 8vw, var(--space-32)) var(--space-8);
+}
+
+.section-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.section-title {
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ivory);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--saffron);
+}
+
+/* Reveal animations via scroll */
+.reveal {
+  opacity: 1;
+}
+
+@supports (animation-timeline: scroll()) {
+  .reveal {
+    opacity: 0;
+    animation: revealFade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+@keyframes revealFade {
+  to { opacity: 1; }
+}
+
+.reveal-clip {
+  opacity: 1;
+}
+
+@supports (animation-timeline: scroll()) {
+  .reveal-clip {
+    clip-path: inset(30% 0 0 0);
+    opacity: 0;
+    animation: revealClip linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 70%;
+  }
+}
+
+@keyframes revealClip {
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+/* =====================================================
+   DELIVERY APPS SECTION
+===================================================== */
+.delivery-section {
+  background: var(--dark-1);
+  padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-8);
+  text-align: center;
+  position: relative;
+}
+
+.delivery-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.delivery-apps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.delivery-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  transition: transform var(--transition), filter var(--transition);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+}
+
+.delivery-app:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.2);
+}
+
+.delivery-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: var(--black);
+  padding: var(--space-2);
+}
+
+.delivery-name {
+  font-size: var(--text-xs);
+  color: var(--ivory-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   BIRYANI CAROUSEL SECTION
+===================================================== */
+.carousel-section {
+  background: var(--black);
+  padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-8);
+  position: relative;
+}
+
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  margin-top: var(--space-8);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(11,11,11,0.95), transparent);
+  padding: var(--space-8);
+  color: var(--ivory);
+}
+
+.carousel-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  margin-bottom: var(--space-2);
+}
+
+.carousel-description {
+  font-size: var(--text-base);
+  color: var(--ivory-dim);
+  margin-bottom: var(--space-4);
+}
+
+.carousel-price {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--gold);
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.carousel-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(212,168,71,0.3);
+  background: rgba(11,11,11,0.8);
+  color: var(--ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.carousel-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: rgba(212,168,71,0.3);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.indicator.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: var(--radius-sm);
+}
+
+/* =====================================================
+   SENSORY STORY
+===================================================== */
+.story-section {
+  background: var(--dark-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.story-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.story-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.story-text { padding-right: var(--space-8); }
+
+.story-body {
+  font-size: var(--text-lg);
+  font-family: var(--font-display);
+  font-weight: 300;
+  color: var(--ivory-dim);
+  line-height: 1.7;
+  margin-top: var(--space-8);
+  font-style: italic;
+}
+
+.story-stats {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--gold);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+}
+
+.story-visual {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.story-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-visual:hover img { transform: scale(1.03); }
+
+.story-visual::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(11,11,11,0.5) 0%, transparent 50%);
+  border-radius: inherit;
+}
+
+.story-visual-border {
+  position: absolute; inset: -1px;
+  border: 1px solid rgba(212,168,71,0.12);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.pillars {
+  margin-top: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid rgba(212,168,71,0.08);
+}
+
+.pillar-item:last-child { border-bottom: none; }
+
+.pillar-num {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--gold);
+  opacity: 0.5;
+  min-width: 32px;
+  font-weight: 300;
+}
+
+.pillar-text h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.05em;
+}
+
+.pillar-text p {
+  font-size: var(--text-sm);
+  color: var(--ivory-faint);
+  line-height: 1.6;
+  max-width: 42ch;
+}
+
+@media (max-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  .story-text { padding-right: 0; }
+  .story-visual { aspect-ratio: 16/9; }
+}
+
+/* =====================================================
+   MENU / SIGNATURE
+===================================================== */
+.menu-section { background: var(--black); }
+
+.menu-header {
+  max-width: 1100px;
+  margin: 0 auto var(--space-12);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.menu-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.menu-grid .card-featured {
+  grid-column: span 2;
+}
+
+.menu-card {
+  position: relative;
+  background: var(--dark-2);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(212,168,71,0.06);
+  transition: transform var(--transition-slow), border-color var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,71,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(212,168,71,0.06);
+}
+
+.card-img {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.card-featured .card-img { aspect-ratio: 21/9; }
+
+.card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s;
+}
+
+.menu-card:hover .card-img img {
+  transform: scale(1.04);
+  filter: saturate(1) contrast(1.05);
+}
+
+.card-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(11,11,11,0.7) 0%, rgba(11,11,11,0.1) 60%, transparent 100%);
+}
+
+.card-body {
+  padding: var(--space-6) var(--space-8);
+  position: relative;
+}
+
+.card-tag {
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  font-weight: 400;
+  margin-bottom: var(--space-2);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+}
+
+.card-desc {
+  font-size: var(--text-sm);
+  color: var(--ivory-faint);
+  line-height: 1.6;
+  max-width: 50ch;
+  margin-bottom: var(--space-4);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-price {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.card-badge {
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .menu-grid { grid-template-columns: 1fr; }
+  .menu-grid .card-featured { grid-column: span 1; }
+  .card-featured .card-img { aspect-ratio: 16/9; }
+}
+
+/* =====================================================
+   RITUAL SECTION
+===================================================== */
+.ritual-section {
+  background: var(--dark-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ritual-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.ritual-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ritual-inner .section-eyebrow { justify-content: center; }
+.ritual-inner .section-eyebrow::before { display: none; }
+
+.ritual-inner .section-title {
+  margin-bottom: var(--space-16);
+}
+
+.ritual-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+  text-align: left;
+}
+
+.ritual-step {
+  position: relative;
+  padding: var(--space-6);
+  border: 1px solid rgba(212,168,71,0.08);
+  border-radius: var(--radius-lg);
+  background: var(--dark-2);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.ritual-step:hover {
+  border-color: rgba(212,168,71,0.25);
+  background: var(--dark-3);
+}
+
+.ritual-step::before {
+  content: attr(data-step);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 300;
+  color: rgba(212,168,71,0.06);
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+}
+
+.ritual-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: var(--space-4);
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+.ritual-step h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.04em;
+}
+
+.ritual-step p {
+  font-size: var(--text-sm);
+  color: var(--ivory-faint);
+  line-height: 1.6;
+  max-width: 32ch;
+}
+
+.ritual-quote {
+  max-width: 600px;
+  margin: var(--space-16) auto 0;
+  text-align: center;
+}
+
+.ritual-quote blockquote {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ivory-dim);
+  line-height: 1.5;
+}
+
+.ritual-quote cite {
+  display: block;
+  margin-top: var(--space-4);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  font-style: normal;
+}
+
+@media (max-width: 900px) {
+  .ritual-steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .ritual-steps { grid-template-columns: 1fr; }
+}
+
+/* =====================================================
+   DELIVERY SECTION
+===================================================== */
+.delivery-section {
+  background: var(--black);
+  position: relative;
+}
+
+.delivery-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.delivery-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.delivery-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.delivery-sub {
+  font-size: var(--text-base);
+  color: var(--ivory-faint);
+  margin-top: var(--space-4);
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.delivery-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-6);
+  background: var(--dark-2);
+  border: 1px solid rgba(212,168,71,0.08);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition-slow), box-shadow var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 200px;
+}
+
+.delivery-card:hover {
+  background: var(--dark-3);
+  border-color: rgba(212,168,71,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,168,71,0.08);
+}
+
+.delivery-card:active { transform: scale(0.98) translateY(-2px); }
+
+.delivery-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  transition: opacity var(--transition), filter var(--transition);
+}
+
+.delivery-card:hover .delivery-logo {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(76%) sepia(43%) saturate(550%) hue-rotate(5deg) brightness(110%) contrast(90%);
+}
+
+.delivery-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--ivory);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.delivery-time {
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+}
+
+.delivery-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.delivery-card:hover .delivery-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .delivery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 400px) {
+  .delivery-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================
+   TESTIMONIALS
+===================================================== */
+.testimonials-section {
+  background: var(--dark-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.testimonials-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-4);
+}
+
+.testimonial-card {
+  padding: var(--space-8) var(--space-8);
+  background: var(--dark-2);
+  border: 1px solid rgba(212,168,71,0.07);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.testimonial-card:hover {
+  border-color: rgba(212,168,71,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+
+.testimonial-card.featured {
+  grid-row: span 2;
+  background: var(--dark-3);
+  border-color: rgba(212,168,71,0.12);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.star {
+  width: 12px; height: 12px;
+  color: var(--gold);
+  fill: var(--gold);
+}
+
+.testimonial-text {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ivory);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.testimonial-card.featured .testimonial-text {
+  font-size: var(--text-xl);
+}
+
+.testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.meta-avatar {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--dark-4);
+  border: 1px solid rgba(212,168,71,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.meta-info { display: flex; flex-direction: column; gap: 2px; }
+.meta-name { font-size: var(--text-sm); color: var(--ivory); font-weight: 400; }
+.meta-loc { font-size: var(--text-xs); letter-spacing: 0.1em; color: var(--ivory-faint); }
+
+@media (max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card.featured { grid-row: auto; }
+}
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+.cta-section {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,92,40,0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 30% 80%, rgba(212,168,71,0.06) 0%, transparent 60%);
+}
+
+.cta-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  color: var(--ivory);
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.cta-title em {
+  font-style: italic;
+  color: var(--saffron);
+}
+
+.cta-sub {
+  font-size: var(--text-base);
+  color: var(--ivory-faint);
+  margin-bottom: var(--space-10);
+  max-width: 44ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-10);
+}
+
+.cta-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-12);
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gold);
+  transition: all var(--transition);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--gold);
+  box-shadow: 0 0 50px rgba(212,168,71,0.2), inset 0 0 0 1px var(--gold);
+  letter-spacing: 0.22em;
+}
+
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  background: transparent;
+  color: var(--ivory-dim);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(245,237,216,0.15);
+  transition: all var(--transition);
+}
+
+.btn-ghost:hover {
+  color: var(--ivory);
+  border-color: rgba(245,237,216,0.4);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--dark-1);
+  border-top: 1px solid rgba(212,168,71,0.08);
+  padding: var(--space-12) var(--space-8);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-12);
+}
+
+.footer-brand .nav-brand {
+  font-size: var(--text-xl);
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.footer-tagline {
+  font-size: var(--text-sm);
+  color: var(--ivory-faint);
+  line-height: 1.7;
+  max-width: 36ch;
+}
+
+.footer-links-title {
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-links a {
+  font-size: var(--text-sm);
+  color: var(--ivory-faint);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--ivory); }
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: var(--space-10) auto 0;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(212,168,71,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--ivory-faint);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr; gap: var(--space-8); }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* =====================================================
+   DIVIDER LINE
+===================================================== */
+.gold-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.4;
+  margin: var(--space-6) 0;
+}
+
+/* =====================================================
+   FLOATING PARTICLE
+===================================================== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0;
+  pointer-events: none;
+  animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.4; }
+  90% { opacity: 0; }
+  100% { transform: translateY(-120px) rotate(180deg); opacity: 0; }
+}
+
+/* =====================================================
+   SCROLL PROGRESS BAR
+===================================================== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--copper), var(--gold), var(--saffron));
+  z-index: 200;
+  width: 0%;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 8px rgba(212,168,71,0.5);
+}
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Main navigation">
+  <div class="nav-logo">
+    <!-- SVG Logo -->
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BIRYANI LIFE logo">
+      <path d="M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z" stroke="#D4A847" stroke-width="1" fill="none" opacity="0.6"/>
+      <path d="M16 7 C11 7 8 10.5 8 14.5 C8 19 11 24 16 26 C21 24 24 19 24 14.5 C24 10.5 21 7 16 7Z" fill="#D4A847" opacity="0.12"/>
+      <path d="M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z" fill="#D4A847" opacity="0.9"/>
+      <circle cx="16" cy="14.5" r="1.5" fill="#E8A020"/>
+    </svg>
+    <span class="nav-brand">BIRYANI LIFE</span>
+  </div>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#story">The Craft</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="book-table.html">Reservations</a></li>
+    <li><a href="functions.html">Functions</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+
+  <a href="#order" class="nav-cta" aria-label="Order now">Order Now</a>
+
+  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <a href="#story" class="mobile-link">The Craft</a>
+  <a href="menu.html" class="mobile-link">Menu</a>
+  <a href="#ritual" class="mobile-link">The Ritual</a>
+  <a href="book-table.html" class="mobile-link">Reservations</a>
+  <a href="functions.html" class="mobile-link">Functions</a>
+  <a href="gallery.html" class="mobile-link">Gallery</a>
+  <a href="about.html" class="mobile-link">About</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
+  <a href="#order" class="mobile-link">Order</a>
+</div>
+
+<!-- HERO -->
+<main id="main">
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <img
+    src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/db270b785078e84fa68aabadc51a2e499fcd58a8.jpg"
+    alt="Steaming Hyderabadi biryani — saffron-kissed rice and tender meat"
+    class="hero-img"
+    width="1715" height="980"
+    loading="eager"
+    decoding="async"
+  >
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- Steam particles -->
+  <div class="steam-container" aria-hidden="true" id="steamContainer"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Hyderabadi Dum Biryani · Est. 2024 · United States</p>
+    <h1 class="hero-title">Layered slowly.<br><em>Craved</em> instantly.</h1>
+    <p class="hero-sub">Slow-sealed. Saffron-kissed. Handcrafted for those<br>who know the difference.</p>
+    <a href="#order" class="hero-cta" aria-label="Order your Dum biryani now">
+      Order Your Dum
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- DELIVERY APPS SECTION -->
+<section class="delivery-section" aria-labelledby="delivery-heading">
+  <div class="reveal">
+    <p class="section-eyebrow">Order Now</p>
+    <h2 class="section-title" id="delivery-heading">Available on Your Favorite Apps</h2>
+    <div class="delivery-apps">
+      <a href="https://www.ubereats.com/store/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="delivery-app">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_Eats_logo.svg/2560px-Uber_Eats_logo.svg.png" alt="Uber Eats" class="delivery-logo">
+        <span class="delivery-name">Uber Eats</span>
+      </a>
+      <a href="https://www.doordash.com/store/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="delivery-app">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/DoorDash_logo.svg/2560px-DoorDash_logo.svg.png" alt="DoorDash" class="delivery-logo">
+        <span class="delivery-name">DoorDash</span>
+      </a>
+      <a href="https://www.grubhub.com/restaurant/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="delivery-app">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Grubhub_logo.svg/2560px-Grubhub_logo.svg.png" alt="Grubhub" class="delivery-logo">
+        <span class="delivery-name">Grubhub</span>
+      </a>
+      <a href="https://www.postmates.com/merchant/BIRYANI LIFE-biryani" target="_blank" rel="noopener" class="delivery-app">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Postmates_logo.svg/2560px-Postmates_logo.svg.png" alt="Postmates" class="delivery-logo">
+        <span class="delivery-name">Postmates</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BIRYANI CAROUSEL SECTION -->
+<section class="carousel-section" aria-labelledby="carousel-heading">
+  <div class="carousel-container">
+    <div class="reveal">
+      <p class="section-eyebrow">Best Loved</p>
+      <h2 class="section-title" id="carousel-heading">Signature Biryani Collection</h2>
+    </div>
+    
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/hyderabadi-chicken-biryani.jpg" alt="Hyderabadi Chicken Dum Biryani">
+          <div class="carousel-content">
+            <h3 class="carousel-title">Hyderabadi Chicken Dum Biryani</h3>
+            <p class="carousel-description">Tender chicken marinated in aromatic spices, layered with basmati rice and slow-cooked to perfection</p>
+            <div class="carousel-price">$18.99</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search/images/lamb-biryani.jpg" alt="Lamb Dum Biryani">
+          <div class="carousel-content">
+            <h3 class="carousel-title">Royal Lamb Dum Biryani</h3>
+            <p class="carousel-description">Premium lamb pieces marinated overnight, cooked with fragrant basmati and secret spices</p>
+            <div class="carousel-price">$24.99</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/vegetable-biryani.jpg" alt="Vegetable Dum Biryani">
+          <div class="carousel-content">
+            <h3 class="carousel-title">Garden Vegetable Dum Biryani</h3>
+            <p class="carousel-description">Fresh seasonal vegetables, paneer, and aromatic herbs in our signature dum style</p>
+            <div class="carousel-price">$16.99</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/prawn-biryani.jpg" alt="Prawn Dum Biryani">
+          <div class="carousel-content">
+            <h3 class="carousel-title">Coastal Prawn Dum Biryani</h3>
+            <p class="carousel-description">Juicy prawns marinated in coastal spices, perfectly balanced with basmati rice</p>
+            <div class="carousel-price">$22.99</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Previous slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Next slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="carousel-indicators" id="indicators">
+      <span class="indicator active" data-slide="0"></span>
+      <span class="indicator" data-slide="1"></span>
+      <span class="indicator" data-slide="2"></span>
+      <span class="indicator" data-slide="3"></span>
+    </div>
+  </div>
+</section>
+
+<!-- SENSORY STORY -->
+<section class="story-section section" id="story" aria-labelledby="story-heading">
+  <div class="story-grid">
+    <div class="story-text reveal">
+      <p class="section-eyebrow">The Craft</p>
+      <h2 class="section-title" id="story-heading">Not cooked.<br><em>Composed.</em></h2>
+      <div class="gold-divider"></div>
+      <p class="story-body">
+        Each layer of BIRYANI LIFE biryani is a decision made hours before it reaches you —
+        saffron dissolved in warm milk, whole spices hand-bloomed in ghee,
+        meat sealed under the dum until time does its work.
+      </p>
+
+      <div class="pillars">
+        <div class="pillar-item">
+          <span class="pillar-num">01</span>
+          <div class="pillar-text">
+            <h4>Saffron Infusion</h4>
+            <p>Premium Kashmiri saffron steeped overnight in warm cream, threaded through every grain.</p>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <span class="pillar-num">02</span>
+          <div class="pillar-text">
+            <h4>Sealed Under Dum</h4>
+            <p>Atta-dough sealed lids trap the aroma for hours — you smell it before you open the box.</p>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <span class="pillar-num">03</span>
+          <div class="pillar-text">
+            <h4>Fire Finishing</h4>
+            <p>A final coal or live flame pass to deepen the smokiness and seal the crust of rice.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-stats reveal">
+        <div class="stat-item">
+          <span class="stat-num">4h</span>
+          <span class="stat-label">Marination</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">72°</span>
+          <span class="stat-label">Dum Temp</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">11</span>
+          <span class="stat-label">Spice Layers</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-visual reveal-clip">
+      <img
+        src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/816ef7fdc8ff1d52f81982b8aec7cd7df3ab6f26.jpg"
+        alt="Biryani with saffron steam rising from a copper vessel on a dark surface"
+        width="626" height="626"
+        loading="lazy"
+        decoding="async"
+      >
+      <div class="story-visual-border" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SIGNATURE BIRYANIS -->
+<section class="menu-section section" id="menu" aria-labelledby="menu-heading">
+  <div class="menu-header reveal">
+    <div>
+      <p class="section-eyebrow">Signature Biryanis</p>
+      <h2 class="section-title" id="menu-heading">Four <em>obsessions.</em><br>One choice.</h2>
+    </div>
+    <p style="font-size:var(--text-sm);color:var(--ivory-faint);max-width:30ch;text-align:right;">Each biryani prepared to order. No reheating. No shortcuts.</p>
+  </div>
+
+  <div class="menu-grid">
+
+    <!-- Featured Card -->
+    <div class="menu-card card-featured reveal">
+      <div class="card-img">
+        <img
+          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6f8055e2fab8f05f03d35c0117ef1488e8c49fcc.jpg"
+          alt="Royal Hyderabadi Dum Biryani — the signature dish"
+          width="1960" height="980"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <div class="card-body">
+        <p class="card-tag">Chef's Obsession</p>
+        <h3 class="card-title">Royal Hyderabadi Dum</h3>
+        <p class="card-desc">The original. Bone-in goat, aged basmati, saffron milk, and crisp fried onion. The biryani that made Hyderabad legendary — and now made for you.</p>
+        <div class="card-footer">
+          <span class="card-price">From $26</span>
+          <span class="card-badge">Bestseller</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="menu-card reveal">
+      <div class="card-img">
+        <img
+          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f868e2a0f1631c4b27a7eee1f3cc2107281e599c.jpg"
+          alt="Black Cardamom Chicken Biryani"
+          width="471" height="471"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <div class="card-body">
+        <p class="card-tag">Midnight Special</p>
+        <h3 class="card-title">Smoked Chicken Dum</h3>
+        <p class="card-desc">Coal-smoked, twice-marinated chicken thighs with rose water and black cardamom. Made for late nights and cravings that don't negotiate.</p>
+        <div class="card-footer">
+          <span class="card-price">From $22</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="menu-card reveal">
+      <div class="card-img">
+        <img
+          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a629e547fb5a2a88233d39e4774c1b92344c0907.jpg"
+          alt="Saffron Vegetable Biryani — golden and aromatic"
+          width="500" height="500"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <div class="card-body">
+        <p class="card-tag">Garden Craft</p>
+        <h3 class="card-title">Saffron Subz Dum</h3>
+        <p class="card-desc">A vegetarian biryani that needs no apology. Market vegetables, saffron strands, paneer, and slow-cooked patience in every layer.</p>
+        <div class="card-footer">
+          <span class="card-price">From $18</span>
+          <span class="card-badge" style="background:rgba(212,168,71,0.15);color:var(--gold);border:1px solid rgba(212,168,71,0.3);">Vegetarian</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="menu-card reveal" style="grid-column:span 2;">
+      <div class="card-img" style="aspect-ratio:21/8;">
+        <img
+          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f9f56ec5fc54340d905e74bd66bc6f67c6f659f8.jpg"
+          alt="Golden saffron-braised lamb biryani with whole spices"
+          width="1200" height="480"
+          loading="lazy"
+          decoding="async"
+          style="object-position:center 30%;"
+        >
+      </div>
+      <div class="card-body">
+        <p class="card-tag">Weekend Reserve</p>
+        <h3 class="card-title">Lucknowi Dum Gosht</h3>
+        <p class="card-desc">The Lucknawi tradition. Braised lamb shoulder, whole star anise, and kewra water folded into long-grain basmati. Limited to 30 portions daily.</p>
+        <div class="card-footer">
+          <span class="card-price">From $29</span>
+          <span class="card-badge" style="background:rgba(184,92,40,0.15);color:var(--copper);border:1px solid rgba(184,92,40,0.3);">Limited Daily</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- THE RITUAL -->
+<section class="ritual-section section" id="ritual" aria-labelledby="ritual-heading">
+  <div class="ritual-inner">
+    <p class="section-eyebrow reveal" style="justify-content:center;">The Ritual</p>
+    <h2 class="section-title reveal" id="ritual-heading">Four seconds.<br>Then <em>everything</em> changes.</h2>
+
+    <div class="ritual-steps">
+
+      <div class="ritual-step reveal" data-step="01">
+        <svg class="ritual-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+          <path d="M12 7V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2"/>
+        </svg>
+        <h4>The Arrival</h4>
+        <p>The sealed box arrives warm. You already smell the saffron before you open the door.</p>
+      </div>
+
+      <div class="ritual-step reveal" data-step="02">
+        <svg class="ritual-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+        <h4>The Unsealing</h4>
+        <p>You lift the lid. Steam rises. The aroma hits first — before sight, before taste. This is the moment.</p>
+      </div>
+
+      <div class="ritual-step reveal" data-step="03">
+        <svg class="ritual-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+        <h4>The First Spoon</h4>
+        <p>A spoon through the top layer breaks the crust. Golden rice, glistening meat, burst of whole spice.</p>
+      </div>
+
+      <div class="ritual-step reveal" data-step="04">
+        <svg class="ritual-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <h4>The Comfort</h4>
+        <p>After a long week, this is the moment your whole body relaxes. This is why you came back.</p>
+      </div>
+
+    </div>
+
+    <div class="ritual-quote reveal">
+      <blockquote>
+        "A biryani should feel like a conversation with someone who loves you — slow, layered, and impossible to forget."
+      </blockquote>
+      <cite>— BIRYANI LIFE Kitchen Philosophy</cite>
+    </div>
+  </div>
+</section>
+
+
+<!-- ORDER / DELIVERY -->
+<section class="delivery-section section" id="order" aria-labelledby="delivery-heading">
+  <div class="delivery-inner">
+    <div class="delivery-header reveal">
+      <p class="section-eyebrow" style="justify-content:center;">Delivered Royally</p>
+      <h2 class="section-title" id="delivery-heading" style="font-size:var(--text-3xl);">Order <em>tonight.</em></h2>
+      <p class="delivery-sub">Available across major US cities. Delivered hot, sealed, and ready for your ritual.</p>
+    </div>
+
+    <div class="delivery-grid">
+
+      <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Uber Eats">
+        <svg viewBox="0 0 80 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="80" height="30">
+          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="26" letter-spacing="-1">Uber</text>
+          <text x="0" y="0" font-family="Arial, sans-serif" font-size="0"> </text>
+        </svg>
+        <span class="delivery-name">Uber Eats</span>
+        <span class="delivery-time">30–45 min</span>
+        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <a href="https://www.doordash.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on DoorDash">
+        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
+          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">DoorDash</text>
+        </svg>
+        <span class="delivery-name">DoorDash</span>
+        <span class="delivery-time">25–40 min</span>
+        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <a href="https://www.grubhub.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Grubhub">
+        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
+          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">Grubhub</text>
+        </svg>
+        <span class="delivery-name">Grubhub</span>
+        <span class="delivery-time">35–50 min</span>
+        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <a href="https://postmates.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Postmates">
+        <svg viewBox="0 0 140 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="140" height="30">
+          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" letter-spacing="-0.5">Postmates</text>
+        </svg>
+        <span class="delivery-name">Postmates</span>
+        <span class="delivery-time">30–45 min</span>
+        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section section" aria-labelledby="reviews-heading">
+  <div class="testimonials-inner">
+    <div class="testimonials-header reveal">
+      <div>
+        <p class="section-eyebrow">Those Who Returned</p>
+        <h2 class="section-title" id="reviews-heading">Not reviews.<br><em>Confessions.</em></h2>
+      </div>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card featured reveal">
+        <div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" style="margin-top:var(--space-6);">
+            "This became my Friday ritual. I don't even look at other restaurants anymore.
+            The aroma alone when the box arrives is worth every penny."
+          </p>
+        </div>
+        <div class="testimonial-meta">
+          <div class="meta-avatar" aria-hidden="true">A</div>
+          <div class="meta-info">
+            <span class="meta-name">Arjun M.</span>
+            <span class="meta-loc">San Francisco, CA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" style="margin-top:var(--space-4);">
+            "The aroma alone is addictive. I opened the box and my entire apartment smelled like royalty."
+          </p>
+        </div>
+        <div class="testimonial-meta">
+          <div class="meta-avatar" aria-hidden="true">S</div>
+          <div class="meta-info">
+            <span class="meta-name">Sophia L.</span>
+            <span class="meta-loc">New York, NY</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" style="margin-top:var(--space-4);">
+            "I've had biryani across three countries. BIRYANI LIFE wins. It tastes like memory."
+          </p>
+        </div>
+        <div class="testimonial-meta">
+          <div class="meta-avatar" aria-hidden="true">R</div>
+          <div class="meta-info">
+            <span class="meta-name">Rania K.</span>
+            <span class="meta-loc">Chicago, IL</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="cta-section section" aria-labelledby="cta-heading">
+  <div class="cta-inner">
+    <p class="section-eyebrow reveal" style="justify-content:center;">Tonight</p>
+    <h2 class="cta-title reveal" id="cta-heading">Your comfort<br>is <em>waiting.</em></h2>
+    <p class="cta-sub reveal">Tonight deserves better. One order away from the best meal of your week.</p>
+    <div class="cta-btn-group reveal">
+      <a href="#order" class="btn-primary" aria-label="Order now">
+        Order Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="#menu" class="btn-ghost" aria-label="View full menu">View Menu</a>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="nav-brand footer-brand-name" style="font-family:var(--font-display);font-size:var(--text-xl);display:block;margin-bottom:var(--space-3);">BIRYANI LIFE</span>
+      <p class="footer-tagline">Modern Royal Comfort. Slow-crafted biryani delivered to your door across the United States. Because tonight deserves better.</p>
+    </div>
+    <div>
+      <p class="footer-links-title">Navigate</p>
+      <ul class="footer-links" role="list">
+        <li><a href="#story">The Craft</a></li>
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#ritual">The Ritual</a></li>
+        <li><a href="#order">Order Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-links-title">Order On</p>
+      <ul class="footer-links" role="list">
+        <li><a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
+        <li><a href="https://www.doordash.com" target="_blank" rel="noopener noreferrer">DoorDash</a></li>
+        <li><a href="https://www.grubhub.com" target="_blank" rel="noopener noreferrer">Grubhub</a></li>
+        <li><a href="https://postmates.com" target="_blank" rel="noopener noreferrer">Postmates</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+    <p class="footer-copy" style="color:var(--ivory-faint);">Slow-crafted. Delivered royal.</p>
+  </div>
+</footer>
+
+
+<script>
+// =====================================================
+// SCROLL PROGRESS
+// =====================================================
+const progressBar = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  progressBar.style.width = Math.min(progress, 100) + '%';
+}, { passive: true });
+
+// =====================================================
+// NAV SCROLL EFFECT
+// =====================================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// =====================================================
+// CAROUSEL FUNCTIONALITY
+//=====================================================
+const carouselTrack = document.getElementById('carouselTrack');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const indicators = document.querySelectorAll('.indicator');
+let currentSlide = 0;
+const totalSlides = 4;
+
+function updateCarousel() {
+  carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+  
+  indicators.forEach((indicator, index) => {
+    indicator.classList.toggle('active', index === currentSlide);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateCarousel();
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+}
+
+function goToSlide(slideIndex) {
+  currentSlide = slideIndex;
+  updateCarousel();
+}
+
+if (nextBtn && prevBtn && carouselTrack) {
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+  
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => goToSlide(index));
+  });
+  
+  // Auto-advance carousel
+  setInterval(nextSlide, 5000);
+}
+
+// =====================================================
+// MOBILE MENU
+//======================================================
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileMenuClose');
+const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  mobileBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  mobileBtn.setAttribute('aria-expanded', 'false');
+}
+
+mobileBtn.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+});
+
+// =====================================================
+// STEAM PARTICLES
+// =====================================================
+const steamContainer = document.getElementById('steamContainer');
+
+function createSteam() {
+  const steam = document.createElement('div');
+  steam.className = 'steam';
+  const leftPos = 20 + Math.random() * 60;
+  const height = 80 + Math.random() * 120;
+  const duration = 4 + Math.random() * 5;
+  const delay = Math.random() * 4;
+  const drift = (Math.random() - 0.5) * 60;
+  steam.style.cssText = `
+    left: ${leftPos}%;
+    height: ${height}px;
+    width: ${1 + Math.random() * 3}px;
+    animation-duration: ${duration}s;
+    animation-delay: ${delay}s;
+    --drift: ${drift}px;
+  `;
+  steamContainer.appendChild(steam);
+  setTimeout(() => steam.remove(), (duration + delay) * 1000);
+}
+
+// Generate steam at intervals
+const steamInterval = setInterval(createSteam, 400);
+// Create initial batch
+for (let i = 0; i < 8; i++) {
+  setTimeout(createSteam, i * 200);
+}
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => clearInterval(steamInterval));
+
+// =====================================================
+// GSAP ANIMATIONS (Enhanced scroll reveals)
+// =====================================================
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Story section parallax
+    gsap.to('.story-visual img', {
+      yPercent: -8,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.story-visual',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.5
+      }
+    });
+
+    // Hero image parallax
+    gsap.to('.hero-img', {
+      yPercent: 15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      }
+    });
+
+    // Staggered menu cards
+    gsap.from('.menu-card', {
+      opacity: 0,
+      y: 0,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.menu-grid',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // Staggered ritual steps
+    gsap.from('.ritual-step', {
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.7,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.ritual-steps',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // Delivery cards stagger
+    gsap.from('.delivery-card', {
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.delivery-grid',
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // Story stats counter animation
+    ScrollTrigger.create({
+      trigger: '.story-stats',
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        document.querySelectorAll('.stat-num').forEach(el => {
+          el.style.opacity = '0';
+          gsap.to(el, { opacity: 1, duration: 0.8, ease: 'power2.out' });
+        });
+      }
+    });
+  }
+});
+
+// =====================================================
+// SMOOTH ANCHOR SCROLLING
+// =====================================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

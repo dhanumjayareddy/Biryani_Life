@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu — BIRYANI LIFE Royal Biryani</title>
+<meta name="description"="Explore our authentic Hyderabadi dum biryani menu. Order now on Uber Eats, DoorDash, Grubhub, and more.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<style>
+/* =====================================================
+   ART DIRECTION: Modern Royal Comfort
+   Palette: Matte black, warm ivory, saffron, burnt copper, smoky gold
+   Typography: Cormorant Garamond (display) + Jost (body)
+   Mood: Cinematic luxury, dark warmth, sensory immersion
+===================================================== */
+
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3.5rem,   1rem    + 7vw,    9rem);
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Brand Palette */
+  --black:         #0B0B0B;
+  --dark-1:        #111010;
+  --dark-2:        #161513;
+  --dark-3:        #1d1b18;
+  --dark-4:        #252220;
+  --ivory:         #F5EDD8;
+  --ivory-dim:     #C9BCA0;
+  --ivory-faint:   #7a7060;
+  --saffron:       #E8A020;
+  --saffron-dim:   #C07C10;
+  --copper:        #B85C28;
+  --gold:          #D4A847;
+  --gold-glow:     rgba(212,168,71,0.15);
+  --gold-glow-sm:  rgba(212,168,71,0.08);
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --transition: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgba(232, 160, 32, 0.25);
+  color: var(--ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   SKIP LINK
+===================================================== */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--dark-3); color: var(--ivory);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  z-index: 9999;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* =====================================================
+   NAV
+===================================================== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-5) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition-slow), backdrop-filter var(--transition-slow);
+}
+
+nav.scrolled {
+  background: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 168, 71, 0.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-logo svg { width: 32px; height: 32px; }
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--ivory);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-weight: 400;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: var(--space-2) var(--space-6);
+  border: 1px solid rgba(212,168,71,0.4);
+  border-radius: var(--radius-full);
+  color: var(--gold);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(212,168,71,0.3);
+}
+
+.nav-mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.nav-mobile-btn span {
+  display: block;
+  height: 1px;
+  background: var(--ivory-dim);
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  nav { padding: var(--space-4) var(--space-5); }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-mobile-btn { display: flex; }
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--dark-1);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+.mobile-menu-close {
+  position: absolute; top: var(--space-6); right: var(--space-6);
+  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+}
+
+/* =====================================================
+   MENU HERO
+===================================================== */
+.menu-hero {
+  padding: calc(80px + var(--space-16)) var(--space-8) var(--space-16);
+  text-align: center;
+  background: var(--dark-1);
+  position: relative;
+}
+
+.menu-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.menu-hero h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.menu-hero p {
+  font-size: var(--text-lg);
+  color: var(--ivory-dim);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   ORDER BUTTONS
+===================================================== */
+.order-section {
+  background: var(--black);
+  padding: var(--space-16) var(--space-8);
+  text-align: center;
+}
+
+.order-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.order-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid rgba(212,168,71,0.3);
+  border-radius: var(--radius-full);
+  background: rgba(11,11,11,0.8);
+  color: var(--ivory);
+  text-decoration: none;
+  transition: all var(--transition);
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.order-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.order-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* =====================================================
+   MENU SECTIONS
+===================================================== */
+.menu-section {
+  padding: var(--space-20) var(--space-8);
+  background: var(--dark-1);
+  position: relative;
+}
+
+.menu-section:nth-child(even) {
+  background: var(--black);
+}
+
+.menu-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.menu-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.menu-eyebrow::before,
+.menu-eyebrow::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.menu-title {
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  color: var(--ivory);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-8);
+}
+
+.menu-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item-image {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.menu-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.menu-item:hover .menu-item-image img {
+  transform: scale(1.05);
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(212,168,71,0.05), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.menu-item:hover::before {
+  opacity: 1;
+}
+
+.menu-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,71,0.3);
+  box-shadow: 0 12px 32px rgba(212,168,71,0.1);
+}
+
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.menu-item-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--ivory);
+}
+
+.menu-item-price {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.menu-item-description {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.menu-item-tags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.menu-tag {
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-2);
+  background: rgba(212,168,71,0.1);
+  color: var(--saffron);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.menu-item-order {
+  margin-top: var(--space-4);
+  display: flex;
+  gap: var(--space-2);
+}
+
+.quick-order-btn {
+  flex: 1;
+  padding: var(--space-2) var(--space-4);
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.quick-order-btn:hover {
+  background: var(--saffron);
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--dark-1);
+  border-top: 1px solid rgba(212,168,71,0.1);
+  padding: var(--space-12) var(--space-8) var(--space-8);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.footer-links a {
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-size: var(--text-sm);
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(212,168,71,0.1);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--ivory-faint);
+  margin-bottom: var(--space-1);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .order-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .order-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Link -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 10h8v12h-8z" fill="currentColor" opacity="0.8"/>
+      <circle cx="16" cy="16" r="3" fill="var(--gold)"/>
+    </svg>
+    <span class="nav-brand">BIRYANI LIFE</span>
+  </div>
+  
+  <div class="nav-links">
+    <a href="BIRYANI LIFE-biryani.html">Home</a>
+    <a href="menu.html" class="nav-cta">Menu</a>
+    <a href="book-table.html">Reservations</a>
+    <a href="functions.html">Functions</a>
+  </div>
+  
+  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <a href="BIRYANI LIFE-biryani.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="book-table.html">Reservations</a>
+  <a href="functions.html">Functions</a>
+</div>
+
+<!-- Main Content -->
+<main id="main">
+  <!-- Menu Hero -->
+  <section class="menu-hero" aria-labelledby="menu-hero-heading">
+    <h1 id="menu-hero-heading">Our Royal Menu</h1>
+    <p>Authentic Hyderabadi dum biryani crafted with tradition and served with pride</p>
+  </section>
+
+  <!-- Order Section -->
+  <section class="order-section" aria-labelledby="order-heading">
+    <p class="menu-eyebrow">Order Now</p>
+    <h2 class="menu-title" id="order-heading">Available on Your Favorite Apps</h2>
+    <div class="order-buttons">
+      <a href="https://www.ubereats.com/store/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="order-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
+        Uber Eats
+      </a>
+      <a href="https://www.doordash.com/store/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="order-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
+        DoorDash
+      </a>
+      <a href="https://www.grubhub.com/restaurant/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="order-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
+        Grubhub
+      </a>
+      <a href="https://www.postmates.com/merchant/BIRYANI LIFE-biryani" target="_blank" rel="noopener" class="order-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
+        Postmates
+      </a>
+    </div>
+  </section>
+
+  <!-- Signature Biryani Section -->
+  <section class="menu-section" aria-labelledby="biryani-heading">
+    <div class="menu-container">
+      <div class="menu-header">
+        <p class="menu-eyebrow">Signature Collection</p>
+        <h2 class="menu-title" id="biryani-heading">Royal Dum Biryani</h2>
+      </div>
+      
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/hyderabadi-chicken-biryani-closeup.jpg" alt="Hyderabadi Chicken Dum Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Hyderabadi Chicken Dum Biryani</h3>
+            <span class="menu-item-price">$18.99</span>
+          </div>
+          <p class="menu-item-description">Tender chicken marinated in aromatic spices, layered with basmati rice and slow-cooked to perfection under dum</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Popular</span>
+            <span class="menu-tag">Spicy</span>
+            <span class="menu-tag">Gluten-Free</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Hyderabadi Chicken Dum Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/lamb-biryani-plated.jpg" alt="Royal Lamb Dum Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Royal Lamb Dum Biryani</h3>
+            <span class="menu-item-price">$24.99</span>
+          </div>
+          <p class="menu-item-description">Premium lamb pieces marinated overnight, cooked with fragrant basmati and our secret family spices</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Premium</span>
+            <span class="menu-tag">Chef's Special</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Royal Lamb Dum Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/vegetable-biryani-colorful.jpg" alt="Garden Vegetable Dum Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Garden Vegetable Dum Biryani</h3>
+            <span class="menu-item-price">$16.99</span>
+          </div>
+          <p class="menu-item-description">Fresh seasonal vegetables, paneer, and aromatic herbs in our signature dum style preparation</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Healthy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Garden Vegetable Dum Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/prawn-biryani.jpg" alt="Coastal Prawn Dum Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Coastal Prawn Dum Biryani</h3>
+            <span class="menu-item-price">$22.99</span>
+          </div>
+          <p class="menu-item-description">Juicy prawns marinated in coastal spices, perfectly balanced with basmati rice</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Seafood</span>
+            <span class="menu-tag">Limited</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Coastal Prawn Dum Biryani')">Order Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sides & Accompaniments Section -->
+  <section class="menu-section" aria-labelledby="sides-heading">
+    <div class="menu-container">
+      <div class="menu-header">
+        <p class="menu-eyebrow">Accompaniments</p>
+        <h2 class="menu-title" id="sides-heading">Sides & Add-ons</h2>
+      </div>
+      
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/mirchi-ka-salan.jpg" alt="Mirchi ka Salan">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Mirchi ka Salan</h3>
+            <span class="menu-item-price">$6.99</span>
+          </div>
+          <p class="menu-item-description">Traditional Hyderabadi chili curry with peanuts and sesame</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Classic</span>
+            <span class="menu-tag">Medium Spice</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Mirchi ka Salan')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/raita-yogurt-dip.jpg" alt="Raita">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Raita</h3>
+            <span class="menu-item-price">$4.99</span>
+          </div>
+          <p class="menu-item-description">Cooling yogurt dip with cucumber, mint, and spices</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Cooling</span>
+            <span class="menu-tag">Vegan Option</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Raita')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/baghara-baingan-stuffed-eggplant.jpg" alt="Baghara Baingan">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Baghara Baingan</h3>
+            <span class="menu-item-price">$8.99</span>
+          </div>
+          <p class="menu-item-description">Stuffed baby eggplants in peanut-sesame curry</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Traditional</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Baghara Baingan')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/chicken-65-spicy-appetizer.jpg" alt="Chicken 65">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Chicken 65</h3>
+            <span class="menu-item-price">$9.99</span>
+          </div>
+          <p class="menu-item-description">Spicy fried chicken appetizer with curry leaves</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Appetizer</span>
+            <span class="menu-tag">Spicy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Chicken 65')">Order Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beverages Section -->
+  <section class="menu-section" aria-labelledby="beverages-heading">
+    <div class="menu-container">
+      <div class="menu-header">
+        <p class="menu-eyebrow">Refreshments</p>
+        <h2 class="menu-title" id="beverages-heading">Beverages</h2>
+      </div>
+      
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/mango-lassi-sweet-drink.jpg" alt="Mango Lassi">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Mango Lassi</h3>
+            <span class="menu-item-price">$5.99</span>
+          </div>
+          <p class="menu-item-description">Creamy yogurt drink with sweet mango pulp</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Sweet</span>
+            <span class="menu-tag">Refreshing</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Mango Lassi')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/masala-chai-spiced-tea.jpg" alt="Masala Chai">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Masala Chai</h3>
+            <span class="menu-item-price">$3.99</span>
+          </div>
+          <p class="menu-item-description">Traditional spiced tea with milk and aromatic spices</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Hot</span>
+            <span class="menu-tag">Aromatic</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Masala Chai')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fresh-lime-soda-carbonated-drink.jpg" alt="Fresh Lime Soda">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Fresh Lime Soda</h3>
+            <span class="menu-item-price">$4.49</span>
+          </div>
+          <p class="menu-item-description">Refreshing carbonated drink with fresh lime juice</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Refreshing</span>
+            <span class="menu-tag">Sugar-Free Option</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Fresh Lime Soda')">Order Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-links">
+      <a href="BIRYANI LIFE-biryani.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="book-table.html">Reservations</a>
+      <a href="functions.html">Functions</a>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy">Slow-crafted. Delivered royal.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =====================================================
+// NAV SCROLL EFFECT
+//=====================================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// =====================================================
+// MOBILE MENU
+//=====================================================
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileMenuClose');
+const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  mobileBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  mobileBtn.setAttribute('aria-expanded', 'false');
+}
+
+mobileBtn.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// =====================================================
+// ORDER FUNCTIONALITY
+//=====================================================
+function orderItem(itemName) {
+  const deliveryApps = [
+    { name: 'Uber Eats', url: 'https://www.ubereats.com/store/BIRYANI LIFE-biryani/your-store-id' },
+    { name: 'DoorDash', url: 'https://www.doordash.com/store/BIRYANI LIFE-biryani/your-store-id' },
+    { name: 'Grubhub', url: 'https://www.grubhub.com/restaurant/BIRYANI LIFE-biryani/your-store-id' },
+    { name: 'Postmates', url: 'https://www.postmates.com/merchant/BIRYANI LIFE-biryani' }
+  ];
+  
+  const randomApp = deliveryApps[Math.floor(Math.random() * deliveryApps.length)];
+  
+  // In a real implementation, this would add the item to cart
+  // For now, we'll redirect to a random delivery app
+  window.open(randomApp.url, '_blank');
+}
+</script>
+
+</body>
+</html>

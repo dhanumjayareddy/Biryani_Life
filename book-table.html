@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservations — BIRYANI LIFE Royal Biryani</title>
+<meta name="description" "Book a table at BIRYANI LIFE for an authentic Hyderabadi biryani experience. Call us or make a reservation online.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<style>
+/* =====================================================
+   ART DIRECTION: Modern Royal Comfort
+   Palette: Matte black, warm ivory, saffron, burnt copper, smoky gold
+   Typography: Cormorant Garamond (display) + Jost (body)
+   Mood: Cinematic luxury, dark warmth, sensory immersion
+===================================================== */
+
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3.5rem,   1rem    + 7vw,    9rem);
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Brand Palette */
+  --black:         #0B0B0B;
+  --dark-1:        #111010;
+  --dark-2:        #161513;
+  --dark-3:        #1d1b18;
+  --dark-4:        #252220;
+  --ivory:         #F5EDD8;
+  --ivory-dim:     #C9BCA0;
+  --ivory-faint:   #7a7060;
+  --saffron:       #E8A020;
+  --saffron-dim:   #C07C10;
+  --copper:        #B85C28;
+  --gold:          #D4A847;
+  --gold-glow:     rgba(212,168,71,0.15);
+  --gold-glow-sm:  rgba(212,168,71,0.08);
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --transition: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgba(232, 160, 32, 0.25);
+  color: var(--ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   SKIP LINK
+===================================================== */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--dark-3); color: var(--ivory);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  z-index: 9999;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* =====================================================
+   NAV
+===================================================== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-5) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition-slow), backdrop-filter var(--transition-slow);
+}
+
+nav.scrolled {
+  background: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 168, 71, 0.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-logo svg { width: 32px; height: 32px; }
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--ivory);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-weight: 400;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: var(--space-2) var(--space-6);
+  border: 1px solid rgba(212,168,71,0.4);
+  border-radius: var(--radius-full);
+  color: var(--gold);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(212,168,71,0.3);
+}
+
+.nav-mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.nav-mobile-btn span {
+  display: block;
+  height: 1px;
+  background: var(--ivory-dim);
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  nav { padding: var(--space-4) var(--space-5); }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-mobile-btn { display: flex; }
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--dark-1);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+.mobile-menu-close {
+  position: absolute; top: var(--space-6); right: var(--space-6);
+  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+}
+
+/* =====================================================
+   RESERVATION HERO
+===================================================== */
+.reservation-hero {
+  padding: calc(80px + var(--space-16)) var(--space-8) var(--space-16);
+  text-align: center;
+  background: var(--dark-1);
+  position: relative;
+}
+
+.reservation-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.reservation-hero h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.reservation-hero p {
+  font-size: var(--text-lg);
+  color: var(--ivory-dim);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   BOOKING OPTIONS
+===================================================== */
+.booking-options {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+}
+
+.booking-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+}
+
+.booking-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,71,0.3);
+  box-shadow: 0 12px 32px rgba(212,168,71,0.1);
+}
+
+.booking-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-6);
+  background: var(--gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--black);
+}
+
+.booking-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.booking-description {
+  color: var(--ivory-dim);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.booking-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.booking-btn:hover {
+  background: var(--saffron);
+  transform: translateY(-2px);
+}
+
+.booking-btn.secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.booking-btn.secondary:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* =====================================================
+   RESERVATION FORM
+===================================================== */
+.reservation-form-section {
+  background: var(--dark-1);
+  padding: var(--space-20) var(--space-8);
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.form-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.reservation-form {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  color: var(--ivory-dim);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  background: var(--dark-2);
+  border: 1px solid rgba(212,168,71,0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  transition: all var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212,168,71,0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit {
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.form-submit:hover {
+  background: var(--saffron);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   INFO SECTION
+===================================================== */
+.info-section {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+}
+
+.info-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+}
+
+.info-card {
+  text-align: center;
+}
+
+.info-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-4);
+  background: rgba(212,168,71,0.1);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+}
+
+.info-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+  color: var(--ivory);
+}
+
+.info-text {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--dark-1);
+  border-top: 1px solid rgba(212,168,71,0.1);
+  padding: var(--space-12) var(--space-8) var(--space-8);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.footer-links a {
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-size: var(--text-sm);
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(212,168,71,0.1);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--ivory-faint);
+  margin-bottom: var(--space-1);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .booking-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .info-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Link -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 10h8v12h-8z" fill="currentColor" opacity="0.8"/>
+      <circle cx="16" cy="16" r="3" fill="var(--gold)"/>
+    </svg>
+    <span class="nav-brand">BIRYANI LIFE</span>
+  </div>
+  
+  <div class="nav-links">
+    <a href="BIRYANI LIFE-biryani.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="book-table.html" class="nav-cta">Reservations</a>
+    <a href="functions.html">Functions</a>
+  </div>
+  
+  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <a href="BIRYANI LIFE-biryani.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="book-table.html">Reservations</a>
+  <a href="functions.html">Functions</a>
+</div>
+
+<!-- Main Content -->
+<main id="main">
+  <!-- Reservation Hero -->
+  <section class="reservation-hero" aria-labelledby="reservation-hero-heading">
+    <h1 id="reservation-hero-heading">Reserve Your Table</h1>
+    <p>Experience authentic Hyderabadi dum biryani in an atmosphere of royal elegance</p>
+  </section>
+
+  <!-- Booking Options -->
+  <section class="booking-options" aria-labelledby="booking-heading">
+    <div class="booking-container">
+      <div class="booking-card">
+        <div class="booking-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <h2 class="booking-title">Call to Reserve</h2>
+        <p class="booking-description">Speak with our reservation team for immediate assistance and special requests</p>
+        <a href="tel:+1234567890" class="booking-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Call (555) 123-4567
+        </a>
+      </div>
+
+      <div class="booking-card">
+        <div class="booking-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <h2 class="booking-title">Online Reservation</h2>
+        <p class="booking-description">Book your table instantly with our online reservation system</p>
+        <a href="#reservation-form" class="booking-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+          Book Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Form -->
+  <section class="reservation-form-section" id="reservation-form" aria-labelledby="form-heading">
+    <div class="form-container">
+      <div class="form-header">
+        <p class="form-eyebrow">Reservation Details</p>
+        <h2 class="form-title" id="form-heading">Complete Your Booking</h2>
+      </div>
+      
+      <form class="reservation-form" id="reservationForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" id="firstName" name="firstName" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" id="lastName" name="lastName" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" id="date" name="date" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="time" class="form-label">Time</label>
+            <select id="time" name="time" class="form-select" required>
+              <option value="">Select a time</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="11:30">11:30 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="13:30">1:30 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="14:30">2:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="guests" class="form-label">Number of Guests</label>
+            <select id="guests" name="guests" class="form-select" required>
+              <option value="">Select guests</option>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="7">7 Guests</option>
+              <option value="8">8 Guests</option>
+              <option value="9">9 Guests</option>
+              <option value="10">10+ Guests</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="occasion" class="form-label">Occasion</label>
+            <select id="occasion" name="occasion" class="form-select">
+              <option value="">Select occasion (optional)</option>
+              <option value="birthday">Birthday</option>
+              <option value="anniversary">Anniversary</option>
+              <option value="date-night">Date Night</option>
+              <option value="business">Business Meal</option>
+              <option value="family">Family Gathering</option>
+              <option value="celebration">Celebration</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="requests" class="form-label">Special Requests</label>
+            <textarea id="requests" name="requests" class="form-textarea" placeholder="Any dietary restrictions, seating preferences, or special requirements..."></textarea>
+          </div>
+        </div>
+        
+        <button type="submit" class="form-submit">Confirm Reservation</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section" aria-labelledby="info-heading">
+    <div class="info-container">
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="info-title">Hours</h3>
+        <p class="info-text">
+          Monday - Friday: 11:00 AM - 10:00 PM<br>
+          Saturday - Sunday: 11:00 AM - 11:00 PM
+        </p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h3 class="info-title">Location</h3>
+        <p class="info-text">
+          123 Royal Lane<br>
+          Culinary District<br>
+          New York, NY 10001
+        </p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h3 class="info-title">Cancellation Policy</h3>
+        <p class="info-text">
+          Free cancellation up to 2 hours before reservation time. Late cancellations may incur a fee.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-links">
+      <a href="BIRYANI LIFE-biryani.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="book-table.html">Reservations</a>
+      <a href="functions.html">Functions</a>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy">Slow-crafted. Delivered royal.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =====================================================
+// NAV SCROLL EFFECT
+//=====================================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// =====================================================
+// MOBILE MENU
+//=====================================================
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileMenuClose');
+const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  mobileBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  mobileBtn.setAttribute('aria-expanded', 'false');
+}
+
+mobileBtn.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// =====================================================
+// RESERVATION FORM
+//=====================================================
+const reservationForm = document.getElementById('reservationForm');
+
+// Set minimum date to today
+const dateInput = document.getElementById('date');
+const today = new Date().toISOString().split('T')[0];
+dateInput.setAttribute('min', today);
+
+reservationForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form data
+  const formData = new FormData(reservationForm);
+  const data = Object.fromEntries(formData);
+  
+  // In a real implementation, this would send the data to a server
+  // For now, we'll show a success message
+  alert('Thank you for your reservation! We will confirm your booking within 24 hours.');
+  
+  // Reset form
+  reservationForm.reset();
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

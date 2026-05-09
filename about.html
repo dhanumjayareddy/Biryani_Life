@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — BIRYANI LIFE Royal Biryani</title>
+<meta name="description" "Discover the story behind BIRYANI LIFE's authentic Hyderabadi dum biryani. Learn about our heritage, traditional cooking methods, and passion for royal cuisine.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<style>
+/* =====================================================
+   ART DIRECTION: Modern Royal Comfort
+   Palette: Matte black, warm ivory, saffron, burnt copper, smoky gold
+   Typography: Cormorant Garamond (display) + Jost (body)
+   Mood: Cinematic luxury, dark warmth, sensory immersion
+===================================================== */
+
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3.5rem,   1rem    + 7vw,    9rem);
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Brand Palette */
+  --black:         #0B0B0B;
+  --dark-1:        #111010;
+  --dark-2:        #161513;
+  --dark-3:        #1d1b18;
+  --dark-4:        #252220;
+  --ivory:         #F5EDD8;
+  --ivory-dim:     #C9BCA0;
+  --ivory-faint:   #7a7060;
+  --saffron:       #E8A020;
+  --saffron-dim:   #C07C10;
+  --copper:        #B85C28;
+  --gold:          #D4A847;
+  --gold-glow:     rgba(212,168,71,0.15);
+  --gold-glow-sm:  rgba(212,168,71,0.08);
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --transition: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgba(232, 160, 32, 0.25);
+  color: var(--ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   SKIP LINK
+===================================================== */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--dark-3); color: var(--ivory);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  z-index: 9999;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* =====================================================
+   NAV
+===================================================== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-5) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition-slow), backdrop-filter var(--transition-slow);
+}
+
+nav.scrolled {
+  background: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 168, 71, 0.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-logo svg { width: 32px; height: 32px; }
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--ivory);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-weight: 400;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: var(--space-2) var(--space-6);
+  border: 1px solid rgba(212,168,71,0.4);
+  border-radius: var(--radius-full);
+  color: var(--gold);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(212,168,71,0.3);
+}
+
+.nav-mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.nav-mobile-btn span {
+  display: block;
+  height: 1px;
+  background: var(--ivory-dim);
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  nav { padding: var(--space-4) var(--space-5); }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-mobile-btn { display: flex; }
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--dark-1);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+.mobile-menu-close {
+  position: absolute; top: var(--space-6); right: var(--space-6);
+  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+}
+
+/* =====================================================
+   STORY HERO
+===================================================== */
+.story-hero {
+  padding: calc(80px + var(--space-16)) var(--space-8) var(--space-16);
+  text-align: center;
+  background: var(--dark-1);
+  position: relative;
+}
+
+.story-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.story-hero h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.story-hero p {
+  font-size: var(--text-lg);
+  color: var(--ivory-dim);
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* =====================================================
+   HERITAGE SECTION
+===================================================== */
+.heritage-section {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+  position: relative;
+}
+
+.heritage-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.heritage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.heritage-text h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-6);
+}
+
+.heritage-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.heritage-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.heritage-body {
+  font-size: var(--text-lg);
+  font-family: var(--font-display);
+  font-weight: 300;
+  color: var(--ivory-dim);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+  font-style: italic;
+}
+
+.heritage-visual {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.heritage-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =====================================================
+   VALUES SECTION
+===================================================== */
+.values-section {
+  background: var(--dark-1);
+  padding: var(--space-20) var(--space-8);
+}
+
+.values-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.values-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.values-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.values-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+}
+
+.value-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,71,0.3);
+  box-shadow: 0 12px 32px rgba(212,168,71,0.1);
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  background: var(--gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.value-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--black);
+}
+
+.value-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.value-description {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* =====================================================
+   CHEF SECTION
+===================================================== */
+.chef-section {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+  position: relative;
+}
+
+.chef-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.chef-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.chef-visual {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.chef-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chef-text h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-6);
+}
+
+.chef-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.chef-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.chef-body {
+  font-size: var(--text-lg);
+  font-family: var(--font-display);
+  font-weight: 300;
+  color: var(--ivory-dim);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+  font-style: italic;
+}
+
+.chef-signature {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--gold);
+  font-style: italic;
+}
+
+.chef-title {
+  font-size: var(--text-sm);
+  color: var(--ivory-dim);
+  margin-top: var(--space-2);
+}
+
+/* =====================================================
+   TIMELINE SECTION
+===================================================== */
+.timeline-section {
+  background: var(--dark-1);
+  padding: var(--space-20) var(--space-8);
+}
+
+.timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.timeline-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.timeline {
+  position: relative;
+  padding: var(--space-8) 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(212,168,71,0.3);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-12);
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.timeline-content {
+  width: 45%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition);
+}
+
+.timeline-content:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212,168,71,0.3);
+}
+
+.timeline-year {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--black);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-3);
+}
+
+.timeline-description {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--dark-1);
+  border-top: 1px solid rgba(212,168,71,0.1);
+  padding: var(--space-12) var(--space-8) var(--space-8);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.footer-links a {
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-size: var(--text-sm);
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(212,168,71,0.1);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--ivory-faint);
+  margin-bottom: var(--space-1);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .heritage-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .chef-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 60px;
+  }
+  
+  .timeline-content {
+    width: 100%;
+  }
+  
+  .timeline-year {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Link -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 10h8v12h-8z" fill="currentColor" opacity="0.8"/>
+      <circle cx="16" cy="16" r="3" fill="var(--gold)"/>
+    </svg>
+    <span class="nav-brand">BIRYANI LIFE</span>
+  </div>
+  
+  <ul class="nav-links" role="list">
+    <li><a href="BIRYANI LIFE-biryani.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="book-table.html">Reservations</a></li>
+    <li><a href="functions.html">Functions</a></li>
+    <li><a href="about.html" class="nav-cta">Our Story</a></li>
+  </ul>
+  
+  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <a href="BIRYANI LIFE-biryani.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="book-table.html">Reservations</a>
+  <a href="functions.html">Functions</a>
+  <a href="about.html">Our Story</a>
+</div>
+
+<!-- Main Content -->
+<main id="main">
+  <!-- Story Hero -->
+  <section class="story-hero" aria-labelledby="story-hero-heading">
+    <h1 id="story-hero-heading">A Legacy of Flavor</h1>
+    <p>From the royal kitchens of Hyderabad to the heart of America, our journey is one of tradition, passion, and the art of perfect biryani.</p>
+  </section>
+
+  <!-- Heritage Section -->
+  <section class="heritage-section" aria-labelledby="heritage-heading">
+    <div class="heritage-container">
+      <div class="heritage-text">
+        <p class="heritage-eyebrow">Our Heritage</p>
+        <h2 id="heritage-heading">Born in Tradition, Perfected in America</h2>
+        <p class="heritage-body">
+          BIRYANI LIFE began not as a restaurant, but as a promise—a promise to bring the authentic taste of Hyderabadi dum biryani to those who crave true culinary artistry. Our founder, a third-generation chef from Hyderabad, grew up watching his grandmother and mother perfect the ancient art of dum cooking.
+        </p>
+        <p class="heritage-body">
+          The name "BIRYANI LIFE" comes from "BIRYANI LIFE"—the master chef who has perfected the art of dum cooking, where meat and rice are sealed together and slow-cooked over low heat, allowing the aromas and flavors to meld into something magical.
+        </p>
+        <p class="heritage-body">
+          In 2024, we opened our first restaurant in the United States, bringing with us centuries-old recipes, traditional copper handis, and an unwavering commitment to authenticity. Every biryani we serve is a tribute to our heritage and a celebration of the royal cuisine that once graced the tables of Nizams.
+        </p>
+      </div>
+      <div class="heritage-visual">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/hyderabadi-heritage-kitchen.jpg" alt="Traditional Hyderabadi kitchen with copper handis and aromatic spices">
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section" aria-labelledby="values-heading">
+    <div class="values-container">
+      <div class="values-header">
+        <p class="values-eyebrow">Our Philosophy</p>
+        <h2 class="values-title" id="values-heading">Values That Guide Us</h2>
+      </div>
+      
+      <div class="values-grid">
+        <article class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Authenticity</h3>
+          <p class="value-description">We never compromise on traditional methods, using the same spices, techniques, and copper vessels that have been used for generations.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Quality</h3>
+          <p class="value-description">From premium basmati rice to the finest spices and freshest ingredients, quality is at the heart of everything we create.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Passion</h3>
+          <p class="value-description">Every dish is crafted with love and dedication, treating each biryani as a work of art worthy of royalty.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chef Section -->
+  <section class="chef-section" aria-labelledby="chef-heading">
+    <div class="chef-container">
+      <div class="chef-visual">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/master-chef-biryani.jpg" alt="Master chef preparing traditional Hyderabadi biryani">
+      </div>
+      <div class="chef-text">
+        <p class="chef-eyebrow">From Our Kitchen</p>
+        <h2 id="chef-heading">Words From Our Master Chef</h2>
+        <p class="chef-body">
+          "Biryani is not just food; it's poetry on a plate. Each grain of rice tells a story, each spice sings a melody, and every bite takes you on a journey through the royal courts of Hyderabad. I learned this art from my grandmother, who learned it from hers, and now I share it with you."
+        </p>
+        <p class="chef-body">
+          "The secret lies not in complex recipes, but in patience—in allowing time to work its magic, in respecting the ingredients, and in understanding that great food comes from the heart. When you eat at BIRYANI LIFE, you're not just having a meal; you're experiencing centuries of tradition."
+        </p>
+        <div class="chef-signature">Chef Mohammed Ali</div>
+        <div class="chef-title">Master Chef & Founder</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section" aria-labelledby="timeline-heading">
+    <div class="timeline-container">
+      <div class="timeline-header">
+        <p class="timeline-eyebrow">Our Journey</p>
+        <h2 class="timeline-title" id="timeline-heading">Milestones</h2>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3 class="timeline-title">The Beginning</h3>
+            <p class="timeline-description">Our family's biryani journey started in the royal kitchens of Hyderabad, where our great-grandfather served as a personal chef to the Nizam.</p>
+          </div>
+          <div class="timeline-year">1920s</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3 class="timeline-title">Family Recipe</h3>
+            <p class="timeline-description">Our grandmother perfected the family recipe, creating the unique blend of spices that defines BIRYANI LIFE biryani today.</p>
+          </div>
+          <div class="timeline-year">1950s</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3 class="timeline-title">Coming to America</h3>
+            <p class="timeline-description">Our founder moved to the United States, bringing with him the family recipes and a dream to share authentic Hyderabadi cuisine.</p>
+          </div>
+          <div class="timeline-year">2018</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3 class="timeline-title">BIRYANI LIFE Born</h3>
+            <p class="timeline-description">After years of perfecting recipes and sourcing authentic ingredients, BIRYANI LIFE opened its doors, bringing royal biryani to America.</p>
+          </div>
+          <div class="timeline-year">2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-links">
+      <a href="BIRYANI LIFE-biryani.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="book-table.html">Reservations</a>
+      <a href="functions.html">Functions</a>
+      <a href="about.html">Our Story</a>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy">Slow-crafted. Delivered royal.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =====================================================
+// NAV SCROLL EFFECT
+//=====================================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// =====================================================
+// MOBILE MENU
+//=====================================================
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileMenuClose');
+const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  mobileBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  mobileBtn.setAttribute('aria-expanded', 'false');
+}
+
+mobileBtn.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+</script>
+
+</body>
+</html>

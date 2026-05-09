@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — BIRYANI LIFE Royal Biryani</title>
+<meta name="description" "Explore our gallery of authentic Hyderabadi dum biryani, restaurant ambiance, and customer testimonials. See why we're the best biryani experience.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<style>
+/* =====================================================
+   ART DIRECTION: Modern Royal Comfort
+   Palette: Matte black, warm ivory, saffron, burnt copper, smoky gold
+   Typography: Cormorant Garamond (display) + Jost (body)
+   Mood: Cinematic luxury, dark warmth, sensory immersion
+===================================================== */
+
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3.5rem,   1rem    + 7vw,    9rem);
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Brand Palette */
+  --black:         #0B0B0B;
+  --dark-1:        #111010;
+  --dark-2:        #161513;
+  --dark-3:        #1d1b18;
+  --dark-4:        #252220;
+  --ivory:         #F5EDD8;
+  --ivory-dim:     #C9BCA0;
+  --ivory-faint:   #7a7060;
+  --saffron:       #E8A020;
+  --saffron-dim:   #C07C10;
+  --copper:        #B85C28;
+  --gold:          #D4A847;
+  --gold-glow:     rgba(212,168,71,0.15);
+  --gold-glow-sm:  rgba(212,168,71,0.08);
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --transition: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgba(232, 160, 32, 0.25);
+  color: var(--ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   SKIP LINK
+===================================================== */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--dark-3); color: var(--ivory);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  z-index: 9999;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* =====================================================
+   NAV
+===================================================== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: var(--space-5) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition-slow), backdrop-filter var(--transition-slow);
+}
+
+nav.scrolled {
+  background: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 168, 71, 0.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-logo svg { width: 32px; height: 32px; }
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--ivory);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-weight: 400;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: var(--space-2) var(--space-6);
+  border: 1px solid rgba(212,168,71,0.4);
+  border-radius: var(--radius-full);
+  color: var(--gold);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(212,168,71,0.3);
+}
+
+.nav-mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.nav-mobile-btn span {
+  display: block;
+  height: 1px;
+  background: var(--ivory-dim);
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  nav { padding: var(--space-4) var(--space-5); }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-mobile-btn { display: flex; }
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--dark-1);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+.mobile-menu-close {
+  position: absolute; top: var(--space-6); right: var(--space-6);
+  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+}
+
+/* =====================================================
+   GALLERY HERO
+===================================================== */
+.gallery-hero {
+  padding: calc(80px + var(--space-16)) var(--space-8) var(--space-16);
+  text-align: center;
+  background: var(--dark-1);
+  position: relative;
+}
+
+.gallery-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.gallery-hero h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+}
+
+.gallery-hero p {
+  font-size: var(--text-lg);
+  color: var(--ivory-dim);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   GALLERY FILTERS
+===================================================== */
+.gallery-filters {
+  background: var(--black);
+  padding: var(--space-8) var(--space-8);
+  text-align: center;
+  position: sticky;
+  top: 80px;
+  z-index: 50;
+  border-bottom: 1px solid rgba(212,168,71,0.1);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-4);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.2);
+  border-radius: var(--radius-full);
+  color: var(--ivory-dim);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+/* =====================================================
+   GALLERY GRID
+===================================================== */
+.gallery-section {
+  background: var(--dark-1);
+  padding: var(--space-16) var(--space-8);
+}
+
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-20);
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(212,168,71,0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,11,11,0.9), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-4);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-caption {
+  color: var(--ivory);
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+.gallery-item.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: 1;
+}
+
+/* =====================================================
+   TESTIMONIALS
+===================================================== */
+.testimonials-section {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+  position: relative;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,71,0.3), transparent);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.testimonials-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.testimonials-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-8);
+}
+
+.testimonial-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  position: relative;
+  transition: all var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,71,0.3);
+  box-shadow: 0 12px 32px rgba(212,168,71,0.1);
+}
+
+.testimonial-quote {
+  font-size: var(--text-lg);
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ivory);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.testimonial-quote::before {
+  content: '"';
+  font-size: var(--text-3xl);
+  color: var(--gold);
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  opacity: 0.3;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  font-weight: 500;
+  font-size: var(--text-lg);
+}
+
+.testimonial-info h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--ivory);
+  margin-bottom: var(--space-1);
+}
+
+.testimonial-info p {
+  font-size: var(--text-sm);
+  color: var(--ivory-dim);
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+}
+
+.star {
+  color: var(--gold);
+  font-size: var(--text-sm);
+}
+
+/* =====================================================
+   INSTAGRAM FEED
+===================================================== */
+.instagram-section {
+  background: var(--dark-1);
+  padding: var(--space-20) var(--space-8);
+  text-align: center;
+}
+
+.instagram-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.instagram-header {
+  margin-bottom: var(--space-12);
+}
+
+.instagram-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.instagram-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.instagram-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.instagram-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(212,168,71,0.2);
+}
+
+.instagram-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.instagram-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11,11,11,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.instagram-item:hover .instagram-overlay {
+  opacity: 1;
+}
+
+.instagram-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--ivory);
+}
+
+.instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.instagram-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--dark-1);
+  border-top: 1px solid rgba(212,168,71,0.1);
+  padding: var(--space-12) var(--space-8) var(--space-8);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.footer-links a {
+  color: var(--ivory-dim);
+  transition: color var(--transition);
+  font-size: var(--text-sm);
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(212,168,71,0.1);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--ivory-faint);
+  margin-bottom: var(--space-1);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .gallery-item.featured {
+    grid-column: span 1;
+    grid-row: span 1;
+    aspect-ratio: 4/3;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  
+  .filter-buttons {
+    gap: var(--space-2);
+  }
+  
+  .filter-btn {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Link -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 10h8v12h-8z" fill="currentColor" opacity="0.8"/>
+      <circle cx="16" cy="16" r="3" fill="var(--gold)"/>
+    </svg>
+    <span class="nav-brand">BIRYANI LIFE</span>
+  </div>
+  
+  <ul class="nav-links" role="list">
+    <li><a href="BIRYANI LIFE-biryani.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="book-table.html">Reservations</a></li>
+    <li><a href="functions.html">Functions</a></li>
+    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
+  </ul>
+  
+  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <a href="BIRYANI LIFE-biryani.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="book-table.html">Reservations</a>
+  <a href="functions.html">Functions</a>
+  <a href="gallery.html">Gallery</a>
+</div>
+
+<!-- Main Content -->
+<main id="main">
+  <!-- Gallery Hero -->
+  <section class="gallery-hero" aria-labelledby="gallery-hero-heading">
+    <h1 id="gallery-hero-heading">Our Story in Pictures</h1>
+    <p>Experience the artistry of authentic Hyderabadi dum biryani through our visual journey</p>
+  </section>
+
+  <!-- Gallery Filters -->
+  <section class="gallery-filters" aria-label="Gallery filters">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="biryani">Biryani</button>
+      <button class="filter-btn" data-filter="ambiance">Ambiance</button>
+      <button class="filter-btn" data-filter="chef">Chef's Special</button>
+      <button class="filter-btn" data-filter="events">Events</button>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="gallery-section" aria-labelledby="gallery-heading">
+    <div class="gallery-container">
+      <h2 class="visually-hidden" id="gallery-heading">Photo Gallery</h2>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item featured" data-category="biryani">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/hyderabadi-biryani-closeup.jpg" alt="Close-up of authentic Hyderabadi dum biryani with saffron rice and tender meat">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Signature Dum Biryani - Our crown jewel</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="ambiance">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/luxury-restaurant-interior.jpg" alt="Elegant restaurant interior with royal ambiance and warm lighting">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Royal Dining Experience</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="chef">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/chef-plating-biryani.jpg" alt="Chef carefully plating biryani with artistic presentation">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Chef's Artistry</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="biryani">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/lamb-biryani-plated.jpg" alt="Royal lamb dum biryani beautifully plated with garnish">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Royal Lamb Biryani</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/wedding-catering-biryani.jpg" alt="Elegant wedding catering with handi biryani service">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Wedding Catering Service</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="ambiance">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/restaurant-dining-area.jpg" alt="Cozy dining area with traditional decor and comfortable seating">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Intimate Dining Space</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="chef">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/biryani-cooking-process.jpg" alt="Traditional dum cooking process with sealed handi">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Traditional Dum Cooking</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="biryani">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/vegetable-biryani-colorful.jpg" alt="Colorful vegetable dum biryani with fresh vegetables">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Garden Vegetable Biryani</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/corporate-event-catering.jpg" alt="Corporate event catering with professional service">
+          <div class="gallery-overlay">
+            <p class="gallery-caption">Corporate Catering</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section" aria-labelledby="testimonials-heading">
+    <div class="testimonials-container">
+      <div class="testimonials-header">
+        <p class="testimonials-eyebrow">What Our Guests Say</p>
+        <h2 class="testimonials-title" id="testimonials-heading">Guest Experiences</h2>
+      </div>
+      
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <blockquote class="testimonial-quote">
+            The most authentic Hyderabadi biryani I've had outside of Hyderabad! The aroma, the taste, the presentation - everything was perfect. This is now my go-to place for special occasions.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RK</div>
+            <div class="testimonial-info">
+              <h4>Rahul Kumar</h4>
+              <p>Food Enthusiast</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <span class="star">★★★★★</span>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <blockquote class="testimonial-quote">
+            We ordered catering for our wedding and it was absolutely spectacular! Our guests are still talking about the biryani. The service was professional and the food was exceptional.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SP</div>
+            <div class="testimonial-info">
+              <h4>Sarah Patel</h4>
+              <p>Wedding Client</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <span class="star">★★★★★</span>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <blockquote class="testimonial-quote">
+            As someone who grew up eating authentic biryani, I can say this place is the real deal. The dum cooking technique, the spice balance, the quality of meat - everything is top-notch.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MA</div>
+            <div class="testimonial-info">
+              <h4>Mohammed Ali</h4>
+              <p>Regular Customer</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <span class="star">★★★★★</span>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <blockquote class="testimonial-quote">
+            The ambiance is perfect for a special dinner date. Elegant yet comfortable, and the biryani is simply divine. Their lamb biryani is a must-try!
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">EJ</div>
+            <div class="testimonial-info">
+              <h4>Emily Johnson</h4>
+              <p>Food Blogger</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <span class="star">★★★★★</span>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <blockquote class="testimonial-quote">
+            We've been ordering from BIRYANI LIFE for our office events for months now. Consistently excellent quality and always on time. Our team loves it!
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DC</div>
+            <div class="testimonial-info">
+              <h4>David Chen</h4>
+              <p>Corporate Client</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <span class="star">★★★★★</span>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <blockquote class="testimonial-quote">
+            The vegetarian biryani here is outstanding! So flavorful and satisfying. It's hard to find restaurants that give equal attention to their vegetarian dishes, but BIRYANI LIFE nails it.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PG</div>
+            <div class="testimonial-info">
+              <h4>Priya Gupta</h4>
+              <p>Vegetarian Foodie</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <span class="star">★★★★★</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Feed -->
+  <section class="instagram-section" aria-labelledby="instagram-heading">
+    <div class="instagram-container">
+      <div class="instagram-header">
+        <p class="instagram-eyebrow">Follow Us</p>
+        <h2 class="instagram-title" id="instagram-heading">@BIRYANI LIFEBIRYANI</h2>
+      </div>
+      
+      <div class="instagram-grid">
+        <div class="instagram-item">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post1.jpg" alt="Instagram post of fresh biryani">
+          <div class="instagram-overlay">
+            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+              <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="instagram-item">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post2.jpg" alt="Instagram post of chef cooking">
+          <div class="instagram-overlay">
+            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+              <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="instagram-item">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post3.jpg" alt="Instagram post of restaurant ambiance">
+          <div class="instagram-overlay">
+            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+              <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="instagram-item">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post4.jpg" alt="Instagram post of happy customers">
+          <div class="instagram-overlay">
+            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+              <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="instagram-item">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post5.jpg" alt="Instagram post of catering event">
+          <div class="instagram-overlay">
+            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+              <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="instagram-item">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post6.jpg" alt="Instagram post of special dish">
+          <div class="instagram-overlay">
+            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
+              <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <a href="https://www.instagram.com/BIRYANI LIFEbiryani" target="_blank" rel="noopener" class="instagram-btn">
+        Follow on Instagram
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+          <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 0 0 1 0 7.998z"/>
+          <circle cx="18.406" cy="5.594" r="1.44"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-links">
+      <a href="BIRYANI LIFE-biryani.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="book-table.html">Reservations</a>
+      <a href="functions.html">Functions</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy">Slow-crafted. Delivered royal.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =====================================================
+// NAV SCROLL EFFECT
+//=====================================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// =====================================================
+// MOBILE MENU
+//=====================================================
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileMenuClose');
+const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  mobileBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  mobileBtn.setAttribute('aria-expanded', 'false');
+}
+
+mobileBtn.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// =====================================================
+// GALLERY FILTERS
+//=====================================================
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active class from all buttons
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    // Add active class to clicked button
+    button.classList.add('active');
+    
+    const filter = button.getAttribute('data-filter');
+    
+    galleryItems.forEach(item => {
+      if (filter === 'all' || item.getAttribute('data-category') === filter) {
+        item.style.display = 'block';
+        // Add fade-in animation
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+        }, 10);
+      } else {
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.8)';
+        setTimeout(() => {
+          item.style.display = 'none';
+        }, 300);
+      }
+    });
+  });
+});
+
+// =====================================================
+// GALLERY LIGHTBOX (Simple Implementation)
+//=====================================================
+const galleryImages = document.querySelectorAll('.gallery-item img');
+let currentImageIndex = 0;
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentImageIndex = index;
+    // In a real implementation, this would open a lightbox
+    // For now, we'll just open the image in a new tab
+    window.open(img.src, '_blank');
+  });
+});
+
+// =====================================================
+// INSTAGRAM ITEMS
+//=====================================================
+const instagramItems = document.querySelectorAll('.instagram-item');
+instagramItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // In a real implementation, this would open the Instagram post
+    window.open('https://www.instagram.com/BIRYANI LIFEbiryani', '_blank');
+  });
+});
+</script>
+
+</body>
+</html>
