@@ -75,6 +75,46 @@
 <link rel="dns-prefetch" href="//maps.googleapis.com">
 <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
+<style>
+  /* Watermark Styles */
+  .watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(212, 168, 71, 0.3);
+    color: rgba(0, 0, 0, 0.4);
+    padding: 6px 12px;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    backdrop-filter: blur(5px);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .watermark::before {
+    content: 'BIRYANI LIFE';
+    position: relative;
+    z-index: 1;
+  }
+
+  .watermark-corner {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" stroke="%23D4A847" stroke-width="1" fill="none"/><path d="M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z" stroke="%23D4A847" stroke-width="1" fill="none" opacity="0.6"/><path d="M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z" fill="%23D4A847"/></svg>') center/contain no-repeat;
+    opacity: 0.3;
+    z-index: 3;
+    pointer-events: none;
+  }
+</style>
+
 <!-- Favicon & App Icons -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' stroke='%23D4A847' stroke-width='1' fill='none'/><path d='M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z' stroke='%23D4A847' stroke-width='1' fill='none' opacity='0.6'/><path d='M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z' fill='%23D4A847'/></svg>">
 <link rel="apple-touch-icon" href="https://biryani.life/apple-touch-icon.png">
@@ -554,13 +594,12 @@ nav.scrolled {
 
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(11,11,11,0.3) 0%,
-    rgba(11,11,11,0.1) 40%,
-    rgba(11,11,11,0.6) 80%,
-    var(--black) 100%
-  );
+  background: 
+    radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.8) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(0,0,0,0.6) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 /* Steam Effect */
