@@ -1,0 +1,57 @@
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the site
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Disallow admin and system files
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /temp/
+Disallow: /cache/
+
+# Disallow sensitive files
+Disallow: /*.log
+Disallow: /*.env
+Disallow: /*.config
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+# Allow important files and directories
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /videos/
+Allow: /fonts/
+
+# Sitemap location
+Sitemap: https://biryani.life/sitemap.xml
+
+# Additional SEO directives
+# Host directive for Yandex
+Host: https://biryani.life
+
+# Crawl budget optimization
+User-agent: Googlebot-Image
+Allow: /images/
+Disallow: /images/temp/
+Disallow: /images/private/
+
+User-agent: Googlebot-Video
+Allow: /videos/
+Disallow: /videos/private/

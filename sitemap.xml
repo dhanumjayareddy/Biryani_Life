@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://biryani.life/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://biryani.life/images/biryani-hero.jpg</image:loc>
+      <image:title>Authentic Hyderabadi Dum Biryani</image:title>
+      <image:caption>Steaming Hyderabadi dum biryani with saffron rice and tender meat</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Menu Page -->
+  <url>
+    <loc>https://biryani.life/menu.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://biryani.life/images/chicken-biryani.jpg</image:loc>
+      <image:title>Royal Chicken Dum Biryani</image:title>
+      <image:caption>Tender chicken marinated in secret spices, slow-cooked with basmati rice</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://biryani.life/images/mutton-biryani.jpg</image:loc>
+      <image:title>Premium Mutton Dum Biryani</image:title>
+      <image:caption>Tender mutton pieces slow-cooked with aromatic basmati rice and saffron</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://biryani.life/images/veg-biryani.jpg</image:loc>
+      <image:title>Vegetable Dum Biryani</image:title>
+      <image:caption>Fresh vegetables and paneer cooked with fragrant basmati rice</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://biryani.life/gallery.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://biryani.life/images/biryani-gallery-hero.jpg</image:loc>
+      <image:title>BIRYANI LIFE Gallery</image:title>
+      <image:caption>Gallery of authentic Hyderabadi dum biryani from BIRYANI LIFE</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://biryani.life/images/restaurant-interior.jpg</image:loc>
+      <image:title>Restaurant Interior</image:title>
+      <image:caption>Elegant dining ambiance at BIRYANI LIFE</image:caption>
+    </image:image>
+    <video:video>
+      <video:content_loc>https://biryani.life/videos/biryani-preparation.mp4</video:content_loc>
+      <video:thumbnail_loc>https://biryani.life/videos/biryani-preparation-thumb.jpg</video:thumbnail_loc>
+      <video:title>The Art of Hyderabadi Dum Biryani</video:title>
+      <video:description>Watch how we prepare our authentic dum biryani using traditional techniques</video:description>
+      <video:duration>150</video:duration>
+    </video:video>
+  </url>
+
+  <!-- Reservations Page -->
+  <url>
+    <loc>https://biryani.life/book-table.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Functions Page -->
+  <url>
+    <loc>https://biryani.life/functions.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://biryani.life/about.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://biryani.life/contact.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://biryani.life/images/restaurant-location.jpg</image:loc>
+      <image:title>BIRYANI LIFE Location</image:title>
+      <image:caption>BIRYANI LIFE restaurant exterior in New York City</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
