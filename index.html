@@ -1570,7 +1570,7 @@ nav.scrolled {
 
 .delivery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: var(--space-4);
 }
 
@@ -1644,6 +1644,10 @@ nav.scrolled {
 }
 
 @media (max-width: 768px) {
+  .delivery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 500px) {
   .delivery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -2010,12 +2014,12 @@ footer {
 
   <ul class="nav-links" role="list">
     <li><a href="#story">The Craft</a></li>
-    <li><a href="menu.html">Menu</a></li>
-    <li><a href="book-table.html">Reservations</a></li>
-    <li><a href="functions.html">Functions</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="/menu">Menu</a></li>
+    <li><a href="/reservations">Reservations</a></li>
+    <li><a href="/functions">Functions</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
     <li><a href="#order">Order</a></li>
   </ul>
 
@@ -2030,13 +2034,13 @@ footer {
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
   <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
   <a href="#story" class="mobile-link">The Craft</a>
-  <a href="menu.html" class="mobile-link">Menu</a>
+  <a href="/menu" class="mobile-link">Menu</a>
   <a href="#ritual" class="mobile-link">The Ritual</a>
-  <a href="book-table.html" class="mobile-link">Reservations</a>
-  <a href="functions.html" class="mobile-link">Functions</a>
-  <a href="gallery.html" class="mobile-link">Gallery</a>
-  <a href="about.html" class="mobile-link">About</a>
-  <a href="contact.html" class="mobile-link">Contact</a>
+  <a href="/reservations" class="mobile-link">Reservations</a>
+  <a href="/functions" class="mobile-link">Functions</a>
+  <a href="/gallery" class="mobile-link">Gallery</a>
+  <a href="/about" class="mobile-link">About</a>
+  <a href="/contact" class="mobile-link">Contact</a>
   <a href="#order" class="mobile-link">Order</a>
 </div>
 
@@ -2097,6 +2101,14 @@ footer {
       <a href="https://www.postmates.com/merchant/BIRYANI LIFE-biryani" target="_blank" rel="noopener" class="delivery-app">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Postmates_logo.svg/2560px-Postmates_logo.svg.png" alt="Postmates" class="delivery-logo">
         <span class="delivery-name">Postmates</span>
+      </a>
+      <a href="https://order.instacart.com/products/BIRYANI LIFE-biryani" target="_blank" rel="noopener" class="delivery-app">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Instacart_logo.svg/2560px-Instacart_logo.svg.png" alt="Instacart" class="delivery-logo">
+        <span class="delivery-name">Instacart</span>
+      </a>
+      <a href="https://www.seamless.com/restaurant/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="delivery-app">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Seamless_logo.svg/2560px-Seamless_logo.svg.png" alt="Seamless" class="delivery-logo">
+        <span class="delivery-name">Seamless</span>
       </a>
     </div>
   </div>
@@ -2445,6 +2457,28 @@ footer {
         </svg>
         <span class="delivery-name">Postmates</span>
         <span class="delivery-time">30–45 min</span>
+        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instacart.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Instacart">
+        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
+          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">Instacart</text>
+        </svg>
+        <span class="delivery-name">Instacart</span>
+        <span class="delivery-time">20–35 min</span>
+        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <a href="https://www.seamless.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Seamless">
+        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
+          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">Seamless</text>
+        </svg>
+        <span class="delivery-name">Seamless</span>
+        <span class="delivery-time">25–40 min</span>
         <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
