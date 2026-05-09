@@ -647,6 +647,223 @@ nav.scrolled {
 }
 
 /* =====================================================
+   USER CONTENT SECTIONS
+===================================================== */
+.user-content-section {
+  background: var(--dark-1);
+  padding: var(--space-20) var(--space-8);
+  border-top: 1px solid rgba(212,168,71,0.1);
+}
+
+.user-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.user-content-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.user-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+}
+
+.user-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-6);
+}
+
+.user-subtitle {
+  font-size: var(--text-lg);
+  color: var(--ivory-dim);
+  margin-bottom: var(--space-8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+}
+
+.user-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.user-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,71,0.3);
+  box-shadow: 0 12px 32px rgba(212,168,71,0.1);
+}
+
+.user-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-4);
+  background: var(--gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--black);
+}
+
+.user-title-text {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-2);
+}
+
+.user-description {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.user-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--gold);
+  color: var(--black);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.user-cta:hover {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.upload-section {
+  background: var(--black);
+  padding: var(--space-20) var(--space-8);
+  text-align: center;
+}
+
+.upload-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.upload-area {
+  background: rgba(255,255,255,0.02);
+  border: 2px dashed rgba(212,168,71,0.3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.upload-area:hover {
+  border-color: rgba(212,168,71,0.5);
+  background: rgba(212,168,71,0.05);
+}
+
+.upload-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--space-4);
+  color: var(--gold);
+}
+
+.upload-text {
+  font-size: var(--text-lg);
+  color: var(--ivory-dim);
+  margin-bottom: var(--space-4);
+}
+
+.upload-hint {
+  font-size: var(--text-sm);
+  color: var(--ivory-faint);
+  margin-top: var(--space-2);
+}
+
+.tag-input {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,71,0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  color: var(--ivory);
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  transition: all var(--transition);
+  width: 100%;
+  max-width: 400px;
+}
+
+.tag-input:focus {
+  outline: 1px solid var(--gold);
+  border-color: var(--gold);
+}
+
+.submit-btn {
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .user-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .upload-area {
+    padding: var(--space-12);
+  }
+}
+
+/* =====================================================
    FOOTER
 ===================================================== */
 footer {
@@ -747,11 +964,13 @@ footer {
   </div>
   
   <ul class="nav-links" role="list">
-    <li><a href="BIRYANI LIFE-biryani.html">Home</a></li>
-    <li><a href="menu.html">Menu</a></li>
-    <li><a href="book-table.html">Reservations</a></li>
-    <li><a href="functions.html">Functions</a></li>
-    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/menu">Menu</a></li>
+    <li><a href="/reservations">Reservations</a></li>
+    <li><a href="/functions">Functions</a></li>
+    <li><a href="/gallery" class="nav-cta">Gallery</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
   </ul>
   
   <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -764,11 +983,13 @@ footer {
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
   <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
-  <a href="BIRYANI LIFE-biryani.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="book-table.html">Reservations</a>
-  <a href="functions.html">Functions</a>
-  <a href="gallery.html">Gallery</a>
+  <a href="/">Home</a>
+  <a href="/menu">Menu</a>
+  <a href="/reservations">Reservations</a>
+  <a href="/functions">Functions</a>
+  <a href="/gallery">Gallery</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
 </div>
 
 <!-- Main Content -->
@@ -1063,14 +1284,16 @@ footer {
   <div class="footer-content">
     <div class="footer-logo">BIRYANI LIFE</div>
     <div class="footer-links">
-      <a href="BIRYANI LIFE-biryani.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="book-table.html">Reservations</a>
-      <a href="functions.html">Functions</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="/">Home</a>
+      <a href="/menu">Menu</a>
+      <a href="/reservations">Reservations</a>
+      <a href="/functions">Functions</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy"> 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
       <p class="footer-copy">Slow-crafted. Delivered royal.</p>
     </div>
   </div>
