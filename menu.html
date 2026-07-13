@@ -5,29 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary Meta Tags -->
-<title>Menu - BIRYANI LIFE | Authentic Hyderabadi Dum Biryani | Order Online</title>
-<meta name="title" content="Menu - BIRYANI LIFE | Authentic Hyderabadi Dum Biryani | Order Online">
-<meta name="description" content="Explore BIRYANI LIFE's authentic Hyderabadi dum biryani menu. Premium chicken, mutton, and vegetarian biryani options. Order online for delivery or pickup on Uber Eats, DoorDash, Grubhub.">
+<title>Menu - STAR BIRYANI| Authentic Hyderabadi Dum Biryani | Order Online</title>
+<meta name="title" content="Menu - STAR BIRYANI| Authentic Hyderabadi Dum Biryani | Order Online">
+<meta name="description" content="Explore STAR BIRYANI's authentic Hyderabadi dum biryani menu. Premium chicken, mutton, and vegetarian biryani options. Order online for delivery or pickup on Uber Eats and DoorDash.">
 <meta name="keywords" content="biryani menu, hyderabadi biryani menu, chicken biryani, mutton biryani, vegetarian biryani, biryani prices, order biryani online, biryani delivery, indian food menu, restaurant menu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="author" content="BIRYANI LIFE">
+<meta name="author" content="STAR BIRYANI">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://biryani.life/menu.html">
-<meta property="og:title" content="Menu - BIRYANI LIFE | Authentic Hyderabadi Dum Biryani">
-<meta property="og:description" content="Explore BIRYANI LIFE's authentic Hyderabadi dum biryani menu. Premium chicken, mutton, and vegetarian biryani options. Order online for delivery or pickup.">
+<meta property="og:title" content="Menu - STAR BIRYANI| Authentic Hyderabadi Dum Biryani">
+<meta property="og:description" content="Explore STAR BIRYANI's authentic Hyderabadi dum biryani menu. Premium chicken, mutton, and vegetarian biryani options. Order online for delivery or pickup.">
 <meta property="og:image" content="https://biryani.life/images/biryani-menu.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="BIRYANI LIFE menu featuring authentic Hyderabadi dum biryani">
-<meta property="og:site_name" content="BIRYANI LIFE">
+<meta property="og:image:alt" content="STAR BIRYANImenu featuring authentic Hyderabadi dum biryani">
+<meta property="og:site_name" content="STAR BIRYANI">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://biryani.life/menu.html">
-<meta property="twitter:title" content="Menu - BIRYANI LIFE | Authentic Hyderabadi Dum Biryani">
-<meta property="twitter:description" content="Explore BIRYANI LIFE's authentic Hyderabadi dum biryani menu. Premium chicken, mutton, and vegetarian biryani options.">
+<meta property="twitter:title" content="Menu - STAR BIRYANI| Authentic Hyderabadi Dum Biryani">
+<meta property="twitter:description" content="Explore STAR BIRYANI's authentic Hyderabadi dum biryani menu. Premium chicken, mutton, and vegetarian biryani options.">
 <meta property="twitter:image" content="https://biryani.life/images/biryani-menu.jpg">
 <meta property="twitter:site" content="@BIRYANILIFE">
 
@@ -41,7 +41,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Menu",
-  "name": "BIRYANI LIFE Menu",
+  "name": "STAR BIRYANIMenu",
   "description": "Authentic Hyderabadi dum biryani menu with premium ingredients",
   "url": "https://biryani.life/menu.html",
   "hasMenuItem": [
@@ -100,7 +100,7 @@
   "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
-    "name": "BIRYANI LIFE",
+    "name": "STAR BIRYANI",
     "url": "https://biryani.life/"
   }
 }
@@ -111,7 +111,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "BIRYANI LIFE Biryani Collection",
+  "name": "STAR BIRYANIBiryani Collection",
   "description": "Premium Hyderabadi dum biryani varieties",
   "url": "https://biryani.life/menu.html",
   "numberOfItems": 3,
@@ -129,7 +129,7 @@
         "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
-          "name": "BIRYANI LIFE"
+          "name": "STAR BIRYANI"
         }
       },
       "aggregateRating": {
@@ -151,7 +151,7 @@
         "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
-          "name": "BIRYANI LIFE"
+          "name": "STAR BIRYANI"
         }
       },
       "aggregateRating": {
@@ -173,7 +173,7 @@
         "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
-          "name": "BIRYANI LIFE"
+          "name": "STAR BIRYANI"
         }
       },
       "aggregateRating": {
@@ -425,32 +425,57 @@ nav.scrolled {
   position: fixed;
   inset: 0;
   z-index: 99;
-  background: var(--dark-1);
+  background: rgba(9, 9, 9, 0.96);
+  padding: var(--space-16) var(--space-8);
+  box-sizing: border-box;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
+  gap: var(--space-5);
   opacity: 0;
-  transition: opacity var(--transition);
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .mobile-menu.open {
   display: flex;
   opacity: 1;
+  transform: translateY(0);
 }
 
 .mobile-menu a {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  color: var(--ivory-dim);
-  transition: color var(--transition);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--ivory);
+  text-decoration: none;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.04);
+}
 
 .mobile-menu-close {
-  position: absolute; top: var(--space-6); right: var(--space-6);
-  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ivory);
+  font-size: var(--text-2xl);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* =====================================================
@@ -790,13 +815,13 @@ footer {
 <nav id="nav" aria-label="Main navigation">
   <div class="nav-logo">
     <!-- SVG Logo -->
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BIRYANI LIFE logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="STAR BIRYANIlogo">
       <path d="M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z" stroke="#D4A847" stroke-width="1" fill="none" opacity="0.6"/>
       <path d="M16 7 C11 7 8 10.5 8 14.5 C8 19 11 24 16 26 C21 24 24 19 24 14.5 C24 10.5 21 7 16 7Z" fill="#D4A847" opacity="0.12"/>
       <path d="M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z" fill="#D4A847" opacity="0.9"/>
       <circle cx="16" cy="14.5" r="1.5" fill="#E8A020"/>
     </svg>
-    <span class="nav-brand">BIRYANI LIFE</span>
+    <span class="nav-brand">STAR BIRYANI</span>
   </div>
 
   <ul class="nav-links" role="list">
@@ -842,264 +867,868 @@ footer {
   <!-- Order Section -->
   <section class="order-section" aria-labelledby="order-heading">
     <p class="menu-eyebrow">Order Now</p>
-    <h2 class="menu-title" id="order-heading">Available on Your Favorite Apps</h2>
-    <div class="order-buttons">
-      <a href="https://www.ubereats.com/store/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="order-btn">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        </svg>
-        Uber Eats
-      </a>
-      <a href="https://www.doordash.com/store/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="order-btn">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        </svg>
-        DoorDash
-      </a>
-      <a href="https://www.grubhub.com/restaurant/BIRYANI LIFE-biryani/your-store-id" target="_blank" rel="noopener" class="order-btn">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        </svg>
-        Grubhub
-      </a>
-      <a href="https://www.postmates.com/merchant/BIRYANI LIFE-biryani" target="_blank" rel="noopener" class="order-btn">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        </svg>
-        Postmates
-      </a>
+    <h2 class="menu-title" id="order-heading">Order by Location</h2>
+    <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:2rem;">
+      <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
+        <h3 class="section-subtitle">Anderson Ln Location</h3>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
+          <a href="https://www.doordash.com/store/38780617" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+            <img src="assets/images/delivery-apps/doordash-logo.png" alt="DoorDash" style="width:100px;height:auto;background:transparent;padding:0;">
+          </a>
+          <a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+            <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="Uber Eats" style="width:100px;height:auto;background:transparent;padding:0;">
+          </a>
+        </div>
+      </article>
+      <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
+        <h3 class="section-subtitle">Sunsetvalley Location</h3>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
+          <a href="https://www.doordash.com/store/25067432" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+            <img src="assets/images/delivery-apps/doordash-logo.png" alt="DoorDash" style="width:100px;height:auto;background:transparent;padding:0;">
+          </a>
+          <a href="https://www.ubereats.com/store/star-biryani-sunset-valley/7vtltvEnUyS_8P09y3qHOg" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+            <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="Uber Eats" style="width:100px;height:auto;background:transparent;padding:0;">
+          </a>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- Signature Biryani Section -->
-  <section class="menu-section" aria-labelledby="biryani-heading">
+  <!-- Appetizers Section -->
+  <section class="menu-section" aria-labelledby="appetizers-heading">
     <div class="menu-container">
       <div class="menu-header">
-        <p class="menu-eyebrow">Signature Collection</p>
-        <h2 class="menu-title" id="biryani-heading">Royal Dum Biryani</h2>
+        <p class="menu-eyebrow">Starter Flavors</p>
+        <h2 class="menu-title" id="appetizers-heading">Appetizers</h2>
       </div>
-      
+
       <div class="menu-grid">
-        <article class="menu-item">
-          <div class="menu-item-image">
-            <img src="assets/images/menu/chicken-biryani.jpg" alt="Hyderabadi Chicken Dum Biryani">
-          </div>
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Hyderabadi Chicken Dum Biryani</h3>
-            <span class="menu-item-price">$18.99</span>
-          </div>
-          <p class="menu-item-description">Tender chicken marinated in aromatic spices, layered with basmati rice and slow-cooked to perfection under dum</p>
-          <div class="menu-item-tags">
-            <span class="menu-tag">Popular</span>
-            <span class="menu-tag">Spicy</span>
-            <span class="menu-tag">Gluten-Free</span>
-          </div>
-          <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Hyderabadi Chicken Dum Biryani')">Order Now</button>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-item-image">
-            <img src="assets/images/menu/lamb-biryani.jpg" alt="Royal Lamb Dum Biryani">
-          </div>
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Royal Lamb Dum Biryani</h3>
-            <span class="menu-item-price">$24.99</span>
-          </div>
-          <p class="menu-item-description">Premium lamb pieces marinated overnight, cooked with fragrant basmati and our secret family spices</p>
-          <div class="menu-item-tags">
-            <span class="menu-tag">Premium</span>
-            <span class="menu-tag">Chef's Special</span>
-          </div>
-          <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Royal Lamb Dum Biryani')">Order Now</button>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-item-image">
-            <img src="assets/images/menu/vegetable-biryani.jpg" alt="Garden Vegetable Dum Biryani">
-          </div>
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Garden Vegetable Dum Biryani</h3>
-            <span class="menu-item-price">$16.99</span>
-          </div>
-          <p class="menu-item-description">Fresh seasonal vegetables, paneer, and aromatic herbs in our signature dum style preparation</p>
-          <div class="menu-item-tags">
-            <span class="menu-tag">Vegetarian</span>
-            <span class="menu-tag">Healthy</span>
-          </div>
-          <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Garden Vegetable Dum Biryani')">Order Now</button>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-item-image">
-            <img src="assets/images/menu/prawn-biryani.jpg" alt="Coastal Prawn Dum Biryani">
-          </div>
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Coastal Prawn Dum Biryani</h3>
-            <span class="menu-item-price">$22.99</span>
-          </div>
-          <p class="menu-item-description">Juicy prawns marinated in coastal spices, perfectly balanced with basmati rice</p>
-          <div class="menu-item-tags">
-            <span class="menu-tag">Seafood</span>
-            <span class="menu-tag">Limited</span>
-          </div>
-          <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Coastal Prawn Dum Biryani')">Order Now</button>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sides & Accompaniments Section -->
-  <section class="menu-section" aria-labelledby="sides-heading">
-    <div class="menu-container">
-      <div class="menu-header">
-        <p class="menu-eyebrow">Accompaniments</p>
-        <h2 class="menu-title" id="sides-heading">Sides & Add-ons</h2>
-      </div>
-      
-      <div class="menu-grid">
-        <article class="menu-item">
-          <div class="menu-item-image">
-            <img src="assets/images/menu/mirchi-ka-salan.jpg" alt="Mirchi ka Salan">
-          </div>
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Mirchi ka Salan</h3>
-            <span class="menu-item-price">$6.99</span>
-          </div>
-          <p class="menu-item-description">Traditional Hyderabadi chili curry with peanuts and sesame</p>
-          <div class="menu-item-tags">
-            <span class="menu-tag">Classic</span>
-            <span class="menu-tag">Medium Spice</span>
-          </div>
-          <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Mirchi ka Salan')">Order Now</button>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-item-image">
-            <img src="assets/images/menu/raita.jpg" alt="Raita">
-          </div>
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Raita</h3>
-            <span class="menu-item-price">$4.99</span>
-          </div>
-          <p class="menu-item-description">Cooling yogurt dip with cucumber, mint, and spices</p>
-          <div class="menu-item-tags">
-            <span class="menu-tag">Cooling</span>
-            <span class="menu-tag">Vegan Option</span>
-          </div>
-          <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Raita')">Order Now</button>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-item-image">
-            <img src="assets/images/menu/baghara-baingan.jpg" alt="Baghara Baingan">
-          </div>
-          <div class="menu-item-header">
-            <h3 class="menu-item-title">Baghara Baingan</h3>
-            <span class="menu-item-price">$8.99</span>
-          </div>
-          <p class="menu-item-description">Stuffed baby eggplants in peanut-sesame curry</p>
-          <div class="menu-item-tags">
-            <span class="menu-tag">Vegetarian</span>
-            <span class="menu-tag">Traditional</span>
-          </div>
-          <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Baghara Baingan')">Order Now</button>
-          </div>
-        </article>
-
         <article class="menu-item">
           <div class="menu-item-image">
             <img src="assets/images/menu/chicken-65.jpg" alt="Chicken 65">
           </div>
           <div class="menu-item-header">
             <h3 class="menu-item-title">Chicken 65</h3>
-            <span class="menu-item-price">$9.99</span>
+            <span class="menu-item-price">$9.00</span>
           </div>
-          <p class="menu-item-description">Spicy fried chicken appetizer with curry leaves</p>
+          <p class="menu-item-description">Spicy fried chicken tossed with curry leaves and chili.</p>
           <div class="menu-item-tags">
-            <span class="menu-tag">Appetizer</span>
             <span class="menu-tag">Spicy</span>
+            <span class="menu-tag">Crispy</span>
           </div>
           <div class="menu-item-order">
             <button class="quick-order-btn" onclick="orderItem('Chicken 65')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/gobi-manchurian.jpg" alt="Gobi Manchuria">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Gobi Manchuria</h3>
+            <span class="menu-item-price">$9.00</span>
+          </div>
+          <p class="menu-item-description">Crispy cauliflower tossed in a savory Indo-Chinese sauce.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Spicy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Gobi Manchuria')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/pepper-chicken.jpg" alt="Pepper Chicken">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Pepper Chicken</h3>
+            <span class="menu-item-price">$9.00</span>
+          </div>
+          <p class="menu-item-description">Black pepper chicken cooked with onions and aromatic spices.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Peppery</span>
+            <span class="menu-tag">Savory</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Pepper Chicken')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/chilli-chicken.jpg" alt="Chilli Chicken">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Chilli Chicken</h3>
+            <span class="menu-item-price">$9.00</span>
+          </div>
+          <p class="menu-item-description">Tangy chili chicken with peppers and crunchy onions.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Chilli</span>
+            <span class="menu-tag">Bold</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Chilli Chicken')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/samosa.jpg" alt="Samosa">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Samosa (2 pcs)</h3>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+          <p class="menu-item-description">Crispy pastry pockets filled with spiced potato and peas.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Snack</span>
+            <span class="menu-tag">Vegetarian</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Samosa (2 pcs)')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/egg-pepper-fry.jpg" alt="Egg Pepper Fry">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Egg Pepper Fry</h3>
+            <span class="menu-item-price">$7.00</span>
+          </div>
+          <p class="menu-item-description">Spiced egg fry finished with pepper and curry leaves.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Egg</span>
+            <span class="menu-tag">Spicy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Egg Pepper Fry')">Order Now</button>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Beverages Section -->
+  <!-- Biryanis Section -->
+  <section class="menu-section" aria-labelledby="biryani-heading">
+    <div class="menu-container">
+      <div class="menu-header">
+        <p class="menu-eyebrow">Royal Plates</p>
+        <h2 class="menu-title" id="biryani-heading">Biryanis</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/chicken-biryani.jpg" alt="STAR Chicken Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">STAR Chicken Biryani</h3>
+            <span class="menu-item-price">$16.99</span>
+          </div>
+          <p class="menu-item-description">Signature chicken biryani cooked with saffron and whole spices.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Chicken</span>
+            <span class="menu-tag">Signature</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('STAR Chicken Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/mutton-biryani.jpg" alt="Dindigul Thalappakatti Mutton Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Dindigul Thalappakatti Mutton Biryani</h3>
+            <span class="menu-item-price">$17.00</span>
+          </div>
+          <p class="menu-item-description">Spicy South Indian mutton biryani with traditional Dindigul flavors.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Mutton</span>
+            <span class="menu-tag">Regional</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Dindigul Thalappakatti Mutton Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/egg-biryani.jpg" alt="Egg Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Egg Biryani</h3>
+            <span class="menu-item-price">$15.00</span>
+          </div>
+          <p class="menu-item-description">Classic egg biryani with boiled eggs, aromatic rice, and spices.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Egg</span>
+            <span class="menu-tag">Comfort</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Egg Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/boneless-65-biryani.jpg" alt="Chicken Boneless 65 Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Chicken Boneless 65 Biryani</h3>
+            <span class="menu-item-price">$17.00</span>
+          </div>
+          <p class="menu-item-description">Boneless chicken biryani inspired by the popular 65-style preparation.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Boneless</span>
+            <span class="menu-tag">Hot</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Chicken Boneless 65 Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/vegetable-biryani.jpg" alt="Hyderabad Veg Dum Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Hyderabad Veg Dum Biryani</h3>
+            <span class="menu-item-price">$14.00</span>
+          </div>
+          <p class="menu-item-description">Vegetarian dum biryani with paneer, vegetables, and fragrant rice.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Dum</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Hyderabad Veg Dum Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/chicken-biryani.jpg" alt="Hyderabadi Chicken Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Hyderabadi Chicken Biryani</h3>
+            <span class="menu-item-price">$14.99</span>
+          </div>
+          <p class="menu-item-description">Classic Hyderabadi chicken biryani rich with spice and aroma.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Chicken</span>
+            <span class="menu-tag">Classic</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Hyderabadi Chicken Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/paneer-biryani.jpg" alt="Paneer Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Paneer Biryani</h3>
+            <span class="menu-item-price">$14.00</span>
+          </div>
+          <p class="menu-item-description">Soft paneer cubes tossed with basmati rice and rich biryani spices.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Creamy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Paneer Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/chettinad-veg-biryani.jpg" alt="Chettinad Veg Dum Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Chettinad Veg Dum Biryani</h3>
+            <span class="menu-item-price">$14.00</span>
+          </div>
+          <p class="menu-item-description">South Indian veg dum biryani with bold Chettinad masala.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Regional</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Chettinad Veg Dum Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/fish-biryani.jpg" alt="Fish Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Fish Biryani</h3>
+            <span class="menu-item-price">$17.00</span>
+          </div>
+          <p class="menu-item-description">Delicate fish pieces layered with spiced rice and fresh herbs.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Seafood</span>
+            <span class="menu-tag">Aromatic</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Fish Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/mutton-biryani.jpg" alt="Hyderabadi Mutton Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Hyderabadi Mutton Biryani</h3>
+            <span class="menu-item-price">$17.00</span>
+          </div>
+          <p class="menu-item-description">Rich mutton biryani with tender meat and fragrant saffron rice.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Mutton</span>
+            <span class="menu-tag">Classic</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Hyderabadi Mutton Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/ulavucharu-biryani.jpg" alt="Ulavucharu Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Ulavucharu Biryani</h3>
+            <span class="menu-item-price">$15.00</span>
+          </div>
+          <p class="menu-item-description">Unique ulavacharu biryani with a rich lentil broth base.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Regional</span>
+            <span class="menu-tag">Special</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Ulavucharu Biryani')">Order Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curries Section -->
+  <section class="menu-section" aria-labelledby="curries-heading">
+    <div class="menu-container">
+      <div class="menu-header">
+        <p class="menu-eyebrow">Curry Classics</p>
+        <h2 class="menu-title" id="curries-heading">Curries</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/tikka-masala.jpg" alt="Tikka Masala">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Tikka Masala</h3>
+            <span class="menu-item-price">$14.99</span>
+          </div>
+          <p class="menu-item-description">Creamy tomato-based curry with tender spiced meat or paneer.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Creamy</span>
+            <span class="menu-tag">Comfort</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Tikka Masala')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/punjabi-curry.jpg" alt="Punjabi Dabastyle Curry">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Punjabi Dabastyle Curry</h3>
+            <span class="menu-item-price">$18.99</span>
+          </div>
+          <p class="menu-item-description">Hearty Punjabi-style curry rich with spices and butter.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Punjabi</span>
+            <span class="menu-tag">Rich</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Punjabi Dabastyle Curry')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/coconut-curry.jpg" alt="Coconut Curry">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Coconut Curry</h3>
+            <span class="menu-item-price">$13.99</span>
+          </div>
+          <p class="menu-item-description">Light coconut-based curry with soft herbs and mild spices.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Mild</span>
+            <span class="menu-tag">Creamy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Coconut Curry')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/andra-chicken-curry.jpg" alt="Andra Special Chicken Curry">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Andra Special Chicken Curry</h3>
+            <span class="menu-item-price">$16.99</span>
+          </div>
+          <p class="menu-item-description">Andhra-style chicken curry with bold red chilies and curry leaves.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Andhra</span>
+            <span class="menu-tag">Spicy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Andra Special Chicken Curry')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/chettinad-lamb.jpg" alt="Chettinad Curry Lamb Boneless">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Chettinad Curry Lamb Boneless</h3>
+            <span class="menu-item-price">$19.99</span>
+          </div>
+          <p class="menu-item-description">Spicy boneless lamb curry with Chettinad masala and coconut.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Lamb</span>
+            <span class="menu-tag">Bold</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Chettinad Curry Lamb Boneless')">Order Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Desserts Section -->
+  <section class="menu-section" aria-labelledby="desserts-heading">
+    <div class="menu-container">
+      <div class="menu-header">
+        <p class="menu-eyebrow">Sweet Finish</p>
+        <h2 class="menu-title" id="desserts-heading">Desserts</h2>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets\desserts\bread_halwa.png" alt="Bread Halwa">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Bread Halwa</h3>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+          <p class="menu-item-description">Warm sweet bread halwa made with ghee and cardamom.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Dessert</span>
+            <span class="menu-tag">Comfort</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Bread Halwa')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets\desserts\gulabjaamun.jpg" alt="Gulab Jamum">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Gulab Jamum</h3>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+          <p class="menu-item-description">Soft syrup-soaked dumplings flavored with rose and cardamom.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Traditional</span>
+            <span class="menu-tag">Sweet</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Gulab Jamum')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets\desserts\mango_kesari.png" alt="Mango Kesari">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Mango Kesari</h3>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+          <p class="menu-item-description">Sweet semolina pudding with fresh mango and saffron.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Fruit</span>
+            <span class="menu-tag">Creamy</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Mango Kesari')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets\desserts\pinapple_kesari.png" alt="Pineapple Kesari">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Pineapple Kesari</h3>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+          <p class="menu-item-description">Tropical pineapple semolina dessert with cardamom.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Fruit</span>
+            <span class="menu-tag">Sweet</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Pineapple Kesari')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets\desserts\rasmalai.png" alt="Rasmalai">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Rasmalai</h3>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+          <p class="menu-item-description">Soft cheese dumplings in creamy cardamom milk with saffron.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Dessert</span>
+            <span class="menu-tag">Indian</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Rasmalai')">Order Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="menu-section" aria-labelledby="beverages-heading">
     <div class="menu-container">
       <div class="menu-header">
         <p class="menu-eyebrow">Refreshments</p>
         <h2 class="menu-title" id="beverages-heading">Beverages</h2>
       </div>
-      
       <div class="menu-grid">
         <article class="menu-item">
           <div class="menu-item-image">
-            <img src="assets/images/menu/mango-lassi.jpg" alt="Mango Lassi">
+            <img src="assets/images/menu/rose-milk.jpg" alt="Rose Milk">
           </div>
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Mango Lassi</h3>
-            <span class="menu-item-price">$5.99</span>
+            <h3 class="menu-item-title">Rose Milk</h3>
+            <span class="menu-item-price">$4.00</span>
           </div>
-          <p class="menu-item-description">Creamy yogurt drink with sweet mango pulp</p>
+          <p class="menu-item-description">Sweetened pink milk infused with rose essence.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Sweet</span>
+            <span class="menu-tag">Floral</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Rose Milk')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/sweet-lassi.jpg" alt="Sweet Lassi">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Sweet Lassi</h3>
+            <span class="menu-item-price">$4.00</span>
+          </div>
+          <p class="menu-item-description">Creamy yogurt blend with sugar and a hint of cardamom.</p>
           <div class="menu-item-tags">
             <span class="menu-tag">Sweet</span>
             <span class="menu-tag">Refreshing</span>
           </div>
           <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Mango Lassi')">Order Now</button>
+            <button class="quick-order-btn" onclick="orderItem('Sweet Lassi')">Order Now</button>
           </div>
         </article>
 
         <article class="menu-item">
           <div class="menu-item-image">
-            <img src="assets/images/menu/masala-chai.jpg" alt="Masala Chai">
+            <img src="assets/images/menu/soda.jpg" alt="Soda">
           </div>
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Masala Chai</h3>
-            <span class="menu-item-price">$3.99</span>
+            <h3 class="menu-item-title">Soda</h3>
+            <span class="menu-item-price">$2.49</span>
           </div>
-          <p class="menu-item-description">Traditional spiced tea with milk and aromatic spices</p>
+          <p class="menu-item-description">Refreshing carbonated beverage, perfect for quenching your thirst.</p>
           <div class="menu-item-tags">
-            <span class="menu-tag">Hot</span>
-            <span class="menu-tag">Aromatic</span>
+            <span class="menu-tag">Classic</span>
+            <span class="menu-tag">Cold</span>
           </div>
           <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Masala Chai')">Order Now</button>
+            <button class="quick-order-btn" onclick="orderItem('Soda')">Order Now</button>
           </div>
         </article>
 
         <article class="menu-item">
           <div class="menu-item-image">
-            <img src="assets/images/menu/fresh-lime-soda.jpg" alt="Fresh Lime Soda">
+            <img src="assets/images/menu/nannari-sarbath.jpg" alt="Nannari Sarbath">
           </div>
           <div class="menu-item-header">
-            <h3 class="menu-item-title">Fresh Lime Soda</h3>
-            <span class="menu-item-price">$4.49</span>
+            <h3 class="menu-item-title">Nannari Sarbath</h3>
+            <span class="menu-item-price">$4.00</span>
           </div>
-          <p class="menu-item-description">Refreshing carbonated drink with fresh lime juice</p>
+          <p class="menu-item-description">Herbal drink with nannari syrup, basil seeds, and a slice of lime.</p>
           <div class="menu-item-tags">
+            <span class="menu-tag">Herbal</span>
             <span class="menu-tag">Refreshing</span>
-            <span class="menu-tag">Sugar-Free Option</span>
           </div>
           <div class="menu-item-order">
-            <button class="quick-order-btn" onclick="orderItem('Fresh Lime Soda')">Order Now</button>
+            <button class="quick-order-btn" onclick="orderItem('Nannari Sarbath')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/salt-lassi.jpg" alt="Salt Lassi">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Salt Lassi</h3>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+          <p class="menu-item-description">Chilled yogurt drink, subtly salty, with choice of plain, mango, or spiced flavors.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Savory</span>
+            <span class="menu-tag">Traditional</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Salt Lassi')">Order Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" aria-labelledby="party-packs-heading">
+    <div class="menu-container">
+      <div class="menu-header">
+        <p class="menu-eyebrow">Party Packs</p>
+        <h2 class="menu-title" id="party-packs-heading">Large Orders</h2>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/party-pack-5.jpg" alt="STAR Biryani and Curry Pack for 5">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">STAR Biryani and Curry Pack for 5</h3>
+            <span class="menu-item-price">$55.00</span>
+          </div>
+          <p class="menu-item-description">Includes rice, naan, curry, and biryani for a party of five.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Family</span>
+            <span class="menu-tag">Value</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('STAR Biryani and Curry Pack for 5')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/party-pack-2.jpg" alt="STAR Biryani Pack for Two">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">STAR Biryani Pack for Two</h3>
+            <span class="menu-item-price">$22.00</span>
+          </div>
+          <p class="menu-item-description">A paired meal with biryani, appetizer, and dessert options.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Couples</span>
+            <span class="menu-tag">Combo</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('STAR Biryani Pack for Two')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/chicken-biryani.jpg" alt="Small Deep Tray Chicken Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Small Deep Tray Chicken Biryani</h3>
+            <span class="menu-item-price">$50.00</span>
+          </div>
+          <p class="menu-item-description">Aromatic rice mixed with spiced chicken pieces in a compact party tray.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Party</span>
+            <span class="menu-tag">Chicken</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Small Deep Tray Chicken Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/mutton-biryani.jpg" alt="Small Deep Tray Mutton Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Small Deep Tray Mutton Biryani</h3>
+            <span class="menu-item-price">$75.00</span>
+          </div>
+          <p class="menu-item-description">Assorted mutton biryani tray for sharing.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Party</span>
+            <span class="menu-tag">Mutton</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Small Deep Tray Mutton Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/veg-biryani.jpg" alt="Small Deep Tray Veg Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Small Deep Tray Veg Biryani</h3>
+            <span class="menu-item-price">$50.00</span>
+          </div>
+          <p class="menu-item-description">Vegetable biryani tray with aromatic spices and paneer.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Party</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Small Deep Tray Veg Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/long-medium-tray-veg.jpg" alt="Long Medium Tray Veg Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Long Medium Tray Veg Biryani</h3>
+            <span class="menu-item-price">$75.00</span>
+          </div>
+          <p class="menu-item-description">Large vegetarian tray with seasoned rice and mixed vegetables.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Tray</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Long Medium Tray Veg Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/long-deep-tray-veg.jpg" alt="Long Deep Tray Veg Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Long Deep Tray Veg Biryani</h3>
+            <span class="menu-item-price">$120.00</span>
+          </div>
+          <p class="menu-item-description">Extra-large veg tray for gatherings with rich biryani flavors.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+            <span class="menu-tag">Feast</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Long Deep Tray Veg Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/long-medium-tray-chicken.jpg" alt="Long Medium Tray Chicken Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Long Medium Tray Chicken Biryani</h3>
+            <span class="menu-item-price">$75.00</span>
+          </div>
+          <p class="menu-item-description">Medium chicken tray perfect for small gatherings.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Chicken</span>
+            <span class="menu-tag">Tray</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Long Medium Tray Chicken Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/long-medium-tray-chicken.jpg" alt="Long Medium Tray Chicken Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Long Medium Tray Chicken Biryani</h3>
+            <span class="menu-item-price">$110.00</span>
+          </div>
+          <p class="menu-item-description">Larger medium chicken tray with extra servings of spiced biryani.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Chicken</span>
+            <span class="menu-tag">Large</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Long Medium Tray Chicken Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/long-deep-tray-chicken.jpg" alt="Long Deep Tray Chicken Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Long Deep Tray Chicken Biryani</h3>
+            <span class="menu-item-price">$150.00</span>
+          </div>
+          <p class="menu-item-description">Feast-sized deep tray chicken biryani for large celebrations.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Feast</span>
+            <span class="menu-tag">Chicken</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Long Deep Tray Chicken Biryani')">Order Now</button>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-image">
+            <img src="assets/images/menu/long-deep-tray-chicken.jpg" alt="Long Deep Tray Chicken Biryani">
+          </div>
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">Long Deep Tray Chicken Biryani</h3>
+            <span class="menu-item-price">$100.00</span>
+          </div>
+          <p class="menu-item-description">Deep tray chicken biryani with a lighter portion for smaller events.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Feast</span>
+            <span class="menu-tag">Value</span>
+          </div>
+          <div class="menu-item-order">
+            <button class="quick-order-btn" onclick="orderItem('Long Deep Tray Chicken Biryani')">Order Now</button>
           </div>
         </article>
       </div>
@@ -1107,10 +1736,11 @@ footer {
   </section>
 </main>
 
+
 <!-- Footer -->
 <footer>
   <div class="footer-content">
-    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-logo">STAR BIRYANI</div>
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/menu">Menu</a>
@@ -1121,7 +1751,7 @@ footer {
       <a href="/contact">Contact</a>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy">© 2025 STAR BIRYANI. All rights reserved. Made with obsession.</p>
       <p class="footer-copy">Slow-crafted. Delivered royal.</p>
     </div>
   </div>
@@ -1171,10 +1801,8 @@ mobileLinks.forEach(link => {
 //=====================================================
 function orderItem(itemName) {
   const deliveryApps = [
-    { name: 'Uber Eats', url: 'https://www.ubereats.com/store/BIRYANI LIFE-biryani/your-store-id' },
-    { name: 'DoorDash', url: 'https://www.doordash.com/store/BIRYANI LIFE-biryani/your-store-id' },
-    { name: 'Grubhub', url: 'https://www.grubhub.com/restaurant/BIRYANI LIFE-biryani/your-store-id' },
-    { name: 'Postmates', url: 'https://www.postmates.com/merchant/BIRYANI LIFE-biryani' }
+    { name: 'Uber Eats', url: 'https://www.ubereats.com/store/STAR BIRYANI-biryani/your-store-id' },
+    { name: 'DoorDash', url: 'https://www.doordash.com/store/STAR BIRYANI-biryani/your-store-id' }
   ];
   
   const randomApp = deliveryApps[Math.floor(Math.random() * deliveryApps.length)];

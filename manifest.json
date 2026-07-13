@@ -1,6 +1,6 @@
 {
-  "name": "BIRYANI LIFE - Authentic Hyderabadi Dum Biryani",
-  "short_name": "BIRYANI LIFE",
+  "name": "STAR BIRYANI- Authentic Hyderabadi Dum Biryani",
+  "short_name": "STAR BIRYANI",
   "description": "Experience authentic Hyderabadi dum biryani crafted with tradition. Order online for delivery or pickup.",
   "start_url": "https://biryani.life/",
   "display": "standalone",
@@ -67,14 +67,14 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "BIRYANI LIFE homepage on desktop"
+      "label": "STAR BIRYANIhomepage on desktop"
     },
     {
       "src": "https://biryani.life/screenshots/mobile-home.png",
       "sizes": "375x667",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "BIRYANI LIFE homepage on mobile"
+      "label": "STAR BIRYANIhomepage on mobile"
     }
   ],
   "shortcuts": [
@@ -93,7 +93,7 @@
     {
       "name": "Make Reservation",
       "short_name": "Reserve",
-      "description": "Reserve a table at BIRYANI LIFE",
+      "description": "Reserve a table at STAR BIRYANI",
       "url": "https://biryani.life/book-table.html",
       "icons": [
         {

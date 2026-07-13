@@ -47,13 +47,13 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://biryani.life/images/biryani-gallery-hero.jpg</image:loc>
-      <image:title>BIRYANI LIFE Gallery</image:title>
-      <image:caption>Gallery of authentic Hyderabadi dum biryani from BIRYANI LIFE</image:caption>
+      <image:title>STAR BIRYANIGallery</image:title>
+      <image:caption>Gallery of authentic Hyderabadi dum biryani from STAR BIRYANI</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://biryani.life/images/restaurant-interior.jpg</image:loc>
       <image:title>Restaurant Interior</image:title>
-      <image:caption>Elegant dining ambiance at BIRYANI LIFE</image:caption>
+      <image:caption>Elegant dining ambiance at STAR BIRYANI</image:caption>
     </image:image>
     <video:video>
       <video:content_loc>https://biryani.life/videos/biryani-preparation.mp4</video:content_loc>
@@ -96,8 +96,8 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://biryani.life/images/restaurant-location.jpg</image:loc>
-      <image:title>BIRYANI LIFE Location</image:title>
-      <image:caption>BIRYANI LIFE restaurant exterior in New York City</image:caption>
+      <image:title>STAR BIRYANILocation</image:title>
+      <image:caption>STAR BIRYANIrestaurant exterior in New York City</image:caption>
     </image:image>
   </url>
 

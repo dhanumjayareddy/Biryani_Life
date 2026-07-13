@@ -7,7 +7,7 @@
 <!-- Primary Meta Tags -->
 <title>STAR BIRYANI - Authentic Hyderabadi Dum Biryani | Order Online | Delivery & Pickup</title>
 <meta name="title" content="STAR BIRYANI - Authentic Hyderabadi Dum Biryani | Order Online | Delivery & Pickup">
-<meta name="description" content="Experience authentic Hyderabadi dum biryani at STAR BIRYANI. Order online for delivery or pickup. Premium ingredients, traditional recipes, and royal taste. Available on Uber Eats, DoorDash, Grubhub.">
+<meta name="description" content="Experience authentic Hyderabadi dum biryani at STAR BIRYANI. Order online for delivery via Uber Eats and DoorDash. Premium ingredients, traditional recipes, and royal taste.">
 <meta name="keywords" content="hyderabadi biryani, dum biryani, biryani near me, indian food, authentic biryani, biryani delivery, order biryani online, best biryani, royal biryani, saffron biryani, indian restaurant, food delivery, takeout, catering">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="STAR BIRYANI">
@@ -62,7 +62,7 @@
 <!-- Food & Restaurant Specific Meta -->
 <meta name="food:category" content="Indian Cuisine, Biryani, Hyderabadi Food">
 <meta name="restaurant:menu" content="https://biryani.life/menu.html">
-<meta name="restaurant:delivery_service" content="Uber Eats, DoorDash, Grubhub, Postmates">
+<meta name="restaurant:delivery_service" content="Uber Eats, DoorDash">
 <meta name="restaurant:price_range" content="$$">
 <meta name="restaurant:style" content="Fine Dining, Casual Dining, Delivery">
 <meta name="restaurant:cuisine" content="Indian, Hyderabadi">
@@ -200,11 +200,6 @@
       "@type": "SoftwareApplication", 
       "name": "DoorDash",
       "url": "https://www.doordash.com/store/biryani-life"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "Grubhub", 
-      "url": "https://www.grubhub.com/restaurant/biryani-life"
     }
   ]
 }
@@ -527,93 +522,57 @@ nav.scrolled {
   position: fixed;
   inset: 0;
   z-index: 99;
-  background: rgba(11,11,11,0.98);
-  backdrop-filter: blur(40px);
+  background: rgba(9, 9, 9, 0.96);
+  padding: var(--space-16) var(--space-8);
+  box-sizing: border-box;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
+  gap: var(--space-5);
   opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@media (max-width: 768px) {
-  .mobile-menu {
-    padding: var(--space-16) var(--space-8);
-    gap: var(--space-8);
-  }
-  
-  .mobile-menu-close {
-    position: absolute;
-    top: var(--space-8);
-    right: var(--space-8);
-    width: 52px;
-    height: 52px;
-    font-size: var(--text-2xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(212,168,71,0.15);
-    border: 1px solid rgba(212,168,71,0.25);
-    border-radius: var(--radius-full);
-    transition: all 0.3s ease;
-  }
-  
-  .mobile-menu-close:hover {
-    background: rgba(212,168,71,0.25);
-    border-color: var(--gold);
-    transform: scale(1.05);
-  }
-  
-  .mobile-link {
-    font-size: var(--text-xl);
-    font-weight: 300;
-    letter-spacing: 0.03em;
-    padding: var(--space-6) 0;
-    transition: all 0.3s ease;
-    position: relative;
-    color: var(--ivory);
-  }
-  
-  .mobile-link:hover {
-    color: var(--gold);
-    transform: translateX(4px);
-  }
-  
-  .mobile-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gold);
-    transition: width 0.3s ease;
-    border-radius: 1px;
-  }
-  
-  .mobile-link:hover::after {
-    width: 40px;
-  }
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .mobile-menu.open {
   display: flex;
   opacity: 1;
+  transform: translateY(0);
 }
 
 .mobile-menu a {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  color: var(--ivory-dim);
-  transition: color var(--transition);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--ivory);
+  text-decoration: none;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.04);
+}
 
 .mobile-menu-close {
-  position: absolute; top: var(--space-6); right: var(--space-6);
-  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ivory);
+  font-size: var(--text-2xl);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* =====================================================
@@ -2547,35 +2506,37 @@ footer {
 </section>
 
 <!-- DELIVERY APPS SECTION -->
-<section class="delivery-section" aria-labelledby="delivery-heading">
+<section class="delivery-section" id="order" aria-labelledby="delivery-heading">
   <div class="reveal">
     <p class="section-eyebrow">Order Now</p>
-    <h2 class="section-title" id="delivery-heading">Available on Your Favorite Apps</h2>
+    <h2 class="section-title" id="delivery-heading">Order by Location</h2>
     <div class="delivery-apps">
-      <a href="https://www.ubereats.com" target="_blank" rel="noopener" class="delivery-app">
-        <img src="assets/images/delivery-apps/uber-eats-logo.png" alt="Uber Eats" class="delivery-logo">
-        <span class="delivery-name">Uber Eats</span>
-      </a>
-      <a href="https://www.doordash.com" target="_blank" rel="noopener" class="delivery-app">
-        <img src="assets/images/delivery-apps/doordash-logo.png" alt="DoorDash" class="delivery-logo">
-        <span class="delivery-name">DoorDash</span>
-      </a>
-      <a href="https://www.grubhub.com" target="_blank" rel="noopener" class="delivery-app">
-        <img src="assets/images/delivery-apps/grubhub-logo.png" alt="Grubhub" class="delivery-logo">
-        <span class="delivery-name">Grubhub</span>
-      </a>
-      <a href="https://www.postmates.com" target="_blank" rel="noopener" class="delivery-app">
-        <img src="assets/images/delivery-apps/postmates-logo.png" alt="Postmates" class="delivery-logo">
-        <span class="delivery-name">Postmates</span>
-      </a>
-      <a href="https://www.instacart.com" target="_blank" rel="noopener" class="delivery-app">
-        <img src="assets/images/delivery-apps/instacart-logo.png" alt="Instacart" class="delivery-logo">
-        <span class="delivery-name">Instacart</span>
-      </a>
-      <a href="https://www.seamless.com" target="_blank" rel="noopener" class="delivery-app">
-        <img src="assets/images/delivery-apps/seamless-logo.png" alt="Seamless" class="delivery-logo">
-        <span class="delivery-name">Seamless</span>
-      </a>
+      <article class="delivery-app">
+        <h3 class="section-subtitle">Anderson Ln</h3>
+        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-top:1rem;">
+          <a href="https://www.doordash.com/store/38780617" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 1rem;border:1px solid rgba(212,168,71,0.15);border-radius:999px;background:rgba(255,255,255,0.04);text-decoration:none;color:inherit;">
+            <img src="assets/images/delivery-apps/doordash-logo.png" alt="DoorDash" class="delivery-logo" style="width:100px;height:auto;background:transparent;padding:0;">
+            <span class="delivery-name">DoorDash</span>
+          </a>
+          <a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 1rem;border:1px solid rgba(212,168,71,0.15);border-radius:999px;background:rgba(255,255,255,0.04);text-decoration:none;color:inherit;">
+            <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="Uber Eats" class="delivery-logo" style="width:100px;height:auto;background:transparent;padding:0;">
+            <span class="delivery-name">Uber Eats</span>
+          </a>
+        </div>
+      </article>
+      <article class="delivery-app">
+        <h3 class="section-subtitle">Sunsetvalley</h3>
+        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-top:1rem;">
+          <a href="https://www.doordash.com/store/25067432" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 1rem;border:1px solid rgba(212,168,71,0.15);border-radius:999px;background:rgba(255,255,255,0.04);text-decoration:none;color:inherit;">
+            <img src="assets/images/delivery-apps/doordash-logo.png" alt="DoorDash" class="delivery-logo" style="width:100px;height:auto;background:transparent;padding:0;">
+            <span class="delivery-name">DoorDash</span>
+          </a>
+          <a href="https://www.ubereats.com/store/star-biryani-sunset-valley/7vtltvEnUyS_8P09y3qHOg" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 1rem;border:1px solid rgba(212,168,71,0.15);border-radius:999px;background:rgba(255,255,255,0.04);text-decoration:none;color:inherit;">
+            <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="Uber Eats" class="delivery-logo" style="width:100px;height:auto;background:transparent;padding:0;">
+            <span class="delivery-name">Uber Eats</span>
+          </a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -2872,87 +2833,7 @@ footer {
 </section>
 
 
-<!-- ORDER / DELIVERY -->
-<section class="delivery-section section" id="order" aria-labelledby="delivery-heading">
-  <div class="delivery-inner">
-    <div class="delivery-header reveal">
-      <p class="section-eyebrow" style="justify-content:center;">Delivered Royally</p>
-      <h2 class="section-title" id="delivery-heading" style="font-size:var(--text-3xl);">Order <em>tonight.</em></h2>
-      <p class="delivery-sub">Available across major US cities. Delivered hot, sealed, and ready for your ritual.</p>
-    </div>
 
-    <div class="delivery-grid">
-
-      <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Uber Eats">
-        <svg viewBox="0 0 80 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="80" height="30">
-          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="26" letter-spacing="-1">Uber</text>
-          <text x="0" y="0" font-family="Arial, sans-serif" font-size="0"> </text>
-        </svg>
-        <span class="delivery-name">Uber Eats</span>
-        <span class="delivery-time">30–45 min</span>
-        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-
-      <a href="https://www.doordash.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on DoorDash">
-        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
-          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">DoorDash</text>
-        </svg>
-        <span class="delivery-name">DoorDash</span>
-        <span class="delivery-time">25–40 min</span>
-        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-
-      <a href="https://www.grubhub.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Grubhub">
-        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
-          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">Grubhub</text>
-        </svg>
-        <span class="delivery-name">Grubhub</span>
-        <span class="delivery-time">35–50 min</span>
-        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-
-      <a href="https://postmates.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Postmates">
-        <svg viewBox="0 0 140 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="140" height="30">
-          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" letter-spacing="-0.5">Postmates</text>
-        </svg>
-        <span class="delivery-name">Postmates</span>
-        <span class="delivery-time">30–45 min</span>
-        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-
-      <a href="https://www.instacart.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Instacart">
-        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
-          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">Instacart</text>
-        </svg>
-        <span class="delivery-name">Instacart</span>
-        <span class="delivery-time">20–35 min</span>
-        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-
-      <a href="https://www.seamless.com" target="_blank" rel="noopener noreferrer" class="delivery-card reveal" aria-label="Order on Seamless">
-        <svg viewBox="0 0 120 30" class="delivery-logo" fill="currentColor" aria-hidden="true" width="120" height="30">
-          <text x="0" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">Seamless</text>
-        </svg>
-        <span class="delivery-name">Seamless</span>
-        <span class="delivery-time">25–40 min</span>
-        <svg class="delivery-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-
-    </div>
-  </div>
-</section>
 
 
 <!-- TESTIMONIALS -->
@@ -3080,8 +2961,6 @@ footer {
       <ul class="footer-links" role="list">
         <li><a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
         <li><a href="https://www.doordash.com" target="_blank" rel="noopener noreferrer">DoorDash</a></li>
-        <li><a href="https://www.grubhub.com" target="_blank" rel="noopener noreferrer">Grubhub</a></li>
-        <li><a href="https://postmates.com" target="_blank" rel="noopener noreferrer">Postmates</a></li>
       </ul>
     </div>
   </div>

@@ -5,29 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary Meta Tags -->
-<title>Contact BIRYANI LIFE - Location, Hours & Directions | Hyderabadi Biryani Restaurant</title>
-<meta name="title" content="Contact BIRYANI LIFE - Location, Hours & Directions | Hyderabadi Biryani Restaurant">
-<meta name="description" content="Visit BIRYANI LIFE for authentic Hyderabadi dum biryani. Find our NYC location, hours, phone number, directions, and contact information. Order online or make reservations.">
-<meta name="keywords" content="biryani restaurant near me, hyderabadi biryani location, biryani restaurant nyc, indian restaurant new york, biryani contact, restaurant hours, directions to biryani life, best biryani nyc">
+<title>Contact STAR BIRYANI- Location, Hours & Directions | Hyderabadi Biryani Restaurant</title>
+<meta name="title" content="Contact STAR BIRYANI- Location, Hours & Directions | Hyderabadi Biryani Restaurant">
+<meta name="description" content="Visit STAR BIRYANIfor authentic Hyderabadi dum biryani. Find our NYC location, hours, phone number, directions, and contact information. Order online or make reservations.">
+<meta name="keywords" content="biryani restaurant near me, hyderabadi biryani location, biryani restaurant nyc, indian restaurant new york, biryani contact, restaurant hours, directions to STAR BIRYANI, best biryani nyc">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="author" content="BIRYANI LIFE">
+<meta name="author" content="STAR BIRYANI">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://biryani.life/contact.html">
-<meta property="og:title" content="Contact BIRYANI LIFE - Location, Hours & Directions">
-<meta property="og:description" content="Visit BIRYANI LIFE for authentic Hyderabadi dum biryani. Find our NYC location, hours, phone number, and contact information.">
+<meta property="og:title" content="Contact STAR BIRYANI- Location, Hours & Directions">
+<meta property="og:description" content="Visit STAR BIRYANIfor authentic Hyderabadi dum biryani. Find our NYC location, hours, phone number, and contact information.">
 <meta property="og:image" content="https://biryani.life/images/restaurant-location.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="BIRYANI LIFE restaurant exterior in New York City">
-<meta property="og:site_name" content="BIRYANI LIFE">
+<meta property="og:image:alt" content="STAR BIRYANIrestaurant exterior in New York City">
+<meta property="og:site_name" content="STAR BIRYANI">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://biryani.life/contact.html">
-<meta property="twitter:title" content="Contact BIRYANI LIFE - Location, Hours & Directions">
-<meta property="twitter:description" content="Visit BIRYANI LIFE for authentic Hyderabadi dum biryani. Find our NYC location, hours, phone number, and contact information.">
+<meta property="twitter:title" content="Contact STAR BIRYANI- Location, Hours & Directions">
+<meta property="twitter:description" content="Visit STAR BIRYANIfor authentic Hyderabadi dum biryani. Find our NYC location, hours, phone number, and contact information.">
 <meta property="twitter:image" content="https://biryani.life/images/restaurant-location.jpg">
 <meta property="twitter:site" content="@BIRYANILIFE">
 
@@ -66,7 +66,7 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "BIRYANI LIFE",
+  "name": "STAR BIRYANI",
   "description": "Authentic Hyderabadi dum biryani restaurant in New York City",
   "url": "https://biryani.life/",
   "telephone": "+1-212-555-BIRI",
@@ -141,7 +141,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Place",
-  "name": "BIRYANI LIFE - New York",
+  "name": "STAR BIRYANI- New York",
   "description": "Authentic Hyderabadi dum biryani restaurant in NYC",
   "url": "https://biryani.life/contact.html",
   "address": {
@@ -342,29 +342,57 @@ nav.scrolled {
   position: fixed;
   inset: 0;
   z-index: 99;
-  background: var(--dark-1);
+  background: rgba(9, 9, 9, 0.96);
+  padding: var(--space-16) var(--space-8);
+  box-sizing: border-box;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
+  gap: var(--space-5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .mobile-menu.open {
   display: flex;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .mobile-menu a {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  color: var(--ivory-dim);
-  transition: color var(--transition);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--ivory);
+  text-decoration: none;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.04);
+}
 
 .mobile-menu-close {
-  position: absolute; top: var(--space-6); right: var(--space-6);
-  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ivory);
+  font-size: var(--text-2xl);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .contact-hero {
@@ -520,13 +548,13 @@ footer {
 <nav id="nav" aria-label="Main navigation">
   <div class="nav-logo">
     <!-- SVG Logo -->
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BIRYANI LIFE logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="STAR BIRYANIlogo">
       <path d="M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z" stroke="#D4A847" stroke-width="1" fill="none" opacity="0.6"/>
       <path d="M16 7 C11 7 8 10.5 8 14.5 C8 19 11 24 16 26 C21 24 24 19 24 14.5 C24 10.5 21 7 16 7Z" fill="#D4A847" opacity="0.12"/>
       <path d="M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z" fill="#D4A847" opacity="0.9"/>
       <circle cx="16" cy="14.5" r="1.5" fill="#E8A020"/>
     </svg>
-    <span class="nav-brand">BIRYANI LIFE</span>
+    <span class="nav-brand">STAR BIRYANI</span>
   </div>
 
   <ul class="nav-links" role="list">
@@ -565,7 +593,7 @@ footer {
 <main id="main">
   <!-- Contact Hero -->
   <section class="contact-hero" aria-labelledby="contact-hero-heading">
-    <h1 id="contact-hero-heading">Visit BIRYANI LIFE</h1>
+    <h1 id="contact-hero-heading">Visit STAR BIRYANI</h1>
     <p>Experience authentic Hyderabadi dum biryani at our royal restaurant</p>
   </section>
 
@@ -581,7 +609,7 @@ footer {
             123 Royal Lane<br>
             Culinary District<br>
             New York, NY 10001<br>
-            <a href="https://maps.google.com/?q=BIRYANI LIFE+Biryani+New+York" target="_blank">Get Directions →</a>
+            <a href="https://maps.google.com/?q=STAR BIRYANI+Biryani+New+York" target="_blank">Get Directions →</a>
           </div>
         </div>
 
@@ -596,8 +624,8 @@ footer {
         <div class="info-item">
           <div class="info-label">Email</div>
           <div class="info-content">
-            <a href="mailto:info@BIRYANI LIFE.com">info@BIRYANI LIFE.com</a><br>
-            <a href="mailto:catering@BIRYANI LIFE.com">catering@BIRYANI LIFE.com</a>
+            <a href="mailto:info@STAR BIRYANI.com">info@STAR BIRYANI.com</a><br>
+            <a href="mailto:catering@STAR BIRYANI.com">catering@STAR BIRYANI.com</a>
           </div>
         </div>
 
@@ -640,7 +668,7 @@ footer {
 <!-- Footer -->
 <footer>
   <div class="footer-content">
-    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-logo">STAR BIRYANI</div>
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/menu">Menu</a>
@@ -651,7 +679,7 @@ footer {
       <a href="/contact">Contact</a>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy"> 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy"> 2025 STAR BIRYANI. All rights reserved. Made with obsession.</p>
       <p class="footer-copy">Slow-crafted. Delivered royal.</p>
     </div>
   </div>

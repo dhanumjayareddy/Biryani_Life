@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Story — BIRYANI LIFE Royal Biryani</title>
-<meta name="description" "Discover the story behind BIRYANI LIFE's authentic Hyderabadi dum biryani. Learn about our heritage, traditional cooking methods, and passion for royal cuisine.">
+<title>Our Story — STAR BIRYANIRoyal Biryani</title>
+<meta name="description" "Discover the story behind STAR BIRYANI's authentic Hyderabadi dum biryani. Learn about our heritage, traditional cooking methods, and passion for royal cuisine.">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -245,32 +245,57 @@ nav.scrolled {
   position: fixed;
   inset: 0;
   z-index: 99;
-  background: var(--dark-1);
+  background: rgba(9, 9, 9, 0.96);
+  padding: var(--space-16) var(--space-8);
+  box-sizing: border-box;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
+  gap: var(--space-5);
   opacity: 0;
-  transition: opacity var(--transition);
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .mobile-menu.open {
   display: flex;
   opacity: 1;
+  transform: translateY(0);
 }
 
 .mobile-menu a {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  color: var(--ivory-dim);
-  transition: color var(--transition);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--ivory);
+  text-decoration: none;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.04);
+}
 
 .mobile-menu-close {
-  position: absolute; top: var(--space-6); right: var(--space-6);
-  font-size: var(--text-xl); color: var(--ivory-dim); cursor: pointer;
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ivory);
+  font-size: var(--text-2xl);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* =====================================================
@@ -758,13 +783,13 @@ footer {
 <nav id="nav" aria-label="Main navigation">
   <div class="nav-logo">
     <!-- SVG Logo -->
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BIRYANI LIFE logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="STAR BIRYANIlogo">
       <path d="M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z" stroke="#D4A847" stroke-width="1" fill="none" opacity="0.6"/>
       <path d="M16 7 C11 7 8 10.5 8 14.5 C8 19 11 24 16 26 C21 24 24 19 24 14.5 C24 10.5 21 7 16 7Z" fill="#D4A847" opacity="0.12"/>
       <path d="M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z" fill="#D4A847" opacity="0.9"/>
       <circle cx="16" cy="14.5" r="1.5" fill="#E8A020"/>
     </svg>
-    <span class="nav-brand">BIRYANI LIFE</span>
+    <span class="nav-brand">STAR BIRYANI</span>
   </div>
 
   <ul class="nav-links" role="list">
@@ -814,10 +839,10 @@ footer {
         <p class="heritage-eyebrow">Our Heritage</p>
         <h2 id="heritage-heading">Born in Tradition, Perfected in America</h2>
         <p class="heritage-body">
-          BIRYANI LIFE began not as a restaurant, but as a promise—a promise to bring the authentic taste of Hyderabadi dum biryani to those who crave true culinary artistry. Our founder, a third-generation chef from Hyderabad, grew up watching his grandmother and mother perfect the ancient art of dum cooking.
+          STAR BIRYANIbegan not as a restaurant, but as a promise—a promise to bring the authentic taste of Hyderabadi dum biryani to those who crave true culinary artistry. Our founder, a third-generation chef from Hyderabad, grew up watching his grandmother and mother perfect the ancient art of dum cooking.
         </p>
         <p class="heritage-body">
-          The name "BIRYANI LIFE" comes from "BIRYANI LIFE"—the master chef who has perfected the art of dum cooking, where meat and rice are sealed together and slow-cooked over low heat, allowing the aromas and flavors to meld into something magical.
+          The name "STAR BIRYANI" comes from "STAR BIRYANI"—the master chef who has perfected the art of dum cooking, where meat and rice are sealed together and slow-cooked over low heat, allowing the aromas and flavors to meld into something magical.
         </p>
         <p class="heritage-body">
           In 2024, we opened our first restaurant in the United States, bringing with us centuries-old recipes, traditional copper handis, and an unwavering commitment to authenticity. Every biryani we serve is a tribute to our heritage and a celebration of the royal cuisine that once graced the tables of Nizams.
@@ -884,7 +909,7 @@ footer {
           "Biryani is not just food; it's poetry on a plate. Each grain of rice tells a story, each spice sings a melody, and every bite takes you on a journey through the royal courts of Hyderabad. I learned this art from my grandmother, who learned it from hers, and now I share it with you."
         </p>
         <p class="chef-body">
-          "The secret lies not in complex recipes, but in patience—in allowing time to work its magic, in respecting the ingredients, and in understanding that great food comes from the heart. When you eat at BIRYANI LIFE, you're not just having a meal; you're experiencing centuries of tradition."
+          "The secret lies not in complex recipes, but in patience—in allowing time to work its magic, in respecting the ingredients, and in understanding that great food comes from the heart. When you eat at STAR BIRYANI, you're not just having a meal; you're experiencing centuries of tradition."
         </p>
         <div class="chef-signature">Chef Mohammed Ali</div>
         <div class="chef-title">Master Chef & Founder</div>
@@ -912,7 +937,7 @@ footer {
         <div class="timeline-item">
           <div class="timeline-content">
             <h3 class="timeline-title">Family Recipe</h3>
-            <p class="timeline-description">Our grandmother perfected the family recipe, creating the unique blend of spices that defines BIRYANI LIFE biryani today.</p>
+            <p class="timeline-description">Our grandmother perfected the family recipe, creating the unique blend of spices that defines STAR BIRYANIbiryani today.</p>
           </div>
           <div class="timeline-year">1950s</div>
         </div>
@@ -927,8 +952,8 @@ footer {
 
         <div class="timeline-item">
           <div class="timeline-content">
-            <h3 class="timeline-title">BIRYANI LIFE Born</h3>
-            <p class="timeline-description">After years of perfecting recipes and sourcing authentic ingredients, BIRYANI LIFE opened its doors, bringing royal biryani to America.</p>
+            <h3 class="timeline-title">STAR BIRYANIBorn</h3>
+            <p class="timeline-description">After years of perfecting recipes and sourcing authentic ingredients, STAR BIRYANIopened its doors, bringing royal biryani to America.</p>
           </div>
           <div class="timeline-year">2024</div>
         </div>
@@ -940,7 +965,7 @@ footer {
 <!-- Footer -->
 <footer>
   <div class="footer-content">
-    <div class="footer-logo">BIRYANI LIFE</div>
+    <div class="footer-logo">STAR BIRYANI</div>
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/menu">Menu</a>
@@ -951,7 +976,7 @@ footer {
       <a href="/contact">Contact</a>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy"> 2025 BIRYANI LIFE. All rights reserved. Made with obsession.</p>
+      <p class="footer-copy"> 2025 STAR BIRYANI. All rights reserved. Made with obsession.</p>
       <p class="footer-copy">Slow-crafted. Delivered royal.</p>
     </div>
   </div>
