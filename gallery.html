@@ -1111,13 +1111,7 @@ footer {
 <!-- NAV -->
 <nav id="nav" aria-label="Main navigation">
   <div class="nav-logo">
-    <!-- SVG Logo -->
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="STAR BIRYANIlogo">
-      <path d="M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z" stroke="#D4A847" stroke-width="1" fill="none" opacity="0.6"/>
-      <path d="M16 7 C11 7 8 10.5 8 14.5 C8 19 11 24 16 26 C21 24 24 19 24 14.5 C24 10.5 21 7 16 7Z" fill="#D4A847" opacity="0.12"/>
-      <path d="M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z" fill="#D4A847" opacity="0.9"/>
-      <circle cx="16" cy="14.5" r="1.5" fill="#E8A020"/>
-    </svg>
+    <img src="assets/images/star_biryani_logo.jpg" alt="STAR BIRYANI logo" style="width:42px;height:42px;object-fit:cover;border-radius:8px;">
     <span class="nav-brand">STAR BIRYANI</span>
   </div>
 
@@ -1126,7 +1120,6 @@ footer {
     <li><a href="menu.html">Menu</a></li>
     <li><a href="book-table.html">Reservations</a></li>
     <li><a href="functions.html">Functions</a></li>
-    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="index.html#order">Order</a></li>
@@ -1147,7 +1140,6 @@ footer {
   <a href="index.html#ritual" class="mobile-link">The Ritual</a>
   <a href="book-table.html" class="mobile-link">Reservations</a>
   <a href="functions.html" class="mobile-link">Functions</a>
-  <a href="gallery.html" class="mobile-link">Gallery</a>
   <a href="about.html" class="mobile-link">About</a>
   <a href="contact.html" class="mobile-link">Contact</a>
   <a href="index.html#order" class="mobile-link">Order</a>
@@ -1155,301 +1147,21 @@ footer {
 
 <!-- Main Content -->
 <main id="main">
-  <!-- Gallery Hero -->
-  <section class="gallery-hero" aria-labelledby="gallery-hero-heading">
-    <h1 id="gallery-hero-heading">Our Story in Pictures</h1>
-    <p>Experience the artistry of authentic Hyderabadi dum biryani through our visual journey</p>
-  </section>
-
-  <!-- Gallery Filters -->
-  <section class="gallery-filters" aria-label="Gallery filters">
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="biryani">Biryani</button>
-      <button class="filter-btn" data-filter="ambiance">Ambiance</button>
-      <button class="filter-btn" data-filter="chef">Chef's Special</button>
-      <button class="filter-btn" data-filter="events">Events</button>
-    </div>
-  </section>
-
-  <!-- Gallery Grid -->
-  <section class="gallery-section" aria-labelledby="gallery-heading">
-    <div class="gallery-container">
-      <h2 class="visually-hidden" id="gallery-heading">Photo Gallery</h2>
-      
-      <div class="gallery-grid">
-        <div class="gallery-item featured" data-category="biryani">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/hyderabadi-biryani-closeup.jpg" alt="Close-up of authentic Hyderabadi dum biryani with saffron rice and tender meat">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Signature Dum Biryani - Our crown jewel</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="ambiance">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/luxury-restaurant-interior.jpg" alt="Elegant restaurant interior with royal ambiance and warm lighting">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Royal Dining Experience</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="chef">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/chef-plating-biryani.jpg" alt="Chef carefully plating biryani with artistic presentation">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Chef's Artistry</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="biryani">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/lamb-biryani-plated.jpg" alt="Royal lamb dum biryani beautifully plated with garnish">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Royal Lamb Biryani</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="events">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/wedding-catering-biryani.jpg" alt="Elegant wedding catering with handi biryani service">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Wedding Catering Service</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="ambiance">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/restaurant-dining-area.jpg" alt="Cozy dining area with traditional decor and comfortable seating">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Intimate Dining Space</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="chef">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/biryani-cooking-process.jpg" alt="Traditional dum cooking process with sealed handi">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Traditional Dum Cooking</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="biryani">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/vegetable-biryani-colorful.jpg" alt="Colorful vegetable dum biryani with fresh vegetables">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Garden Vegetable Biryani</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="events">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/corporate-event-catering.jpg" alt="Corporate event catering with professional service">
-          <div class="gallery-overlay">
-            <p class="gallery-caption">Corporate Catering</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials-section" aria-labelledby="testimonials-heading">
-    <div class="testimonials-container">
-      <div class="testimonials-header">
-        <p class="testimonials-eyebrow">What Our Guests Say</p>
-        <h2 class="testimonials-title" id="testimonials-heading">Guest Experiences</h2>
-      </div>
-      
-      <div class="testimonials-grid">
-        <article class="testimonial-card">
-          <blockquote class="testimonial-quote">
-            The most authentic Hyderabadi biryani I've had outside of Hyderabad! The aroma, the taste, the presentation - everything was perfect. This is now my go-to place for special occasions.
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">RK</div>
-            <div class="testimonial-info">
-              <h4>Rahul Kumar</h4>
-              <p>Food Enthusiast</p>
-            </div>
-          </div>
-          <div class="testimonial-rating">
-            <span class="star">★★★★★</span>
-          </div>
-        </article>
-
-        <article class="testimonial-card">
-          <blockquote class="testimonial-quote">
-            We ordered catering for our wedding and it was absolutely spectacular! Our guests are still talking about the biryani. The service was professional and the food was exceptional.
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">SP</div>
-            <div class="testimonial-info">
-              <h4>Sarah Patel</h4>
-              <p>Wedding Client</p>
-            </div>
-          </div>
-          <div class="testimonial-rating">
-            <span class="star">★★★★★</span>
-          </div>
-        </article>
-
-        <article class="testimonial-card">
-          <blockquote class="testimonial-quote">
-            As someone who grew up eating authentic biryani, I can say this place is the real deal. The dum cooking technique, the spice balance, the quality of meat - everything is top-notch.
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">MA</div>
-            <div class="testimonial-info">
-              <h4>Mohammed Ali</h4>
-              <p>Regular Customer</p>
-            </div>
-          </div>
-          <div class="testimonial-rating">
-            <span class="star">★★★★★</span>
-          </div>
-        </article>
-
-        <article class="testimonial-card">
-          <blockquote class="testimonial-quote">
-            The ambiance is perfect for a special dinner date. Elegant yet comfortable, and the biryani is simply divine. Their lamb biryani is a must-try!
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">EJ</div>
-            <div class="testimonial-info">
-              <h4>Emily Johnson</h4>
-              <p>Food Blogger</p>
-            </div>
-          </div>
-          <div class="testimonial-rating">
-            <span class="star">★★★★★</span>
-          </div>
-        </article>
-
-        <article class="testimonial-card">
-          <blockquote class="testimonial-quote">
-            We've been ordering from STAR BIRYANIfor our office events for months now. Consistently excellent quality and always on time. Our team loves it!
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">DC</div>
-            <div class="testimonial-info">
-              <h4>David Chen</h4>
-              <p>Corporate Client</p>
-            </div>
-          </div>
-          <div class="testimonial-rating">
-            <span class="star">★★★★★</span>
-          </div>
-        </article>
-
-        <article class="testimonial-card">
-          <blockquote class="testimonial-quote">
-            The vegetarian biryani here is outstanding! So flavorful and satisfying. It's hard to find restaurants that give equal attention to their vegetarian dishes, but STAR BIRYANInails it.
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">PG</div>
-            <div class="testimonial-info">
-              <h4>Priya Gupta</h4>
-              <p>Vegetarian Foodie</p>
-            </div>
-          </div>
-          <div class="testimonial-rating">
-            <span class="star">★★★★★</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Instagram Feed -->
-  <section class="instagram-section" aria-labelledby="instagram-heading">
-    <div class="instagram-container">
-      <div class="instagram-header">
-        <p class="instagram-eyebrow">Follow Us</p>
-        <h2 class="instagram-title" id="instagram-heading">@STAR BIRYANIBIRYANI</h2>
-      </div>
-      
-      <div class="instagram-grid">
-        <div class="instagram-item">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post1.jpg" alt="Instagram post of fresh biryani">
-          <div class="instagram-overlay">
-            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
-              <circle cx="18.406" cy="5.594" r="1.44"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="instagram-item">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post2.jpg" alt="Instagram post of chef cooking">
-          <div class="instagram-overlay">
-            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
-              <circle cx="18.406" cy="5.594" r="1.44"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="instagram-item">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post3.jpg" alt="Instagram post of restaurant ambiance">
-          <div class="instagram-overlay">
-            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
-              <circle cx="18.406" cy="5.594" r="1.44"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="instagram-item">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post4.jpg" alt="Instagram post of happy customers">
-          <div class="instagram-overlay">
-            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
-              <circle cx="18.406" cy="5.594" r="1.44"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="instagram-item">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post5.jpg" alt="Instagram post of catering event">
-          <div class="instagram-overlay">
-            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
-              <circle cx="18.406" cy="5.594" r="1.44"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="instagram-item">
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/instagram-biryani-post6.jpg" alt="Instagram post of special dish">
-          <div class="instagram-overlay">
-            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
-              <circle cx="18.406" cy="5.594" r="1.44"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-      
-      <a href="https://www.instagram.com/STAR BIRYANIbiryani" target="_blank" rel="noopener" class="instagram-btn">
-        Follow on Instagram
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-          <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 0 0 1 0 7.998z"/>
-          <circle cx="18.406" cy="5.594" r="1.44"/>
-        </svg>
-      </a>
-    </div>
+  <section style="padding: 6rem 1.5rem; text-align: center;">
+    <h1 style="font-size: 2rem; margin-bottom: 1rem;">Gallery is currently unavailable</h1>
+    <p style="max-width: 700px; margin: 0 auto; line-height: 1.7;">The gallery section has been temporarily removed from the site. Please visit our menu, about, or contact pages for more information.</p>
   </section>
 </main>
 
 <!-- Footer -->
 <footer>
   <div class="footer-content">
-    <div class="footer-logo">STAR BIRYANI</div>
+    <div class="footer-logo"><img src="assets/images/star_biryani_logo.jpg" alt="STAR BIRYANI logo" style="width:36px;height:36px;object-fit:cover;border-radius:6px;"> <span>STAR BIRYANI</span></div>
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/menu">Menu</a>
       <a href="/reservations">Reservations</a>
       <a href="/functions">Functions</a>
-      <a href="/gallery">Gallery</a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
     </div>
