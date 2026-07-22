@@ -717,10 +717,12 @@ nav.scrolled {
     border-color: rgba(212,168,71,0.4);
   }
   .nav-mobile-btn span {
-    background: var(--ivory);
-    height: 2px;
-    border-radius: 1px;
-    transition: all 0.3s ease;
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #F5EDD8; /* or white */
+    border-radius: 2px;
+    margin: 3px 0;
   }
   
   .nav-mobile-btn.active span:nth-child(1) {
@@ -1068,6 +1070,35 @@ nav.scrolled {
   text-align: center;
   position: relative;
 }
+.menu-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.menu-eyebrow::before,
+.menu-eyebrow::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.menu-title {
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  color: var(--ivory);
+}
+
 
 .delivery-section::before {
   content: '';
