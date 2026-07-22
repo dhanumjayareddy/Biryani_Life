@@ -257,9 +257,9 @@
 </style>
 
 <!-- Favicon & App Icons -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' stroke='%23D4A847' stroke-width='1' fill='none'/><path d='M16 3 C9 3 4 8 4 14.5 C4 21 9 27 16 29 C23 27 28 21 28 14.5 C28 8 23 3 16 3Z' stroke='%23D4A847' stroke-width='1' fill='none' opacity='0.6'/><path d='M11 14.5 Q13.5 11 16 13 Q18.5 11 21 14.5 Q18.5 18 16 16 Q13.5 18 11 14.5Z' fill='%23D4A847'/></svg>">
-<link rel="apple-touch-icon" href="https://biryani.life/apple-touch-icon.png">
-<link rel="manifest" href="https://biryani.life/manifest.json">
+<link rel="icon" type="image/jpeg" href="assets/images/star_biryani_logo.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="assets/images/star_biryani_logo.jpg">
+<link rel="apple-touch-icon" href="assets/images/star_biryani_logo.jpg">
 
 <!-- ==========================================================
      STRUCTURED DATA - ORGANIZATION / RESTAURANT
@@ -2621,7 +2621,7 @@ footer {
   </div>
 
   <ul class="nav-links" role="list">
-    <li><a href="#story">The Craft</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="menu.html">Menu</a></li>
     <li><a href="book-table.html">Reservations</a></li>
     <li><a href="functions.html">Functions</a></li>
@@ -2642,7 +2642,6 @@ footer {
   <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
   <a href="#story" class="mobile-link">The Craft</a>
   <a href="menu.html" class="mobile-link">Menu</a>
-  <a href="#ritual" class="mobile-link">The Ritual</a>
   <a href="book-table.html" class="mobile-link">Reservations</a>
   <a href="functions.html" class="mobile-link">Functions</a>
   <a href="about.html" class="mobile-link">About</a>
@@ -2687,40 +2686,119 @@ footer {
 </section>
 
 <!-- Order Section -->
-  <section class="order-section" aria-labelledby="order-heading">
-    <p class="menu-eyebrow">Order Now</p>
-    <h2 class="menu-title" id="order-heading">Order by Location</h2>
-    <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:2rem;">
-      <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
-        <h3 class="section-subtitle">Anderson Ln Location</h3>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
-          <a href="https://www.doordash.com/store/38780617" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-            <img src="assets/images/delivery-apps/doordash-logo.png" alt="DoorDash" style="width:100px;height:auto; border-radius:12px;background:transparent;padding:0;">
-          </a>
-          <a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-            <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="Uber Eats" style="width:100px;height:auto;background:transparent;padding:0;">
-          </a>
-          <a href="https://starofindiaatx.square.site/" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-            <img src="assets/images/delivery-apps/square-logo.png" alt="Square" style="width:100px;height:auto; border-radius:12px;background:transparent;padding:0;">
-          </a>
+<section class="order-section" aria-labelledby="order-heading">
+  <p class="menu-eyebrow">Order Now</p>
+  <h2 class="menu-title" id="order-heading">Order by Location</h2>
+
+  <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:2rem;">
+
+    <!-- Anderson Lane -->
+    <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
+
+      <h3 class="section-subtitle">Anderson Ln Location</h3>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
+
+        <a href="https://www.doordash.com/store/38780617"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="order-btn"
+           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+          <img src="assets/images/delivery-apps/doordash-logo.png"
+               alt="DoorDash"
+               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+        </a>
+
+        <a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="order-btn"
+           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+          <img src="assets/images/delivery-apps/ubereats-com-logo.png"
+               alt="Uber Eats"
+               style="width:100px;height:auto;background:transparent;padding:0;">
+        </a>
+
+        <a href="https://starofindiaatx.square.site/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="order-btn"
+           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+          <img src="assets/images/delivery-apps/square-logo.png"
+               alt="Square"
+               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+        </a>
+
+      </div>
+
+    </article>
+
+    <!-- Sunset Valley -->
+    <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
+
+      <h3 class="section-subtitle">Sunset Valley Location</h3>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
+
+        <a href="https://www.doordash.com/store/25067432"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="order-btn"
+           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+          <img src="assets/images/delivery-apps/doordash-logo.png"
+               alt="DoorDash"
+               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+        </a>
+
+        <a href="https://www.ubereats.com/store/star-biryani-sunset-valley/7vtltvEnUyS_8P09y3qHOg"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="order-btn"
+           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
+          <img src="assets/images/delivery-apps/ubereats-com-logo.png"
+               alt="Uber Eats"
+               style="width:100px;height:auto;background:transparent;padding:0;">
+        </a>
+
+        <!-- Square Coming Soon -->
+        <div style="position:relative;display:inline-block;">
+
+          <button
+              class="order-btn"
+              onclick="squareComingSoon()"
+              style="padding:.9rem 1rem;min-width:160px;justify-content:center;border:none;cursor:pointer;">
+
+            <img src="assets/images/delivery-apps/square-logo.png"
+                 alt="Square"
+                 style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+
+          </button>
+
+          <span style="
+              position:absolute;
+              top:-8px;
+              right:-8px;
+              background:#D4A847;
+              color:#111;
+              padding:4px 8px;
+              border-radius:999px;
+              font-size:11px;
+              font-weight:600;
+              letter-spacing:.05em;
+              white-space:nowrap;
+              box-shadow:0 4px 12px rgba(0,0,0,.2);">
+            Coming Soon
+          </span>
+
         </div>
-      </article>
-      <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
-        <h3 class="section-subtitle">Sunsetvalley Location</h3>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
-          <a href="https://www.doordash.com/store/25067432" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-            <img src="assets/images/delivery-apps/doordash-logo.png" alt="DoorDash" style="width:100px;height:auto; border-radius:12px;background:transparent;padding:0;">
-          </a>
-          <a href="https://www.ubereats.com/store/star-biryani-sunset-valley/7vtltvEnUyS_8P09y3qHOg" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-            <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="Uber Eats" style="width:100px;height:auto;background:transparent;padding:0;">
-          </a>
-          <a href="https://starofindiaatx.square.site/" target="_blank" rel="noopener noreferrer" class="order-btn" style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-            <img src="assets/images/delivery-apps/square-logo.png" alt="Square" style="width:100px;height:auto; border-radius:12px;background:transparent;padding:0;">
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
+
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
 
 
 <!-- BIRYANI CAROUSEL SECTION -->
@@ -3048,7 +3126,7 @@ footer {
           <div class="meta-avatar" aria-hidden="true">A</div>
           <div class="meta-info">
             <span class="meta-name">Arjun M.</span>
-            <span class="meta-loc">San Francisco, CA</span>
+            <span class="meta-loc">W Anderson, TX</span>
           </div>
         </div>
       </div>
@@ -3070,7 +3148,7 @@ footer {
           <div class="meta-avatar" aria-hidden="true">S</div>
           <div class="meta-info">
             <span class="meta-name">Sophia L.</span>
-            <span class="meta-loc">New York, NY</span>
+            <span class="meta-loc">Sunset Valley, TX</span>
           </div>
         </div>
       </div>
@@ -3092,7 +3170,7 @@ footer {
           <div class="meta-avatar" aria-hidden="true">R</div>
           <div class="meta-info">
             <span class="meta-name">Rania K.</span>
-            <span class="meta-loc">Chicago, IL</span>
+            <span class="meta-loc">Austin, TX</span>
           </div>
         </div>
       </div>
