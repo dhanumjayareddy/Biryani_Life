@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - task: "Deploy static site"
+      commands:
+        - echo "Deploying Biryani Life static website to public_html"
+        - cp -R * ~/public_html/
