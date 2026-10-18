@@ -829,6 +829,7 @@ footer {
   }
 }
 </style>
+<link rel="stylesheet" href="assets/premium.css">
 </head>
 <body>
 
@@ -854,14 +855,14 @@ footer {
 
   <a href="index.html#order" class="nav-cta" aria-label="Order now">Order Now</a>
 
-  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+  <button class="nav-mobile-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Close menu">✕</button>
   <a href="index.html" class="mobile-link">The Craft</a>
   <a href="menu.html" class="mobile-link">Menu</a>
   <a href="book-table.html" class="mobile-link">Reservations</a>
@@ -876,206 +877,64 @@ footer {
   <!-- Functions Hero -->
   <section class="functions-hero" aria-labelledby="functions-hero-heading">
     <h1 id="functions-hero-heading">Functions & Catering</h1>
-    <p>Make your special occasions memorable with authentic Hyderabadi dum biryani crafted for celebrations</p>
+    <p>Choose from our chicken biryani trays and party packages, prepared for your gathering.</p>
   </section>
 
-  <!-- Event Types -->
-  <section class="event-types" aria-labelledby="events-heading">
-    <div class="events-container">
-      <div class="events-header">
-        <p class="events-eyebrow">Event Types</p>
-        <h2 class="events-title" id="events-heading">Perfect for Every Occasion</h2>
-      </div>
-      
-      <div class="events-grid">
-        <article class="event-card">
-          <div class="event-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 11l3 3L22 4"/>
-              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-            </svg>
-          </div>
-          <h3 class="event-title">Weddings</h3>
-          <p class="event-description">Royal biryani for your special day with traditional Hyderabadi presentation and service</p>
-          <div class="event-features">
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Traditional handi service
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Decorative serving setup
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Custom menu planning
-            </div>
-          </div>
-          <div class="event-price">Starting at $24.99/person</div>
-          <button class="event-btn" onclick="scrollToForm('wedding')">Get Quote</button>
-        </article>
-
-        <article class="event-card">
-          <div class="event-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-              <line x1="9" y1="9" x2="9.01" y2="9"/>
-              <line x1="15" y1="9" x2="15.01" y2="9"/>
-            </svg>
-          </div>
-          <h3 class="event-title">Corporate Events</h3>
-          <p class="event-description">Professional catering for business meetings, conferences, and corporate celebrations</p>
-          <div class="event-features">
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Individual portions available
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Professional service staff
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Dietary accommodations
-            </div>
-          </div>
-          <div class="event-price">Starting at $18.99/person</div>
-          <button class="event-btn" onclick="scrollToForm('corporate')">Get Quote</button>
-        </article>
-
-        <article class="event-card">
-          <div class="event-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <h3 class="event-title">Birthday Parties</h3>
-          <p class="event-description">Celebrate with authentic biryani that will make your birthday unforgettable</p>
-          <div class="event-features">
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Birthday special presentation
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Kids' menu options
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Festive decorations
-            </div>
-          </div>
-          <div class="event-price">Starting at $16.99/person</div>
-          <button class="event-btn" onclick="scrollToForm('birthday')">Get Quote</button>
-        </article>
-
-        <article class="event-card">
-          <div class="event-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3 class="event-title">Family Gatherings</h3>
-          <p class="event-description">Perfect for family reunions, holidays, and special family celebrations</p>
-          <div class="event-features">
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Family-size portions
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Multiple biryani varieties
-            </div>
-            <div class="event-feature">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Takeaway options
-            </div>
-          </div>
-          <div class="event-price">Starting at $14.99/person</div>
-          <button class="event-btn" onclick="scrollToForm('family')">Get Quote</button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bulk Orders -->
+  <!-- Catering Packages -->
   <section class="bulk-orders" aria-labelledby="bulk-heading">
     <div class="bulk-container">
       <div class="bulk-header">
-        <p class="bulk-eyebrow">Bulk Orders</p>
-        <h2 class="bulk-title" id="bulk-heading">Catering Menu Packages</h2>
+        <p class="bulk-eyebrow">STAR BIRYANI Catering</p>
+        <h2 class="bulk-title" id="bulk-heading">Catering Packages</h2>
+        <p class="package-guarantee">Satisfaction 100% Guaranteed</p>
       </div>
-      
-      <div class="bulk-grid">
-        <div class="bulk-item">
-          <h3 class="bulk-item-name">Chicken Dum Biryani</h3>
-          <p class="bulk-item-description">Tender chicken with aromatic basmati rice</p>
-          <div class="bulk-item-price">$12.99/person</div>
-          <div class="bulk-item-minimum">Minimum 25 servings</div>
-        </div>
-        
-        <div class="bulk-item">
-          <h3 class="bulk-item-name">Lamb Dum Biryani</h3>
-          <p class="bulk-item-description">Premium lamb pieces with traditional spices</p>
-          <div class="bulk-item-price">$16.99/person</div>
-          <div class="bulk-item-minimum">Minimum 20 servings</div>
-        </div>
-        
-        <div class="bulk-item">
-          <h3 class="bulk-item-name">Vegetable Dum Biryani</h3>
-          <p class="bulk-item-description">Fresh vegetables and paneer in dum style</p>
-          <div class="bulk-item-price">$10.99/person</div>
-          <div class="bulk-item-minimum">Minimum 15 servings</div>
-        </div>
-        
-        <div class="bulk-item">
-          <h3 class="bulk-item-name">Prawn Dum Biryani</h3>
-          <p class="bulk-item-description">Juicy prawns with coastal spices</p>
-          <div class="bulk-item-price">$14.99/person</div>
-          <div class="bulk-item-minimum">Minimum 20 servings</div>
-        </div>
-        
-        <div class="bulk-item">
-          <h3 class="bulk-item-name">Mixed Biryani Platter</h3>
-          <p class="bulk-item-description">Assortment of all biryani varieties</p>
-          <div class="bulk-item-price">$18.99/person</div>
-          <div class="bulk-item-minimum">Minimum 30 servings</div>
-        </div>
-        
-        <div class="bulk-item">
-          <h3 class="bulk-item-name">Complete Package</h3>
-          <p class="bulk-item-description">Biryani + sides + beverages + dessert</p>
-          <div class="bulk-item-price">$24.99/person</div>
-          <div class="bulk-item-minimum">Minimum 25 servings</div>
-        </div>
+
+      <div class="bulk-grid catering-package-grid">
+        <article class="bulk-item catering-package">
+          <p class="package-eyebrow">Biryani trays</p>
+          <h3 class="bulk-item-name">Chicken Biryani Tray</h3>
+          <div class="package-size-prices">
+            <p><span>Small Deep</span><strong>$49</strong></p>
+            <p><span>Long Tray</span><strong>$99</strong></p>
+          </div>
+          <p class="package-list-heading">Choose your biryani</p>
+          <ul class="package-includes">
+            <li>Hyderabadi Chicken Biryani</li>
+            <li>STAR Chicken Biryani</li>
+            <li>Donne Chicken Biryani</li>
+            <li>Chicken 65 Biryani</li>
+          </ul>
+          <a href="#catering-contact" class="event-btn">Ask about this package</a>
+        </article>
+
+        <article class="bulk-item catering-package">
+          <p class="package-eyebrow">For 20 guests</p>
+          <h3 class="bulk-item-name">20 Elite Party Package</h3>
+          <p class="package-price">$299</p>
+          <ul class="package-includes">
+            <li>2 appetizers</li>
+            <li>Chicken, veg, or paneer biryani</li>
+            <li>2 curries</li>
+            <li>Naan or parottas</li>
+            <li>Dessert</li>
+          </ul>
+          <a href="#catering-contact" class="event-btn">Ask about this package</a>
+        </article>
+
+        <article class="bulk-item catering-package">
+          <p class="package-eyebrow">For 40 guests</p>
+          <h3 class="bulk-item-name">40 Premium Party Package</h3>
+          <p class="package-price">$699</p>
+          <ul class="package-includes">
+            <li>2 appetizers</li>
+            <li>Chicken, veg, or paneer biryani</li>
+            <li>2 curries</li>
+            <li>Naan or parottas</li>
+            <li>Dessert</li>
+            <li>Welcome drink</li>
+          </ul>
+          <a href="#catering-contact" class="event-btn">Ask about this package</a>
+        </article>
       </div>
     </div>
   </section>
@@ -1111,80 +970,29 @@ footer {
           </div>
           
           <div class="form-group">
-            <label for="eventType" class="form-label">Event Type</label>
-            <select id="eventType" name="eventType" class="form-select" required>
-              <option value="">Select event type</option>
-              <option value="wedding">Wedding</option>
-              <option value="corporate">Corporate Event</option>
-              <option value="birthday">Birthday Party</option>
-              <option value="family">Family Gathering</option>
-              <option value="other">Other</option>
+            <label for="package" class="form-label">Catering Package</label>
+            <select id="package" name="package" class="form-select" required>
+              <option value="">Choose a package</option>
+              <option value="Chicken Biryani Tray — Small Deep ($49)">Chicken Biryani Tray — Small Deep ($49)</option>
+              <option value="Chicken Biryani Tray — Long Tray ($99)">Chicken Biryani Tray — Long Tray ($99)</option>
+              <option value="20 Elite Party Package ($299)">20 Elite Party Package ($299)</option>
+              <option value="40 Premium Party Package ($699)">40 Premium Party Package ($699)</option>
             </select>
           </div>
           
           <div class="form-group">
-            <label for="guests" class="form-label">Number of Guests</label>
-            <input type="number" id="guests" name="guests" class="form-input" min="10" required>
+            <label for="guests" class="form-label">Approx. Number of Guests (Optional)</label>
+            <input type="number" id="guests" name="guests" class="form-input" min="1">
           </div>
           
           <div class="form-group">
-            <label for="eventDate" class="form-label">Event Date</label>
-            <input type="date" id="eventDate" name="eventDate" class="form-input" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="eventTime" class="form-label">Event Time</label>
-            <input type="time" id="eventTime" name="eventTime" class="form-input" required>
+            <label for="eventDate" class="form-label">Event Date (Optional)</label>
+            <input type="date" id="eventDate" name="eventDate" class="form-input">
           </div>
           
           <div class="form-group">
             <label for="venue" class="form-label">Event Venue</label>
             <input type="text" id="venue" name="venue" class="form-input" placeholder="Address or venue name">
-          </div>
-          
-          <div class="form-group">
-            <label for="budget" class="form-label">Budget Per Person</label>
-            <select id="budget" name="budget" class="form-select">
-              <option value="">Select budget range</option>
-              <option value="10-15">$10 - $15</option>
-              <option value="15-20">$15 - $20</option>
-              <option value="20-25">$20 - $25</option>
-              <option value="25+">$25+</option>
-            </select>
-          </div>
-          
-          <div class="form-group full-width">
-            <label class="form-label">Menu Selection (Select all that apply)</label>
-            <div class="checkbox-group">
-              <div class="checkbox-item">
-                <input type="checkbox" id="chicken" name="menuItems" value="chicken">
-                <label for="chicken">Chicken Dum Biryani</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="lamb" name="menuItems" value="lamb">
-                <label for="lamb">Lamb Dum Biryani</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="vegetable" name="menuItems" value="vegetable">
-                <label for="vegetable">Vegetable Dum Biryani</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="prawn" name="menuItems" value="prawn">
-                <label for="prawn">Prawn Dum Biryani</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="sides" name="menuItems" value="sides">
-                <label for="sides">Side Dishes</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="beverages" name="menuItems" value="beverages">
-                <label for="beverages">Beverages</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="dessert" name="menuItems" value="dessert">
-                <label for="dessert">Desserts</label>
-              </div>
-            </div>
           </div>
           
           <div class="form-group full-width">
@@ -1193,13 +1001,14 @@ footer {
           </div>
         </div>
         
-        <button type="submit" class="form-submit">Submit Inquiry</button>
+        <button type="submit" class="form-submit">Prepare Email Inquiry</button>
+        <p class="form-note">Your email app will open with your package details ready to send to STAR BIRYANI.</p>
       </form>
     </div>
   </section>
 
   <!-- Contact Section -->
-<section class="contact-section" aria-labelledby="contact-heading">
+<section class="contact-section" id="catering-contact" aria-labelledby="contact-heading">
   <div class="contact-container">
     <h2 class="contact-title" id="contact-heading">Get in Touch</h2>
 
@@ -1214,25 +1023,10 @@ footer {
         </div>
 
         <div class="contact-text">
-          <strong>Anderson Ln Location</strong><br>
-          📍 2900 W Anderson Ln, Ste 12D<br>
+          <strong>STAR BIRYANI – Location 1</strong><br>
+          2900 W Anderson Ln<br>
           Austin, TX 78757<br>
-          📞 <a href="tel:+15124528199">+1 (512) 452-8199</a><br>
-          ✉️ <a href="mailto:contact@starbiryani.us">contact@starbiryani.us</a><br>
-          <a href="https://maps.google.com/?q=2900+W+Anderson+Ln+Ste+12D,+Austin,+TX+78757" target="_blank" rel="noopener noreferrer">
-            Get Directions →
-          </a>
-
-          <br><br>
-
-          <strong>Sunset Valley Location</strong><br>
-          📍 4894 US-290 W<br>
-          Austin, TX 78745<br>
-          📞 <a href="tel:+15123580909">+1 (512) 358-0909</a><br>
-          ✉️ <a href="mailto:contact@starbiryani.us">contact@starbiryani.us</a><br>
-          <a href="https://maps.google.com/?q=4894+US-290+W,+Austin,+TX+78745" target="_blank" rel="noopener noreferrer">
-            Get Directions →
-          </a>
+          Phone: <a href="tel:+17374290338">(737) 429-0338</a>
         </div>
       </div>
 
@@ -1246,8 +1040,10 @@ footer {
         </div>
 
         <div class="contact-text">
-          <strong>Email</strong><br>
-          <a href="mailto:contact@starbiryani.us">contact@starbiryani.us</a>
+          <strong>STAR BIRYANI – Location 2</strong><br>
+          4994 US 290 West<br>
+          Austin, TX 78735<br>
+          Phone: <a href="tel:+15123580909">(512) 358-0909</a>
         </div>
       </div>
 
@@ -1261,9 +1057,8 @@ footer {
         </div>
 
         <div class="contact-text">
-          <strong>Catering Hours</strong><br>
-          Monday - Friday: 9:00 AM - 6:00 PM<br>
-          Saturday: 10:00 AM - 4:00 PM
+          <strong>Website</strong><br>
+          <a href="https://www.starbiryani.us" target="_blank" rel="noopener noreferrer">www.starbiryani.us</a>
         </div>
       </div>
 
@@ -1316,12 +1111,14 @@ function openMenu() {
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
   mobileBtn.setAttribute('aria-expanded', 'true');
+  mobileBtn.setAttribute('aria-label', 'Close menu');
 }
 
 function closeMenu() {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
   mobileBtn.setAttribute('aria-expanded', 'false');
+  mobileBtn.setAttribute('aria-label', 'Open menu');
 }
 
 mobileBtn.addEventListener('click', openMenu);
@@ -1330,21 +1127,9 @@ mobileLinks.forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
-// =====================================================
-// SCROLL TO FORM
-//=====================================================
-function scrollToForm(eventType) {
-  const form = document.getElementById('catering-form');
-  const eventTypeSelect = document.getElementById('eventType');
-  
-  // Set the event type in the form
-  if (eventTypeSelect) {
-    eventTypeSelect.value = eventType;
-  }
-  
-  // Scroll to form
-  form.scrollIntoView({ behavior: 'smooth' });
-}
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+});
 
 // =====================================================
 // CATERING FORM
@@ -1360,28 +1145,13 @@ eventDateInput.setAttribute('min', minDate);
 
 cateringForm.addEventListener('submit', function(e) {
   e.preventDefault();
-  
-  // Get form data
   const formData = new FormData(cateringForm);
-  const data = Object.fromEntries(formData);
-  
-  // Get selected menu items
-  const menuItems = [];
-  const checkboxes = document.querySelectorAll('input[name="menuItems"]:checked');
-  checkboxes.forEach(checkbox => {
-    menuItems.push(checkbox.value);
-  });
-  data.menuItems = menuItems;
-  
-  // In a real implementation, this would send data to a server
-  // For now, we'll show a success message
-  alert('Thank you for your catering inquiry! We will contact you within 24 hours with a detailed quote.');
-  
-  // Reset form
-  cateringForm.reset();
-  
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const inquiry = Array.from(formData.entries())
+    .filter(([, value]) => value)
+    .map(([key, value]) => `${key}: ${value}`)
+    .join('\n');
+  const subject = `Catering inquiry: ${formData.get('package')}`;
+  window.location.href = `mailto:contact@starbiryani.us?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(inquiry)}`;
 });
 </script>
 

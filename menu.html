@@ -574,6 +574,28 @@ nav.scrolled {
   transform: translateY(-2px);
 }
 
+.square-order-primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+  font-weight: 600;
+}
+
+.square-order-primary:hover {
+  background: var(--saffron);
+  border-color: var(--saffron);
+}
+
+.order-btn-secondary {
+  opacity: 0.78;
+  font-size: var(--text-xs);
+}
+
+.square-order-placeholder {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .order-btn svg {
   width: 20px;
   height: 20px;
@@ -830,6 +852,7 @@ footer {
   }
 }
 </style>
+<link rel="stylesheet" href="assets/premium.css">
 </head>
 <body>
 
@@ -855,14 +878,14 @@ footer {
 
   <a href="index.html#order" class="nav-cta" aria-label="Order now">Order Now</a>
 
-  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+  <button class="nav-mobile-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Close menu">✕</button>
   <a href="index.html#story" class="mobile-link">The Craft</a>
   <a href="menu.html" class="mobile-link">Menu</a>
   <a href="index.html#ritual" class="mobile-link">The Ritual</a>
@@ -882,116 +905,60 @@ footer {
   </section>
 
   <!-- Order Section -->
-<section class="order-section" aria-labelledby="order-heading">
-  <p class="menu-eyebrow">Order Now</p>
-  <h2 class="menu-title" id="order-heading">Order by Location</h2>
-
-  <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:2rem;">
-
-    <!-- Anderson Lane -->
-    <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
-
-      <h3 class="section-subtitle">Anderson Ln Location</h3>
-
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
-
-        <a href="https://www.doordash.com/store/38780617"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/doordash-logo.png"
-               alt="DoorDash"
-               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+<section class="order-section" id="order" aria-labelledby="order-heading">
+  <p class="menu-eyebrow">Order for pickup or delivery</p>
+  <h2 class="menu-title" id="order-heading">Choose your location</h2>
+  <p class="order-intro">Choose your kitchen and place a Square order right here, or select a delivery partner.</p>
+  <div class="order-location-grid">
+    <article class="order-location-card" aria-labelledby="menu-anderson-order-heading">
+      <p class="order-location-eyebrow">North Austin</p>
+      <h3 class="section-subtitle" id="menu-anderson-order-heading">Anderson Lane</h3>
+      <p class="order-location-address">2900 W Anderson Ln, Suite 12D<br>Austin, TX 78757</p>
+      <div class="order-location-actions" role="group" aria-label="Ordering options for Anderson Lane">
+        <a href="#anderson-square-order" class="order-btn square-order-primary">
+          <img src="assets/images/delivery-apps/square-logo.png" alt="" aria-hidden="true">
+          <span>Order here with Square</span>
         </a>
-
-        <a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/ubereats-com-logo.png"
-               alt="Uber Eats"
-               style="width:100px;height:auto;background:transparent;padding:0;">
+        <a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw" target="_blank" rel="noopener noreferrer" class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="" aria-hidden="true">
+          <span>Uber Eats</span>
         </a>
-
-        <a href="https://starofindiaatx.square.site/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/square-logo.png"
-               alt="Square"
-               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+        <a href="https://www.doordash.com/store/38780617" target="_blank" rel="noopener noreferrer" class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/doordash-logo.png" alt="" aria-hidden="true">
+          <span>DoorDash</span>
         </a>
-
       </div>
-
     </article>
-
-    <!-- Sunset Valley -->
-    <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
-
-      <h3 class="section-subtitle">Sunset Valley Location</h3>
-
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
-
-        <a href="https://www.doordash.com/store/25067432"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/doordash-logo.png"
-               alt="DoorDash"
-               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+    <article class="order-location-card" aria-labelledby="menu-sunset-order-heading">
+      <p class="order-location-eyebrow">South Austin</p>
+      <h3 class="section-subtitle" id="menu-sunset-order-heading">Sunset Valley</h3>
+      <p class="order-location-address">4894 US-290 W<br>Austin, TX 78745</p>
+      <div class="order-location-actions" role="group" aria-label="Ordering options for Sunset Valley">
+        <span class="order-btn square-order-placeholder" aria-disabled="true">
+          <img src="assets/images/delivery-apps/square-logo.png" alt="" aria-hidden="true">
+          <span>Square coming soon</span>
+        </span>
+        <a href="https://www.ubereats.com/store/star-biryani-sunset-valley/7vtltvEnUyS_8P09y3qHOg" target="_blank" rel="noopener noreferrer" class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="" aria-hidden="true">
+          <span>Uber Eats</span>
         </a>
-
-        <a href="https://www.ubereats.com/store/star-biryani-sunset-valley/7vtltvEnUyS_8P09y3qHOg"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/ubereats-com-logo.png"
-               alt="Uber Eats"
-               style="width:100px;height:auto;background:transparent;padding:0;">
+        <a href="https://www.doordash.com/store/25067432" target="_blank" rel="noopener noreferrer" class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/doordash-logo.png" alt="" aria-hidden="true">
+          <span>DoorDash</span>
         </a>
-
-        <!-- Square Coming Soon -->
-        <div style="position:relative;display:inline-block;">
-
-          <button
-              class="order-btn"
-              onclick="squareComingSoon()"
-              style="padding:.9rem 1rem;min-width:160px;justify-content:center;border:none;cursor:pointer;">
-
-            <img src="assets/images/delivery-apps/square-logo.png"
-                 alt="Square"
-                 style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
-
-          </button>
-
-          <span style="
-              position:absolute;
-              top:-8px;
-              right:-8px;
-              background:#D4A847;
-              color:#111;
-              padding:4px 8px;
-              border-radius:999px;
-              font-size:11px;
-              font-weight:600;
-              letter-spacing:.05em;
-              white-space:nowrap;
-              box-shadow:0 4px 12px rgba(0,0,0,.2);">
-            Coming Soon
-          </span>
-
-        </div>
-
       </div>
-
     </article>
-
+  </div>
+  <div class="square-embed-panel" id="anderson-square-order" aria-labelledby="menu-square-order-heading">
+    <div class="square-embed-header">
+      <div>
+        <p class="order-location-eyebrow">Anderson Lane</p>
+        <h3 id="menu-square-order-heading">Order directly from STAR BIRYANI</h3>
+      </div>
+      <a href="https://starofindiaatx.square.site/s/order" target="_blank" rel="noopener noreferrer">Open Square separately</a>
+    </div>
+    <iframe src="https://starofindiaatx.square.site/s/order" title="Order online from STAR BIRYANI on Square" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="payment"></iframe>
+    <p class="square-embed-note">Secure ordering is provided by Square. Your order stays on this page.</p>
   </div>
 </section>
   <!-- Appetizers Section -->
@@ -1881,12 +1848,14 @@ function openMenu() {
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
   mobileBtn.setAttribute('aria-expanded', 'true');
+  mobileBtn.setAttribute('aria-label', 'Close menu');
 }
 
 function closeMenu() {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
   mobileBtn.setAttribute('aria-expanded', 'false');
+  mobileBtn.setAttribute('aria-label', 'Open menu');
 }
 
 mobileBtn.addEventListener('click', openMenu);
@@ -1895,20 +1864,15 @@ mobileLinks.forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+});
+
 // =====================================================
 // ORDER FUNCTIONALITY
 //=====================================================
 function orderItem(itemName) {
-  const deliveryApps = [
-    { name: 'Uber Eats', url: 'https://www.ubereats.com/store/STAR BIRYANI-biryani/your-store-id' },
-    { name: 'DoorDash', url: 'https://www.doordash.com/store/STAR BIRYANI-biryani/your-store-id' }
-  ];
-  
-  const randomApp = deliveryApps[Math.floor(Math.random() * deliveryApps.length)];
-  
-  // In a real implementation, this would add the item to cart
-  // For now, we'll redirect to a random delivery app
-  window.open(randomApp.url, '_blank');
+  window.open('https://starofindiaatx.square.site/', '_blank', 'noopener,noreferrer');
 }
 </script>
 

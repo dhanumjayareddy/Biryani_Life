@@ -12,7 +12,7 @@
 <meta name="title" content="STAR BIRYANI | Authentic Hyderabadi Dum Biryani | Austin, Texas">
 
 <meta name="description"
-      content="Experience authentic Hyderabadi Dum Biryani at STAR BIRYANI in Austin, Texas. Visit our Anderson Lane and Sunset Valley locations or order online through Uber Eats and DoorDash for fresh, flavorful biryani, curries, kebabs, and more.">
+      content="Experience authentic Hyderabadi biryani at STAR BIRYANI in Austin, Texas. Browse our menu and order from Anderson Lane through Square, or choose Uber Eats and DoorDash.">
 
 <meta name="keywords"
       content="Star Biryani, Hyderabadi biryani, chicken biryani, mutton biryani, veg biryani, paneer biryani, fish biryani, egg biryani, boneless chicken biryani, chicken 65 biryani, ulavacharu biryani, Indian restaurant Austin, best biryani Austin, dum biryani, Indian food Austin, halal biryani, Uber Eats, DoorDash, catering, takeout, delivery">
@@ -54,7 +54,7 @@
       content="STAR BIRYANI | Authentic Hyderabadi Dum Biryani">
 
 <meta property="og:description"
-      content="Enjoy authentic Hyderabadi Dum Biryani in Austin. Two convenient locations with online ordering through Uber Eats and DoorDash.">
+      content="Enjoy authentic Hyderabadi biryani in Austin. Order from Anderson Lane through Square, or choose Uber Eats and DoorDash.">
 
 <meta property="og:image"
       content="https://starbiryani.com/assets/images/hero/biryani-hero.jpg">
@@ -83,7 +83,7 @@
       content="STAR BIRYANI | Authentic Hyderabadi Dum Biryani">
 
 <meta name="twitter:description"
-      content="Authentic Hyderabadi Dum Biryani in Austin, Texas. Order online or visit our Anderson Lane and Sunset Valley locations.">
+      content="Authentic Hyderabadi biryani in Austin, Texas. Browse our menu and order online.">
 
 <meta name="twitter:image"
       content="https://starbiryani.com/assets/images/hero/biryani-hero.jpg">
@@ -2264,6 +2264,28 @@ nav.scrolled {
   transform: translateY(-2px);
 }
 
+.square-order-primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+  font-weight: 600;
+}
+
+.square-order-primary:hover {
+  background: var(--saffron);
+  border-color: var(--saffron);
+}
+
+.order-btn-secondary {
+  opacity: 0.78;
+  font-size: var(--text-xs);
+}
+
+.square-order-placeholder {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .order-btn svg {
   width: 20px;
   height: 20px;
@@ -2607,6 +2629,7 @@ footer {
 }
 
 </style>
+<link rel="stylesheet" href="assets/premium.css">
 </head>
 <body>
 
@@ -2632,14 +2655,14 @@ footer {
 
   <a href="#order" class="nav-cta" aria-label="Order now">Order Now</a>
 
-  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+  <button class="nav-mobile-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Close menu">✕</button>
   <a href="#story" class="mobile-link">The Craft</a>
   <a href="menu.html" class="mobile-link">Menu</a>
   <a href="book-table.html" class="mobile-link">Reservations</a>
@@ -2686,116 +2709,89 @@ footer {
 </section>
 
 <!-- Order Section -->
-<section class="order-section" aria-labelledby="order-heading">
-  <p class="menu-eyebrow">Order Now</p>
-  <h2 class="menu-title" id="order-heading">Order by Location</h2>
+<section class="order-section" id="order" aria-labelledby="order-heading">
+  <p class="menu-eyebrow">Order for pickup or delivery</p>
+  <h2 class="menu-title" id="order-heading">Choose your location</h2>
+  <p class="order-intro">Select your kitchen and place a Square order right here, or choose a delivery partner.</p>
 
-  <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:2rem;">
-
-    <!-- Anderson Lane -->
-    <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
-
-      <h3 class="section-subtitle">Anderson Ln Location</h3>
-
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
-
-        <a href="https://www.doordash.com/store/38780617"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/doordash-logo.png"
-               alt="DoorDash"
-               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+  <div class="order-location-grid">
+    <article class="order-location-card" aria-labelledby="anderson-order-heading">
+      <p class="order-location-eyebrow">North Austin</p>
+      <h3 class="section-subtitle" id="anderson-order-heading">Anderson Lane</h3>
+      <p class="order-location-address">2900 W Anderson Ln, Suite 12D<br>Austin, TX 78757</p>
+      <div class="order-location-actions" role="group" aria-label="Ordering options for Anderson Lane">
+        <a href="#anderson-square-order"
+           class="order-btn square-order-primary">
+          <img src="assets/images/delivery-apps/square-logo.png" alt="" aria-hidden="true">
+          <span>Order here with Square</span>
         </a>
-
         <a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/ubereats-com-logo.png"
-               alt="Uber Eats"
-               style="width:100px;height:auto;background:transparent;padding:0;">
+           target="_blank" rel="noopener noreferrer"
+           class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="" aria-hidden="true">
+          <span>Uber Eats</span>
         </a>
-
-        <a href="https://starofindiaatx.square.site/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/square-logo.png"
-               alt="Square"
-               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
+        <a href="https://www.doordash.com/store/38780617"
+           target="_blank" rel="noopener noreferrer"
+           class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/doordash-logo.png" alt="" aria-hidden="true">
+          <span>DoorDash</span>
         </a>
-
       </div>
-
+      <a class="order-location-directions"
+         href="https://www.google.com/maps/search/?api=1&query=2900+W+Anderson+Ln+Ste+12D,+Austin,+TX+78757"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Get directions to Anderson Lane">
+        Get directions <span aria-hidden="true">&rarr;</span>
+      </a>
     </article>
 
-    <!-- Sunset Valley -->
-    <article style="padding:2rem;border:1px solid rgba(212,168,71,0.12);border-radius:1.5rem;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:1rem;">
-
-      <h3 class="section-subtitle">Sunset Valley Location</h3>
-
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
-
-        <a href="https://www.doordash.com/store/25067432"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/doordash-logo.png"
-               alt="DoorDash"
-               style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
-        </a>
-
+    <article class="order-location-card" aria-labelledby="sunset-order-heading">
+      <p class="order-location-eyebrow">South Austin</p>
+      <h3 class="section-subtitle" id="sunset-order-heading">Sunset Valley</h3>
+      <p class="order-location-address">4894 US-290 W<br>Austin, TX 78745</p>
+      <div class="order-location-actions" role="group" aria-label="Ordering options for Sunset Valley">
+        <span class="order-btn square-order-placeholder" aria-disabled="true">
+          <img src="assets/images/delivery-apps/square-logo.png" alt="" aria-hidden="true">
+          <span>Square coming soon</span>
+        </span>
         <a href="https://www.ubereats.com/store/star-biryani-sunset-valley/7vtltvEnUyS_8P09y3qHOg"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="order-btn"
-           style="padding:.9rem 1rem;min-width:160px;justify-content:center;">
-          <img src="assets/images/delivery-apps/ubereats-com-logo.png"
-               alt="Uber Eats"
-               style="width:100px;height:auto;background:transparent;padding:0;">
+           target="_blank" rel="noopener noreferrer"
+           class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/ubereats-com-logo.png" alt="" aria-hidden="true">
+          <span>Uber Eats</span>
         </a>
-
-        <!-- Square Coming Soon -->
-        <div style="position:relative;display:inline-block;">
-
-          <button
-              class="order-btn"
-              onclick="squareComingSoon()"
-              style="padding:.9rem 1rem;min-width:160px;justify-content:center;border:none;cursor:pointer;">
-
-            <img src="assets/images/delivery-apps/square-logo.png"
-                 alt="Square"
-                 style="width:100px;height:auto;border-radius:12px;background:transparent;padding:0;">
-
-          </button>
-
-          <span style="
-              position:absolute;
-              top:-8px;
-              right:-8px;
-              background:#D4A847;
-              color:#111;
-              padding:4px 8px;
-              border-radius:999px;
-              font-size:11px;
-              font-weight:600;
-              letter-spacing:.05em;
-              white-space:nowrap;
-              box-shadow:0 4px 12px rgba(0,0,0,.2);">
-            Coming Soon
-          </span>
-
-        </div>
-
+        <a href="https://www.doordash.com/store/25067432"
+           target="_blank" rel="noopener noreferrer"
+           class="order-btn order-btn-secondary">
+          <img src="assets/images/delivery-apps/doordash-logo.png" alt="" aria-hidden="true">
+          <span>DoorDash</span>
+        </a>
       </div>
-
+      <a class="order-location-directions"
+         href="https://www.google.com/maps/search/?api=1&query=4894+US-290+W,+Austin,+TX+78745"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Get directions to Sunset Valley">
+        Get directions <span aria-hidden="true">&rarr;</span>
+      </a>
     </article>
-
+  </div>
+  <div class="square-embed-panel" id="anderson-square-order" aria-labelledby="square-order-heading">
+    <div class="square-embed-header">
+      <div>
+        <p class="order-location-eyebrow">Anderson Lane</p>
+        <h3 id="square-order-heading">Order directly from STAR BIRYANI</h3>
+      </div>
+      <a href="https://starofindiaatx.square.site/s/order" target="_blank" rel="noopener noreferrer">Open Square separately</a>
+    </div>
+    <iframe
+      src="https://starofindiaatx.square.site/s/order"
+      title="Order online from STAR BIRYANI on Square"
+      loading="eager"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="payment">
+    </iframe>
+    <p class="square-embed-note">Secure ordering is provided by Square. Your order stays on this page.</p>
   </div>
 </section>
 
@@ -2805,42 +2801,64 @@ footer {
 <section class="carousel-section" aria-labelledby="carousel-heading">
   <div class="carousel-container">
     <div class="reveal">
-      <p class="section-eyebrow">Best Loved</p>
-      <h2 class="section-title" id="carousel-heading">Signature Biryani Collection</h2>
+      <p class="section-eyebrow">A taste of the menu</p>
+      <h2 class="section-title" id="carousel-heading">Something for every craving</h2>
     </div>
     
     <div class="carousel-wrapper">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-slide">
-          <img src="assets/images/carousel-chicken-biryani.jpg" alt="Hyderabadi Chicken Dum Biryani">
+          <img src="assets/Appetizers/chicken_65.png" alt="Chicken 65 appetizer">
           <div class="carousel-content">
-            <h3 class="carousel-title">Hyderabadi Chicken Dum Biryani</h3>
-            <p class="carousel-description">Tender chicken marinated in aromatic spices, layered with basmati rice and slow-cooked to perfection</p>
-            <div class="carousel-price">$18.99</div>
+            <p class="carousel-category">Appetizers</p>
+            <h3 class="carousel-title">Chicken 65</h3>
+            <p class="carousel-description">Spicy fried chicken tossed with curry leaves and chili.</p>
+            <div class="carousel-price">$9.00</div>
           </div>
         </div>
         <div class="carousel-slide">
-          <img src="assets/images/carousel-lamb-biryani.jpg" alt="Lamb Dum Biryani">
+          <img src="assets/biryani/spl_biryani.png" alt="STAR Chicken Biryani">
           <div class="carousel-content">
-            <h3 class="carousel-title">Royal Lamb Dum Biryani</h3>
-            <p class="carousel-description">Premium lamb pieces marinated overnight, cooked with fragrant basmati and secret spices</p>
-            <div class="carousel-price">$24.99</div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <img src="assets/images/carousel-vegetable-biryani.jpg" alt="Vegetable Dum Biryani">
-          <div class="carousel-content">
-            <h3 class="carousel-title">Garden Vegetable Dum Biryani</h3>
-            <p class="carousel-description">Fresh seasonal vegetables, paneer, and aromatic herbs in our signature dum style</p>
+            <p class="carousel-category">Biryanis</p>
+            <h3 class="carousel-title">STAR Chicken Biryani</h3>
+            <p class="carousel-description">Signature chicken biryani cooked with saffron and whole spices.</p>
             <div class="carousel-price">$16.99</div>
           </div>
         </div>
         <div class="carousel-slide">
-          <img src="assets/images/carousel-prawn-biryani.jpg" alt="Prawn Dum Biryani">
+          <img src="assets/curries/tikka.png" alt="Tikka Masala curry">
           <div class="carousel-content">
-            <h3 class="carousel-title">Coastal Prawn Dum Biryani</h3>
-            <p class="carousel-description">Juicy prawns marinated in coastal spices, perfectly balanced with basmati rice</p>
-            <div class="carousel-price">$22.99</div>
+            <p class="carousel-category">Curries</p>
+            <h3 class="carousel-title">Tikka Masala</h3>
+            <p class="carousel-description">Creamy tomato curry with tender spiced meat or paneer.</p>
+            <div class="carousel-price">$14.99</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/desserts/rasmalai.png" alt="Rasmalai dessert">
+          <div class="carousel-content">
+            <p class="carousel-category">Desserts</p>
+            <h3 class="carousel-title">Rasmalai</h3>
+            <p class="carousel-description">Soft cheese dumplings in creamy cardamom milk with saffron.</p>
+            <div class="carousel-price">$5.00</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/beverages/Rosemilk.png" alt="Rose Milk">
+          <div class="carousel-content">
+            <p class="carousel-category">Beverages</p>
+            <h3 class="carousel-title">Rose Milk</h3>
+            <p class="carousel-description">Sweetened chilled milk infused with rose essence.</p>
+            <div class="carousel-price">$4.00</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/images/menu/carousel-chicken-biryani.jpg" alt="STAR Biryani and Curry Pack for 5">
+          <div class="carousel-content">
+            <p class="carousel-category">Party Packs</p>
+            <h3 class="carousel-title">STAR Biryani and Curry Pack for 5</h3>
+            <p class="carousel-description">A sharing pack with rice, naan, curry, and biryani for five.</p>
+            <div class="carousel-price">$55.00</div>
           </div>
         </div>
       </div>
@@ -2859,12 +2877,7 @@ footer {
       </button>
     </div>
     
-    <div class="carousel-indicators" id="indicators">
-      <span class="indicator active" data-slide="0"></span>
-      <span class="indicator" data-slide="1"></span>
-      <span class="indicator" data-slide="2"></span>
-      <span class="indicator" data-slide="3"></span>
-    </div>
+    <div class="carousel-indicators" id="indicators" aria-label="Choose a menu item"></div>
   </div>
 </section>
 
@@ -2939,8 +2952,8 @@ footer {
 <section class="menu-section section" id="menu" aria-labelledby="menu-heading">
   <div class="menu-header reveal">
     <div>
-      <p class="section-eyebrow">Signature Biryanis</p>
-      <h2 class="section-title" id="menu-heading">Four <em>obsessions.</em><br>One choice.</h2>
+      <p class="section-eyebrow">From Our Menu</p>
+        <h2 class="section-title" id="menu-heading">A few <em>favorites.</em><br>Made fresh.</h2>
     </div>
     <p style="font-size:var(--text-sm);color:var(--ivory-faint);max-width:30ch;text-align:right;">Each biryani prepared to order. No reheating. No shortcuts.</p>
   </div>
@@ -2951,19 +2964,19 @@ footer {
     <div class="menu-card card-featured reveal">
       <div class="card-img">
         <img
-          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6f8055e2fab8f05f03d35c0117ef1488e8c49fcc.jpg"
-          alt="Royal Hyderabadi Dum Biryani — the signature dish"
+          src="assets/biryani/spl_biryani.png"
+          alt="STAR Chicken Biryani"
           width="1960" height="980"
           loading="lazy"
           decoding="async"
         >
       </div>
       <div class="card-body">
-        <p class="card-tag">Chef's Obsession</p>
-        <h3 class="card-title">Royal Hyderabadi Dum</h3>
-        <p class="card-desc">The original. Bone-in goat, aged basmati, saffron milk, and crisp fried onion. The biryani that made Hyderabad legendary — and now made for you.</p>
+        <p class="card-tag">Signature Biryani</p>
+        <h3 class="card-title">STAR Chicken Biryani</h3>
+        <p class="card-desc">Signature chicken biryani cooked with saffron and whole spices.</p>
         <div class="card-footer">
-          <span class="card-price">From $26</span>
+          <span class="card-price">$16.99</span>
           <span class="card-badge">Bestseller</span>
         </div>
       </div>
@@ -2973,19 +2986,19 @@ footer {
     <div class="menu-card reveal">
       <div class="card-img">
         <img
-          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f868e2a0f1631c4b27a7eee1f3cc2107281e599c.jpg"
-          alt="Black Cardamom Chicken Biryani"
+          src="assets/biryani/dundigal.png"
+          alt="Dindigul Thalappakatti Mutton Biryani"
           width="471" height="471"
           loading="lazy"
           decoding="async"
         >
       </div>
       <div class="card-body">
-        <p class="card-tag">Midnight Special</p>
-        <h3 class="card-title">Smoked Chicken Dum</h3>
-        <p class="card-desc">Coal-smoked, twice-marinated chicken thighs with rose water and black cardamom. Made for late nights and cravings that don't negotiate.</p>
+        <p class="card-tag">Regional Favorite</p>
+        <h3 class="card-title">Dindigul Thalappakatti Mutton Biryani</h3>
+        <p class="card-desc">Spicy South Indian mutton biryani with traditional Dindigul flavors.</p>
         <div class="card-footer">
-          <span class="card-price">From $22</span>
+          <span class="card-price">$17.00</span>
         </div>
       </div>
     </div>
@@ -2994,20 +3007,19 @@ footer {
     <div class="menu-card reveal">
       <div class="card-img">
         <img
-          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a629e547fb5a2a88233d39e4774c1b92344c0907.jpg"
-          alt="Saffron Vegetable Biryani — golden and aromatic"
+          src="assets/biryani/hyderabad_chicken_biryani.png"
+          alt="Hyderabadi Chicken Biryani"
           width="500" height="500"
           loading="lazy"
           decoding="async"
         >
       </div>
       <div class="card-body">
-        <p class="card-tag">Garden Craft</p>
-        <h3 class="card-title">Saffron Subz Dum</h3>
-        <p class="card-desc">A vegetarian biryani that needs no apology. Market vegetables, saffron strands, paneer, and slow-cooked patience in every layer.</p>
+        <p class="card-tag">Classic</p>
+        <h3 class="card-title">Hyderabadi Chicken Biryani</h3>
+        <p class="card-desc">Classic Hyderabadi chicken biryani rich with spice and aroma.</p>
         <div class="card-footer">
-          <span class="card-price">From $18</span>
-          <span class="card-badge" style="background:rgba(212,168,71,0.15);color:var(--gold);border:1px solid rgba(212,168,71,0.3);">Vegetarian</span>
+          <span class="card-price">$14.99</span>
         </div>
       </div>
     </div>
@@ -3016,8 +3028,8 @@ footer {
     <div class="menu-card reveal" style="grid-column:span 2;">
       <div class="card-img" style="aspect-ratio:21/8;">
         <img
-          src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f9f56ec5fc54340d905e74bd66bc6f67c6f659f8.jpg"
-          alt="Golden saffron-braised lamb biryani with whole spices"
+          src="assets/images/menu/vegetable-biryani.jpg"
+          alt="Hyderabad Veg Dum Biryani"
           width="1200" height="480"
           loading="lazy"
           decoding="async"
@@ -3025,12 +3037,11 @@ footer {
         >
       </div>logo
       <div class="card-body">
-        <p class="card-tag">Weekend Reserve</p>
-        <h3 class="card-title">Lucknowi Dum Gosht</h3>
-        <p class="card-desc">The Lucknawi tradition. Braised lamb shoulder, whole star anise, and kewra water folded into long-grain basmati. Limited to 30 portions daily.</p>
+        <p class="card-tag">Vegetarian Dum Biryani</p>
+        <h3 class="card-title">Hyderabad Veg Dum Biryani</h3>
+        <p class="card-desc">Vegetarian dum biryani with paneer, vegetables, and fragrant rice.</p>
         <div class="card-footer">
-          <span class="card-price">From $29</span>
-          <span class="card-badge" style="background:rgba(184,92,40,0.15);color:var(--copper);border:1px solid rgba(184,92,40,0.3);">Limited Daily</span>
+          <span class="card-price">$14.00</span>
         </div>
       </div>
     </div>
@@ -3167,8 +3178,9 @@ footer {
     <div>
       <p class="footer-links-title">Order On</p>
       <ul class="footer-links" role="list">
-        <li><a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
-        <li><a href="https://www.doordash.com" target="_blank" rel="noopener noreferrer">DoorDash</a></li>
+        <li><a href="https://starofindiaatx.square.site/" target="_blank" rel="noopener noreferrer">Square (Anderson Lane)</a></li>
+        <li><a href="https://www.ubereats.com/store/star-biryani-west-anderson-lane/g6lSnBLtVRaC-_PYLrzrJw" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
+        <li><a href="https://www.doordash.com/store/38780617" target="_blank" rel="noopener noreferrer">DoorDash</a></li>
       </ul>
     </div>
   </div>
@@ -3209,15 +3221,23 @@ window.addEventListener('scroll', () => {
 const carouselTrack = document.getElementById('carouselTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-const indicators = document.querySelectorAll('.indicator');
+const indicatorsContainer = document.getElementById('indicators');
 let currentSlide = 0;
-const totalSlides = 4;
+const totalSlides = carouselTrack ? carouselTrack.querySelectorAll('.carousel-slide').length : 0;
+
+if (indicatorsContainer && totalSlides) {
+  indicatorsContainer.innerHTML = Array.from({ length: totalSlides }, (_, index) =>
+    `<button class="indicator${index === 0 ? ' active' : ''}" type="button" aria-label="Show menu item ${index + 1}" aria-pressed="${index === 0}"></button>`
+  ).join('');
+}
+const indicators = indicatorsContainer ? indicatorsContainer.querySelectorAll('.indicator') : [];
 
 function updateCarousel() {
   carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
   
   indicators.forEach((indicator, index) => {
     indicator.classList.toggle('active', index === currentSlide);
+    indicator.setAttribute('aria-pressed', String(index === currentSlide));
   });
 }
 
@@ -3260,12 +3280,14 @@ function openMenu() {
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
   mobileBtn.setAttribute('aria-expanded', 'true');
+  mobileBtn.setAttribute('aria-label', 'Close menu');
 }
 
 function closeMenu() {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
   mobileBtn.setAttribute('aria-expanded', 'false');
+  mobileBtn.setAttribute('aria-label', 'Open menu');
 }
 
 mobileBtn.addEventListener('click', openMenu);

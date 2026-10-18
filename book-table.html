@@ -631,6 +631,7 @@ footer {
   }
 }
 </style>
+<link rel="stylesheet" href="assets/premium.css">
 </head>
 <body>
 
@@ -656,14 +657,14 @@ footer {
 
   <a href="index.html#order" class="nav-cta" aria-label="Order now">Order Now</a>
 
-  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+  <button class="nav-mobile-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Close menu">✕</button>
   <a href="index.html#story" class="mobile-link">The Craft</a>
   <a href="menu.html" class="mobile-link">Menu</a>
   <a href="index.html#ritual" class="mobile-link">The Ritual</a>
@@ -678,8 +679,8 @@ footer {
 <main id="main">
   <!-- Reservation Hero -->
   <section class="reservation-hero" aria-labelledby="reservation-hero-heading">
-    <h1 id="reservation-hero-heading">Reserve Your Table</h1>
-    <p>Experience authentic Hyderabadi dum biryani in an atmosphere of royal elegance</p>
+    <h1 id="reservation-hero-heading">Reserve Your Weekend Buffet Table</h1>
+    <p>Join us for the Premium Buffet every Saturday and Sunday. Reserve your table and include your preferred weekend date.</p>
   </section>
 
   <!-- Booking Options -->
@@ -707,14 +708,14 @@ footer {
             <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5m-4 0h4"/>
           </svg>
         </div>
-        <h2 class="booking-title">Online Reservation</h2>
-        <p class="booking-description">Book your table instantly with our online reservation system</p>
+        <h2 class="booking-title">Premium Weekend Buffet</h2>
+        <p class="booking-description">Available Saturdays and Sundays. Choose your buffet date in the reservation form; contact the restaurant for current buffet details.</p>
         <a href="#reservation-form" class="booking-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M9 11l3 3L22 4"/>
             <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
           </svg>
-          Book Online
+          Reserve a Buffet Table
         </a>
       </div>
     </div>
@@ -753,6 +754,15 @@ footer {
           <div class="form-group">
             <label for="date" class="form-label">Date</label>
             <input type="date" id="date" name="date" class="form-input" required>
+            <small>Premium buffet reservations are available Saturdays and Sundays.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="reservationType" class="form-label">Reservation Type</label>
+            <select id="reservationType" name="reservationType" class="form-select">
+              <option value="table" selected>Table Reservation</option>
+              <option value="premium-weekend-buffet">Premium Weekend Buffet (Saturday/Sunday)</option>
+            </select>
           </div>
           
           <div class="form-group">
@@ -803,6 +813,7 @@ footer {
               <option value="date-night">Date Night</option>
               <option value="business">Business Meal</option>
               <option value="family">Family Gathering</option>
+              <option value="weekend-buffet">Premium Weekend Buffet (Saturday/Sunday)</option>
               <option value="celebration">Celebration</option>
               <option value="other">Other</option>
             </select>
@@ -930,18 +941,24 @@ function openMenu() {
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
   mobileBtn.setAttribute('aria-expanded', 'true');
+  mobileBtn.setAttribute('aria-label', 'Close menu');
 }
 
 function closeMenu() {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
   mobileBtn.setAttribute('aria-expanded', 'false');
+  mobileBtn.setAttribute('aria-label', 'Open menu');
 }
 
 mobileBtn.addEventListener('click', openMenu);
 mobileClose.addEventListener('click', closeMenu);
 mobileLinks.forEach(link => {
   link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
 });
 
 // =====================================================
@@ -953,6 +970,20 @@ const reservationForm = document.getElementById('reservationForm');
 const dateInput = document.getElementById('date');
 const today = new Date().toISOString().split('T')[0];
 dateInput.setAttribute('min', today);
+const reservationTypeInput = document.getElementById('reservationType');
+
+function validateReservationDate() {
+  dateInput.setCustomValidity('');
+  if (reservationTypeInput.value === 'premium-weekend-buffet' && dateInput.value) {
+    const weekday = new Date(`${dateInput.value}T00:00:00`).getDay();
+    if (weekday !== 0 && weekday !== 6) {
+      dateInput.setCustomValidity('Premium buffet reservations are available Saturdays and Sundays.');
+    }
+  }
+}
+
+dateInput.addEventListener('change', validateReservationDate);
+reservationTypeInput.addEventListener('change', validateReservationDate);
 
 reservationForm.addEventListener('submit', function(e) {
   e.preventDefault();
