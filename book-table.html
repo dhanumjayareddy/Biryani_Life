@@ -630,6 +630,137 @@ footer {
     gap: var(--space-6);
   }
 }
+
+
+/* =====================================================
+   RESPONSIVE RESERVATION FORM — layout-only overrides
+   Keeps the existing content, colours, and visual style.
+===================================================== */
+.reservation-form-section,
+.reservation-form-section * {
+  min-width: 0;
+}
+
+.reservation-form-section {
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 680px;
+}
+
+.reservation-form {
+  width: 100%;
+  padding: clamp(1rem, 3.5vw, 2rem);
+}
+
+.form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(.75rem, 2.5vw, 1.5rem);
+  row-gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.form-group {
+  width: 100%;
+  min-width: 0;
+}
+
+.form-label {
+  overflow-wrap: anywhere;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.form-input,
+.form-select {
+  min-height: 48px;
+}
+
+.form-input[type="date"] {
+  appearance: auto;
+  -webkit-appearance: auto;
+}
+
+.form-group small {
+  display: block;
+  margin-top: .4rem;
+  color: var(--ivory-dim);
+  font-size: var(--text-xs);
+  line-height: 1.45;
+}
+
+.form-submit {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .reservation-form-section {
+    padding-block: clamp(3rem, 9vw, 5rem);
+  }
+
+  .form-header {
+    margin-bottom: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group.full-width {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .reservation-form-section {
+    padding-inline: 1rem;
+  }
+
+  .form-title {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    overflow-wrap: anywhere;
+  }
+
+  .reservation-form {
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px; /* Prevents automatic zoom on iOS form focus. */
+  }
+
+  .form-submit {
+    padding: .9rem .75rem;
+    letter-spacing: .06em;
+  }
+}
+
+@media (max-width: 350px) {
+  .reservation-form-section {
+    padding-inline: .75rem;
+  }
+
+  .reservation-form {
+    padding: .75rem;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="assets/premium.css">
 </head>
@@ -729,7 +860,7 @@ footer {
         <h2 class="form-title" id="form-heading">Complete Your Booking</h2>
       </div>
       
-      <form class="reservation-form" id="reservationForm">
+      <form class="reservation-form" id="reservationForm" action="send-reservation.php" method="post">
         <div class="form-grid">
           <div class="form-group">
             <label for="firstName" class="form-label">First Name</label>
@@ -985,22 +1116,35 @@ function validateReservationDate() {
 dateInput.addEventListener('change', validateReservationDate);
 reservationTypeInput.addEventListener('change', validateReservationDate);
 
-reservationForm.addEventListener('submit', function(e) {
+reservationForm.addEventListener('submit', async function(e) {
   e.preventDefault();
-  
-  // Get form data
-  const formData = new FormData(reservationForm);
-  const data = Object.fromEntries(formData);
-  
-  // In a real implementation, this would send the data to a server
-  // For now, we'll show a success message
-  alert('Thank you for your reservation! We will confirm your booking within 24 hours.');
-  
-  // Reset form
-  reservationForm.reset();
-  
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  validateReservationDate();
+  if (!reservationForm.reportValidity()) return;
+
+  const submitButton = reservationForm.querySelector('.form-submit');
+  const originalButtonText = submitButton.textContent;
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending Reservation…';
+
+  try {
+    const response = await fetch(reservationForm.action, {
+      method: 'POST',
+      body: new FormData(reservationForm),
+      headers: { 'Accept': 'application/json' }
+    });
+    const result = await response.json();
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || 'Unable to send your reservation right now.');
+    }
+    alert('Thank you for your reservation! Your request has been sent. We will confirm your booking within 24 hours.');
+    reservationForm.reset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (error) {
+    alert(error.message || 'We could not send your reservation. Please call the restaurant.');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+  }
 });
 </script>
 
